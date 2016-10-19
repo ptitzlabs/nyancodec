@@ -169,7 +169,7 @@
        "name": "vx",
        "offset": 0.0,
        "type": "float",
-       "unit": "m"
+       "unit": "m/s"
       },
       {
        "LSB": 0.25,
@@ -179,7 +179,7 @@
        "name": "vy",
        "offset": 0.0,
        "type": "float",
-       "unit": "m"
+       "unit": "m/s"
       }
      ],
      "length": 2,
