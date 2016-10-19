@@ -1,5 +1,4 @@
-Nyancodec
-
+# nyancodec
 
 Main code is stored in the header nyancodec.hpp. Each message is split into blocks, fields, subfields and items. There are two main objects: cat and msg. Cat contains the information about message encoding/decoding, message composition, contents, etc. msg serves as a container for the decoded message.
 
