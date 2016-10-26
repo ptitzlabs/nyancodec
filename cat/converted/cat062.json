@@ -1,0 +1,5058 @@
+{
+    "I062/010": {
+        "format": "fixed",
+        "item definition": "Identification of the system sending the data",
+        "item name": "Data Source Identifier",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "true",
+                "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int/asterix) .",
+                "subfield info": "SAC SIC "
+            }
+        ]
+    },
+    "I062/015": {
+        "format": "fixed",
+        "item definition": "Identification of the service provided to one or more users.",
+        "item name": "Service Identification",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "Service Identification",
+                        "name2": "Service Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "the service identification is allocated by the system",
+                "subfield info": "Service Identification "
+            }
+        ]
+    },
+    "I062/040": {
+        "format": "fixed",
+        "item definition": "Identification of a track",
+        "item name": "Track Number",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "name1": "Track Number",
+                        "name2": "Track Number",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "true",
+                "subfield info": "TRACK NUMBER "
+            }
+        ]
+    },
+    "I062/060": {
+        "format": "fixed",
+        "item definition": "Mode-3/A code converted into octal representation.",
+        "item name": "Track Mode 3/A Code",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code validated"
+                            ],
+                            [
+                                "1",
+                                "Code not validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled Code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 13,
+                        "name1": "CH",
+                        "name2": "Change in Mode 3/A",
+                        "options": [
+                            [
+                                "0",
+                                "No Change"
+                            ],
+                            [
+                                "1",
+                                "Mode 3/A has changed"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode-3/A reply",
+                        "name2": "Mode-3/A reply",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "subfield info": "V G CH 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
+            }
+        ]
+    },
+    "I062/070": {
+        "format": "fixed",
+        "item definition": "Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.",
+        "item name": "Time Of Track Information",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "true",
+                "note": "S 1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.",
+                "subfield info": "Time Of Track Information LSB  "
+            }
+        ]
+    },
+    "I062/080": {
+        "format": "variable",
+        "item definition": "Status of a track.",
+        "item name": "Track Status",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "MON",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Multisensor track"
+                            ],
+                            [
+                                "1",
+                                "Monosensor track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "SPI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "SPI present in the last report received from a sensor capable of decoding this data"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "MRH",
+                        "name2": "Most Reliable Height",
+                        "options": [
+                            [
+                                "0",
+                                "Barometric altitude (Mode C) more reliable"
+                            ],
+                            [
+                                "1",
+                                "Geometric altitude more reliable"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 2,
+                        "name1": "SRC",
+                        "name2": " Source of calculated track altitude for I062/130",
+                        "options": [
+                            [
+                                "000",
+                                "no source"
+                            ],
+                            [
+                                "001",
+                                "GNSS"
+                            ],
+                            [
+                                "010",
+                                "3D radar"
+                            ],
+                            [
+                                "011",
+                                "triangulation"
+                            ],
+                            [
+                                "100",
+                                "height from coverage"
+                            ],
+                            [
+                                "101",
+                                "speed look-up table"
+                            ],
+                            [
+                                "110",
+                                "default height"
+                            ],
+                            [
+                                "111",
+                                "multilateration"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "CNF",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Confirmed track"
+                            ],
+                            [
+                                "1",
+                                "Tentative track"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "true",
+                "subfield info": "MON SPI MRH SRC CNF FX "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "SIM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Actual track"
+                            ],
+                            [
+                                "1",
+                                "Simulated track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "TSE",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "last message transmitted to the user for the track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "TSB",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "first message transmitted to the user for the track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "FPC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Not flight-plan correlated"
+                            ],
+                            [
+                                "1",
+                                "Flight plan correlated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "AFF",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "ADS-B data inconsistent with other surveillance information"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "STP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "Slave Track Promotion"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "KOS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Complementary service used"
+                            ],
+                            [
+                                "1",
+                                "Background service used"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "AMA",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "track not resulting from amalgamation process"
+                            ],
+                            [
+                                "1",
+                                "track resulting from amalgamation process"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 5,
+                        "name1": "MD4",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "No Mode 4 interrogation"
+                            ],
+                            [
+                                "01",
+                                "Friendly target"
+                            ],
+                            [
+                                "10",
+                                "Unknown target"
+                            ],
+                            [
+                                "11",
+                                "No reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "ME",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "Military Emergency present in the last report received from a sensor capable of decoding this data"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "MI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "default value"
+                            ],
+                            [
+                                "1",
+                                "Military Identification present in the last report received from a sensor capable of decoding this data"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 1,
+                        "name1": "MD5",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "No Mode 5 interrogation"
+                            ],
+                            [
+                                "01",
+                                "Friendly target"
+                            ],
+                            [
+                                "10",
+                                "Unknown target"
+                            ],
+                            [
+                                "11",
+                                "No reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "CST",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Age of the last received track update is higher than system dependent threshold (coasting)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "PSR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Age of the last received PSR track update is higher than system dependent threshold"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "SSR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Age of the last received SSR track update is higher than system dependent threshold"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "MDS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Age of the last received Mode S track update is higher than system dependent threshold"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "ADS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Age of the last received ADS-B track update is higher than system dependent threshold"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "SUC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "AAC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 4,
+                "note": "S 1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value 0 means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless. I062/080 Track Status",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 6,
+                        "name1": "SDS",
+                        "name2": " Surveillance Data Status",
+                        "options": [
+                            [
+                                "00",
+                                "Combined"
+                            ],
+                            [
+                                "01",
+                                "Co-operative only"
+                            ],
+                            [
+                                "10",
+                                "Non-Cooperative only"
+                            ],
+                            [
+                                "11",
+                                "Not defined"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 3,
+                        "name1": "EMS",
+                        "name2": " Emergency Status Indication",
+                        "options": [
+                            [
+                                "0",
+                                "No emergency"
+                            ],
+                            [
+                                "1",
+                                "General emergency"
+                            ],
+                            [
+                                "2",
+                                "Lifeguard / medical"
+                            ],
+                            [
+                                "3",
+                                "Minimum fuel"
+                            ],
+                            [
+                                "4",
+                                "No communications"
+                            ],
+                            [
+                                "5",
+                                "Unlawful interference"
+                            ],
+                            [
+                                "6",
+                                "\u201cDowned\u201d Aircraft"
+                            ],
+                            [
+                                "7",
+                                "Undefined"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "PFT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No indication"
+                            ],
+                            [
+                                "1",
+                                "Potential False Track Indication"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "FPLT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Track created / updated with FPL data"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 5,
+                "note": "Bits 6/4 (EMS) : other than subfield ,11 of data item I062/380, these bits allow the SDPS to set the emergency indication as derived from other sources than ADS-B (e.g. based on the Mode 3/A code) . NOTE - Bit 3 (PFT) : with this flag an SDPS can indicate that internal processing points to the track being potentially false. Details on the internal processing are system dependent. NOTE - Bit 2 (FPLT) : this bit - if set - indicates that the information contained in the target report has been updated by flight plan related data because no surveillance data was available for the target, or was created based on flight plan related data in areas with no surveillance. I062/080 Track Status",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "DUPT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Duplicate Mode 3/A Code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "DUPF",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Duplicate Flight Plan"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "DUPM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default value"
+                            ],
+                            [
+                                "1",
+                                "Duplicate Flight Plan due to manual correlation"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 1,
+                        "type": "spare"
+                    }
+                ],
+                "id": 6,
+                "note": "S 1. Bit 8 (DUPT) is set to 1 if the correlation between the target report and a flight plan is not possible because the Mode 3/A code stated in the flight plan exists more than once in the surveillance data. 2. Bit 7 (DUPF) - if set to 1 - indicates that for a specific surveillance target more than one flight plan exists which makes correlation impossible. 3. Bit 6 (DUPM) is set to 1 if a target was correlated manually but also a regular flight plan exists. 4. All tracks for which bits 8, 7 or 6 are set to 1 are marked on the CWP.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/100": {
+        "format": "fixed",
+        "item definition": "Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two\u2019s complement form.",
+        "item name": "Calculated Track Position. (Cartesian)",
+        "length": 6,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 48,
+                        "bit end": 24,
+                        "lsb": 0.5,
+                        "name1": "X",
+                        "name2": "X",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 0,
+                        "lsb": 0.5,
+                        "name1": "Y",
+                        "name2": "Y",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "subfield info": "X LSB Y LSB "
+            }
+        ]
+    },
+    "I062/105": {
+        "format": "fixed",
+        "item definition": "Calculated Position in WGS-84 Co-ordinates with a resolution of 180/225 . degrees",
+        "item name": "Calculated Position In WGS-84 Co-ordinates",
+        "length": 8,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 64,
+                        "bit end": 32,
+                        "lsb": 90.0,
+                        "max": 90,
+                        "min": -90,
+                        "name1": "Latitude",
+                        "name2": "(Latitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "25 degrees"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 0,
+                        "lsb": 5.364418e-06,
+                        "max": 180,
+                        "min": -180,
+                        "name1": "Longitude",
+                        "name2": "(Longitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "degrees"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "The LSB provides a resolution at least better than 0.6m.",
+                "subfield info": "Latitude in WGS - 84 LSB Longitude in WGS - 84 LSB "
+            }
+        ]
+    },
+    "I062/110": {
+        "format": "compound",
+        "item definition": "Mode 5 Data reports & Extended Mode 1 Code",
+        "item name": "Mode 5 Data reports & Extended Mode 1 Code",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "M5",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No Mode 5 interrogation"
+                            ],
+                            [
+                                "1",
+                                "Mode 5 interrogation"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "ID",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No authenticated Mode 5 ID reply"
+                            ],
+                            [
+                                "1",
+                                "Authenticated Mode 5 ID reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "DA",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No authenticated Mode 5 Data reply or Report"
+                            ],
+                            [
+                                "1",
+                                "Authenticated Mode 5 Data reply or Report (i.e any valid Mode 5 reply type other than ID)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "M1",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Mode 1 code not present or not from Mode 5 reply"
+                            ],
+                            [
+                                "1",
+                                "Mode 1 code from Mode 5 reply."
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "M2",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Mode 2 code not present or not from Mode 5 reply"
+                            ],
+                            [
+                                "1",
+                                "Mode 2 code from Mode 5 reply."
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "M3",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Mode 3 code not present or not from Mode 5 reply"
+                            ],
+                            [
+                                "1",
+                                "Mode 3 code from Mode 5 reply."
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "MC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Mode C altitude not present or not from Mode 5 reply"
+                            ],
+                            [
+                                "1",
+                                "Mode C altitude from Mode 5 reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "name1": "X",
+                        "name2": "X-pulse from Mode 5 Data reply or Report",
+                        "options": [
+                            [
+                                "0",
+                                "X-pulse set to zero or no authenticated Data reply or Report received"
+                            ],
+                            [
+                                "1",
+                                "X-pulse set to one."
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The flags M2, M3, MC refer to the contents of data items I062/120 , I062/060 and I062/135 respectively. The flag M1 refers to the contents of the Subfield ,5 (Extended Mode 1 Code in Octal Representation) . 2. If an authenticated Mode 5 reply is received with the Emergency bit set, then the Military Emergency bit (ME) in Data Item I062/080, Track Status, shall be set. 3. If an authenticated Mode 5 reply is received with the Identification of Position bit set, then the Special Position Identification bit (SPI) in Data Item I062/080, Track Status, shall be set. Item I062/110 Mode 5 Data reports & Extended Mode 1 Code",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 30,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 30,
+                        "bit end": 16,
+                        "name1": "PIN",
+                        "name2": "(PIN) PIN Code",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 13,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 8,
+                        "name1": "NAT",
+                        "name2": "(NAT) National",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 6,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 0,
+                        "name1": "MIS",
+                        "name2": "(MIS) Mission Code",
+                        "type": "int"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 24,
+                        "lsb": 2.145767e-05,
+                        "max": 90,
+                        "min": -90,
+                        "name1": "Latitude",
+                        "name2": "(Latitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "degrees"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 0,
+                        "lsb": 2.145767e-05,
+                        "max": 180,
+                        "min": -180,
+                        "name1": "Longitude",
+                        "name2": "(Longitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "degrees"
+                    }
+                ],
+                "id": 3,
+                "note": "The resolution implied by the LSB is better than the resolution with which Mode 5 position reports are transmitted from aircraft transponders using currently defined formats. Item I062/110 Mode 5 Data reports & Extended Mode 1 Code",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 15,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "RES",
+                        "options": [
+                            [
+                                "GA reported in",
+                                "100",
+                                "ft",
+                                "GA reported in",
+                                "25",
+                                "ft"
+                            ]
+                        ],
+                        "type": "lsb-selector"
+                    }
+                ],
+                "id": 4,
+                "note": "S 1. GA is coded as a 14-bit two\u2019s complement binary number with an LSB of 25 ft. irrespective of the setting of RES. 2. The minimum value of GA that can be reported is -1000 ft. Item I062/110 Mode 5 Data reports & Extended Mode 1 Code",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 14,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "EM1",
+                        "name2": "(EM1) Extended",
+                        "type": "int"
+                    }
+                ],
+                "id": 5,
+                "note": "If Subfield ,1 is present, the M1 bit in Subfield ,1 indicates whether the Extended Mode 1 Code is from a Mode 5 reply or a Mode 1 reply. If Subfield ,1 is not present, the Extended Mode 1 Code is from a Mode 1 reply. Item I062/110 Mode 5 Data reports & Extended Mode 1 Code",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.007812,
+                        "name1": "TOS",
+                        "name2": "(TOS) Time Offset coded",
+                        "signed": "true",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 6,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 5,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "X5",
+                        "name2": "X-pulse from Mode 5 Data reply or Report",
+                        "options": [
+                            [
+                                "0",
+                                "X-pulse set to zero or no authenticated Data reply or Report received"
+                            ],
+                            [
+                                "1",
+                                "X-pulse set to one (present) ."
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "XC",
+                        "name2": "X-pulse from Mode C reply",
+                        "options": [
+                            [
+                                "0",
+                                "X-pulse set to zero or no Mode C reply"
+                            ],
+                            [
+                                "1",
+                                "X-pulse set to one (present)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "X3",
+                        "name2": "X-pulse from Mode 3/A reply",
+                        "options": [
+                            [
+                                "0",
+                                "X-pulse set to zero or no Mode 3/A reply"
+                            ],
+                            [
+                                "1",
+                                "X-pulse set to one (present)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "X2",
+                        "name2": "X-pulse from Mode 2 reply",
+                        "options": [
+                            [
+                                "0",
+                                "X-pulse set to zero or no Mode 2 reply"
+                            ],
+                            [
+                                "1",
+                                "X-pulse set to one (present)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "name1": "X1",
+                        "name2": "X-pulse from Mode 1 reply",
+                        "options": [
+                            [
+                                "0",
+                                "X-pulse set to zero or no Mode 1 reply"
+                            ],
+                            [
+                                "1",
+                                "X-pulse set to one (present)"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 7,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/120": {
+        "format": "fixed",
+        "item definition": "Mode 2 code associated to the track",
+        "item name": "Track Mode 2 Code",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode-2 code in",
+                        "name2": "Mode-2 code in",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "subfield info": "0 0 0 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
+            }
+        ]
+    },
+    "I062/130": {
+        "format": "fixed",
+        "item definition": "Vertical distance between the target and the projection of its position on the earth\u2019s ellipsoid, as defined by WGS84, in two\u2019s complement form.",
+        "item name": "Calculated Track Geometric Altitude",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "max": 150000,
+                        "min": -1500,
+                        "name1": "Altitude",
+                        "name2": "Altitude",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "ft"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "S 1. LSB is required to be less than 10 ft by ICAO 2. The source of altitude is identified in bits (SRC) of item I062/080 Track Status",
+                "subfield info": "Altitude LSB  "
+            }
+        ]
+    },
+    "I062/135": {
+        "format": "fixed",
+        "item definition": "Calculated Barometric Altitude of the track, in two\u2019s complement form.",
+        "item name": "Calculated Track Barometric Altitude",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "QNH",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No QNH correction applied"
+                            ],
+                            [
+                                "1",
+                                "QNH correction applied"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 1500,
+                        "min": -15,
+                        "name1": "Calculated Track B",
+                        "name2": "Calculated Track Barometric",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "FL"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "ICAO specifies a range between \u201310 FL and 1267 FL for Mode C",
+                "subfield info": "QNH Calculated Track Barometric Altitude LSB  "
+            }
+        ]
+    },
+    "I062/136": {
+        "format": "fixed",
+        "item definition": "Last valid and credible flight level used to update the track, in two\u2019s complement form,.",
+        "item name": "Measured Flight Level",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 1500,
+                        "min": -15,
+                        "name1": "Measured Flight Le",
+                        "name2": "Measured Flight Level",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "FL"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "S 1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between \u201310 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B",
+                "subfield info": "Measured Flight Level LSB  "
+            }
+        ]
+    },
+    "I062/185": {
+        "format": "fixed",
+        "item definition": "Calculated track velocity expressed in Cartesian co-ordinates, in two\u2019s complement form.",
+        "item name": "Calculated Track Velocity (Cartesian)",
+        "length": 4,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.25,
+                        "max": 8191.75,
+                        "min": -8192,
+                        "name1": "Vx",
+                        "name2": "Vx",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m/s"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 8191.75,
+                        "min": -8192,
+                        "name1": "Vy",
+                        "name2": "Vy",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m/s"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "The y-axis points to the Geographical North at the location of the target.",
+                "subfield info": "Vx LSB Vy LSB "
+            }
+        ]
+    },
+    "I062/200": {
+        "format": "fixed",
+        "item definition": "Calculated Mode of Movement of a target.",
+        "item name": "Mode of Movement",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 6,
+                        "name1": "TRANS",
+                        "name2": " Transversal Acceleration :",
+                        "options": [
+                            [
+                                "00",
+                                "Constant Course"
+                            ],
+                            [
+                                "01",
+                                "Right Turn"
+                            ],
+                            [
+                                "10",
+                                "Left Turn"
+                            ],
+                            [
+                                "11",
+                                "Undetermined"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 4,
+                        "name1": "LONG",
+                        "name2": " Longitudinal Acceleration :",
+                        "options": [
+                            [
+                                "00",
+                                "Constant Groundspeed"
+                            ],
+                            [
+                                "01",
+                                "Increasing Groundspeed"
+                            ],
+                            [
+                                "10",
+                                "Decreasing Groundspeed"
+                            ],
+                            [
+                                "11",
+                                "Undetermined"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 2,
+                        "name1": "VERT",
+                        "name2": " Vertical Rate :",
+                        "options": [
+                            [
+                                "00",
+                                "Level"
+                            ],
+                            [
+                                "01",
+                                "Climb"
+                            ],
+                            [
+                                "10",
+                                "Descent"
+                            ],
+                            [
+                                "11",
+                                "Undetermined"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "ADF",
+                        "name2": "Altitude Discrepancy Flag",
+                        "options": [
+                            [
+                                "0",
+                                "No altitude discrepancy"
+                            ],
+                            [
+                                "1",
+                                "Altitude discrepancy"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "type": "spare"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "The ADF, if set,  indicates that a difference has been detected in the altitude information derived from radar as compared to other technologies (such as ADS-B) .",
+                "subfield info": "TRANS LONG VERT ADF 0 "
+            }
+        ]
+    },
+    "I062/210": {
+        "format": "fixed",
+        "item definition": "Calculated Acceleration of the target expressed in Cartesian co-ordinates, in two\u2019s complement form.",
+        "item name": "Calculated Acceleration (Cartesian)",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "lsb": 0.25,
+                        "name1": "Ax",
+                        "name2": "Ax",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m/s2"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "Ay",
+                        "name2": "Ay",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m/s2"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "S 1. The y-axis points to the Geographical North at the location of the target. 2. Maximum value means maximum value or above.",
+                "subfield info": "Ax LSB Ay LSB "
+            }
+        ]
+    },
+    "I062/220": {
+        "format": "fixed",
+        "item definition": "Calculated rate of Climb/Descent of an aircraft in two\u2019s complement form.",
+        "item name": "Calculated Rate Of Climb/Descent",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "name1": "Rate of Climb/Desc",
+                        "name2": "Rate of Climb/Descent",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "feet/minute"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "A positive value indicates a climb, whereas a negative value indicates a descent.",
+                "subfield info": "Rate of Climb/Descent LSB  "
+            }
+        ]
+    },
+    "I062/245": {
+        "format": "fixed",
+        "item definition": "Target (aircraft or vehicle) identification in 8 characters.",
+        "item name": "Target Identification",
+        "length": 7,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 56,
+                        "bit end": 54,
+                        "name1": "STI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Callsign or registration downlinked from target"
+                            ],
+                            [
+                                "01",
+                                "Callsign not downlinked from target"
+                            ],
+                            [
+                                "10",
+                                "Registration not downlinked from target"
+                            ],
+                            [
+                                "11",
+                                "Invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 54,
+                        "bit end": 48,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 48,
+                        "bit end": 0,
+                        "char size": 6,
+                        "name1": "Characters 1-8 (coded on 6 bits each) defining target identification",
+                        "type": "string"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "S 1. For coding, see section 3.1.2.9 of (Ref.3) 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield ,2 if downlinked from the aircraft or thanks to I062/390 Subfield ,2 if the target is correlated to a flight plan) , and in order to avoid confusion at end user\u2019s side, this item SHALL not be used.",
+                "subfield info": "STI 0 0 0 0 0 0 "
+            }
+        ]
+    },
+    "I062/270": {
+        "format": "variable",
+        "item definition": "Target size defined as length and width of the detected target, and orientation.",
+        "item name": "Target Size & Orientation",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "lsb": 1,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "m"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 1,
+                        "lsb": 2.8125,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 1,
+                        "lsb": 1,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "m"
+                    }
+                ],
+                "id": 3,
+                "mandatory": "false",
+                "note": "S 1. The orientation gives the direction which the target nose is pointing to, relative to the Geographical North. 2. When the length only is sent, the largest dimension is provided.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/290": {
+        "format": "compound",
+        "item definition": "Ages of the last plot/local track/target report update for each sensor type.",
+        "item name": "System Track Update Ages",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "TRK",
+                        "name2": "(TRK) Actual track",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "PSR",
+                        "name2": "(PSR) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "SSR",
+                        "name2": "(SSR) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MDS",
+                        "name2": "(MDS) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 4,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 16383.75,
+                        "min": 0,
+                        "name1": "ADS",
+                        "name2": "(ADS) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 5,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "ES",
+                        "name2": "(ES) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 6,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "VDL",
+                        "name2": "(VDL) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 7,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "UAT",
+                        "name2": "(UAT) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 8,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "LOP",
+                        "name2": "(LOP) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 9,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MLT",
+                        "name2": "(MLT) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 10,
+                "mandatory": "false",
+                "note": "S 1. Except for Track Age, the ages are counted from Data Item I062/070 ,  Time Of Track Information, using the following formula: Age = Time of track information - Time of last detection used to update the track 2. The time of last detection is derived from monosensor category time of day 3. If the data has never been received, then the corresponding subfield is not sent. 4. Maximum value means maximum value or above.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/295": {
+        "format": "compound",
+        "item definition": "Ages of the data provided.",
+        "item name": "Track Data Ages",
+        "length": 5,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MFL",
+                        "name2": "(MFL) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MD1",
+                        "name2": "(MD1) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MD2",
+                        "name2": "(MD2) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MDA",
+                        "name2": "(MDA) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 4,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MD4",
+                        "name2": "(MD4) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 5,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MD5",
+                        "name2": "(MD5) Age of the last",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 6,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MHG",
+                        "name2": "(MHG) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 7,
+                "subfield info": "Magnetic Heading Age "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "IAS",
+                        "name2": "(IAS) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 8,
+                "note": "Despite there are now two subfields (,29 and ,30) reporting the ages of, respectively, the Indicated Airspeed track data and the Mach Number track data, this former subfield is kept free in order to prevent a full incompatibility with previous releases of ASTERIX Cat. 062 already implemented.",
+                "subfield info": "Indicated Airspeed / Mach Nb age "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "TAS",
+                        "name2": "(TAS) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 9,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "SAL",
+                        "name2": "(SAL) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 10,
+                "subfield info": "Selected Altitude Age "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "FSS",
+                        "name2": "(FSS) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 11,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "TID",
+                        "name2": "(TID) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 12,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "COM",
+                        "name2": "(COM) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 13,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "SAB",
+                        "name2": "(SAB) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 14,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "ACS",
+                        "name2": "(ACS) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 15,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "BVR",
+                        "name2": "(BVR) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 16,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "GVR",
+                        "name2": "(GVR) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 17,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "RAN",
+                        "name2": "(RAN) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 18,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "TAR",
+                        "name2": "(TAR) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 19,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "TAN",
+                        "name2": "(TAN) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 20,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "GSP",
+                        "name2": "(GSP) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 21,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "VUN",
+                        "name2": "(VUN) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 22,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MET",
+                        "name2": "(MET) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 23,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "EMC",
+                        "name2": "(EMC) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 24,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "POS",
+                        "name2": "(POS) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 25,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "GAL",
+                        "name2": "(GAL) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 26,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "PUN",
+                        "name2": "(PUN) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 27,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MB",
+                        "name2": "(MB) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 28,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "IAR",
+                        "name2": "(IAR) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 29,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "MAC",
+                        "name2": "(MAC) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 30,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 63.75,
+                        "min": 0,
+                        "name1": "BPS",
+                        "name2": "(BPS) Age of the DAP",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 31,
+                "mandatory": "false",
+                "note": "In all the subfields, the age is the time delay since the value was measured",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/300": {
+        "format": "fixed",
+        "item definition": "Vehicle fleet identification number.",
+        "item name": "Vehicle Fleet Identification",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "VFI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Unknown"
+                            ],
+                            [
+                                "1",
+                                "ATC equipment maintenance"
+                            ],
+                            [
+                                "2",
+                                "Airport maintenance"
+                            ],
+                            [
+                                "3",
+                                "Fire"
+                            ],
+                            [
+                                "4",
+                                "Bird scarer"
+                            ],
+                            [
+                                "5",
+                                "Snow plough"
+                            ],
+                            [
+                                "6",
+                                "Runway sweeper"
+                            ],
+                            [
+                                "7",
+                                "Emergency"
+                            ],
+                            [
+                                "8",
+                                "Police"
+                            ],
+                            [
+                                "9",
+                                "Bus"
+                            ],
+                            [
+                                "10",
+                                "Tug (push/tow)"
+                            ],
+                            [
+                                "11",
+                                "Grass cutter"
+                            ],
+                            [
+                                "12",
+                                "Fuel"
+                            ],
+                            [
+                                "13",
+                                "Baggage"
+                            ],
+                            [
+                                "14",
+                                "Catering"
+                            ],
+                            [
+                                "15",
+                                "Aircraft maintenance"
+                            ],
+                            [
+                                "16",
+                                "Flyco (follow me)"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "subfield info": "VFI "
+            }
+        ]
+    },
+    "I062/340": {
+        "format": "compound",
+        "item definition": "All measured data related to the last report used to update the track. These data are not used for ADS-B.",
+        "item name": "Measured Information",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int) .",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 16,
+                        "lsb": 1.387779e-17,
+                        "max": 256,
+                        "min": 0,
+                        "name1": "RHO",
+                        "name2": " (RHO) Measured distance:",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "THETA",
+                        "name2": "(THETA) Measured azimuth",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 2,
+                "note": "The measured position is : 1. In case of a plot, the measured bias-corrected polar co- ordinates; 2. In case of a sensor local track, the measured bias-corrected polar co-ordinates of the plot associated to the track; 3. In case of a local track without detection, the extrapolated bias- corrected polar co-ordinates. ",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 25,
+                        "name1": "Height",
+                        "name2": "Height",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "feet"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 15,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code validated"
+                            ],
+                            [
+                                "1",
+                                "Code not validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 1270,
+                        "min": -12,
+                        "name1": "Last Measured Mode",
+                        "name2": "Last Measured Mode",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "FL"
+                    }
+                ],
+                "id": 4,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 15,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code Validated"
+                            ],
+                            [
+                                "1",
+                                "Code not Validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 13,
+                        "name1": "L",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "MODE 3/A code as derived from the reply of the transponder,"
+                            ],
+                            [
+                                "1",
+                                "Smoothed MODE 3/A code as provided by a sensor local tracker."
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode 3/A reply",
+                        "name2": "Mode 3/A reply",
+                        "type": "int"
+                    }
+                ],
+                "id": 5,
+                "note": "Smoothed MODE 3/A data (L = 1) will be used in case of absence of MODE 3/A code information in the plot or in case of difference between plot and sensor local track MODE 3/A code information.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 5,
+                        "name1": "TYP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "000",
+                                "No detection"
+                            ],
+                            [
+                                "001",
+                                "Single PSR detection"
+                            ],
+                            [
+                                "010",
+                                "Single SSR detection"
+                            ],
+                            [
+                                "011",
+                                "SSR + PSR detection"
+                            ],
+                            [
+                                "100",
+                                "Single ModeS All-Call"
+                            ],
+                            [
+                                "101",
+                                "Single ModeS Roll-Call"
+                            ],
+                            [
+                                "110",
+                                "ModeS All-Call + PSR"
+                            ],
+                            [
+                                "111",
+                                "ModeS Roll-Call +PSR"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "SIM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Actual target report"
+                            ],
+                            [
+                                "1",
+                                "Simulated target report"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "RAB",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Report from target transponder"
+                            ],
+                            [
+                                "1",
+                                "Report from field monitor (fixed transponder)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "TST",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Real target report"
+                            ],
+                            [
+                                "1",
+                                "Test target report"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 0,
+                        "type": "spare"
+                    }
+                ],
+                "id": 6,
+                "mandatory": "false",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/380": {
+        "format": "compound",
+        "item definition": "Data derived directly by the aircraft.",
+        "item name": "Aircraft Derived Data",
+        "length": 4,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 0,
+                        "name1": "24 bits Target",
+                        "name2": "24 bits Target",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char size": 6,
+                        "name1": "Characters 1-8 (coded on 6 bits each) defining a target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in 3 Section 3.1.2.9.1.2 and Table 3-9",
+                        "type": "string"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 180.0,
+                        "name1": "Magnetic Heading",
+                        "name2": "Magnetic Heading",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 15,
+                        "name1": "IM",
+                        "options": [
+                            [
+                                "Air Speed = IAS,",
+                                "0.25",
+                                "NM/s"
+                            ],
+                            [
+                                "Air Speed = Mach,",
+                                "0.001",
+                                ""
+                            ]
+                        ],
+                        "type": "lsb-selector"
+                    }
+                ],
+                "id": 4,
+                "note": "Despite there are now two subfields (,26 and ,27) reporting, respectively, the Indicated Airspeed track data and the Mach Number track data, this former subfield is kept free in order to prevent a full incompatibility with previous releases of ASTERIX Cat. 062 already implemented.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 1,
+                        "max": 2046,
+                        "min": 0,
+                        "name1": "True Air Speed",
+                        "name2": "True Air Speed",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "knot"
+                    }
+                ],
+                "id": 5,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 15,
+                        "name1": "SAS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No source information provided"
+                            ],
+                            [
+                                "1",
+                                "Source Information provided"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 13,
+                        "name1": "Source",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Unknown"
+                            ],
+                            [
+                                "01",
+                                "Aircraft Altitude"
+                            ],
+                            [
+                                "10",
+                                "FCU/MCP Selected Altitude"
+                            ],
+                            [
+                                "11",
+                                "FMS Selected Altitude"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 0,
+                        "lsb": 25,
+                        "max": 100000,
+                        "min": -1300,
+                        "name1": "Altitude",
+                        "name2": "(Altitude) Altitude",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "ft"
+                    }
+                ],
+                "id": 6,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 15,
+                        "name1": "MV",
+                        "name2": "Manage Vertical Mode",
+                        "options": [
+                            [
+                                "0",
+                                "Not active"
+                            ],
+                            [
+                                "1",
+                                "Active"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "AH",
+                        "name2": "Altitude Hold",
+                        "options": [
+                            [
+                                "0",
+                                "Not active"
+                            ],
+                            [
+                                "1",
+                                "Active"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 13,
+                        "name1": "AM",
+                        "name2": "Approach Mode",
+                        "options": [
+                            [
+                                "0",
+                                "Not active"
+                            ],
+                            [
+                                "1",
+                                "Active"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 0,
+                        "lsb": 25,
+                        "max": 100000,
+                        "min": -1300,
+                        "name1": "Altitude",
+                        "name2": "(Altitude) Altitude",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "ft"
+                    }
+                ],
+                "id": 7,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 7,
+                        "name1": "NAV",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Trajectory Intent Data is available for this aircraft"
+                            ],
+                            [
+                                "1",
+                                "Trajectory Intent Data is not available for this aircraft"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "NVB",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Trajectory Intent Data is valid"
+                            ],
+                            [
+                                "1",
+                                "Trajectory Intent Data is not valid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 1,
+                        "type": "spare"
+                    }
+                ],
+                "id": 8,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 120,
+                        "name1": "REP",
+                        "name2": "(REP) Repetition Factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 120,
+                        "bit end": 119,
+                        "name1": "TCA",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "TCP number available"
+                            ],
+                            [
+                                "1",
+                                "TCP number not available"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 119,
+                        "bit end": 118,
+                        "name1": "NC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "TCP compliance"
+                            ],
+                            [
+                                "1",
+                                "TCP non-compliance"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 118,
+                        "bit end": 112,
+                        "name1": "TCP Number",
+                        "name2": "(TCP Number) Trajectory",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 112,
+                        "bit end": 96,
+                        "lsb": 10,
+                        "max": 150000,
+                        "min": -1500,
+                        "name1": "Altitude",
+                        "name2": "(Altitude) Altitude",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "ft"
+                    },
+                    {
+                        "bit begin": 96,
+                        "bit end": 72,
+                        "lsb": 90.0,
+                        "max": 90,
+                        "min": -90,
+                        "name1": "Latitude",
+                        "name2": "(Latitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "23 deg."
+                    },
+                    {
+                        "bit begin": 72,
+                        "bit end": 48,
+                        "lsb": 2.145767e-05,
+                        "max": 180,
+                        "min": -180,
+                        "name1": "Longitude",
+                        "name2": "(Longitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    },
+                    {
+                        "bit begin": 48,
+                        "bit end": 44,
+                        "name1": "Point Type",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Unknown"
+                            ],
+                            [
+                                "1",
+                                "Fly by waypoint (LT)"
+                            ],
+                            [
+                                "2",
+                                "Fly over waypoint (LT)"
+                            ],
+                            [
+                                "3",
+                                "Hold pattern (LT)"
+                            ],
+                            [
+                                "4",
+                                "Procedure hold (LT)"
+                            ],
+                            [
+                                "5",
+                                "Procedure turn (LT)"
+                            ],
+                            [
+                                "6",
+                                "RF leg (LT)"
+                            ],
+                            [
+                                "7",
+                                "Top of climb (VT)"
+                            ],
+                            [
+                                "8",
+                                "Top of descent (VT)"
+                            ],
+                            [
+                                "9",
+                                "Start of level (VT)"
+                            ],
+                            [
+                                "10",
+                                "Cross-over altitude (VT)"
+                            ],
+                            [
+                                "11",
+                                "Transition altitude (VT)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 44,
+                        "bit end": 42,
+                        "name1": "TD",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "N/A"
+                            ],
+                            [
+                                "01",
+                                "Turn right"
+                            ],
+                            [
+                                "10",
+                                "Turn left"
+                            ],
+                            [
+                                "11",
+                                "No turn"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 42,
+                        "bit end": 41,
+                        "name1": "TRA",
+                        "name2": "Turn Radius Availabilty",
+                        "options": [
+                            [
+                                "0",
+                                "TTR not available"
+                            ],
+                            [
+                                "1",
+                                "TTR available"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 41,
+                        "bit end": 40,
+                        "name1": "TOA",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "TOV available"
+                            ],
+                            [
+                                "1",
+                                "TOV not available"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 40,
+                        "bit end": 16,
+                        "lsb": 1,
+                        "name1": "TOV",
+                        "name2": "(TOV) Time Over Point",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.01,
+                        "max": 655.35,
+                        "min": 0,
+                        "name1": "TTR",
+                        "name2": "(TTR) TCP Turn radius",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "Nm"
+                    }
+                ],
+                "id": 9,
+                "note": "S 1. NC is set to one when the aircraft will not fly the path described by the TCP data. 2. TCP numbers start from zero. 3. LT = Lateral Type 4. VT = Vertical Type 5. TOV gives the estimated time before reaching the point. It is defined as the absolute time from midnight. 6. TOV is meaningful only if TOA is set to 0",
+                "subfield info": " Format: Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one Trajectory Intent Point comprising fifteen octets "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 13,
+                        "name1": "COM",
+                        "name2": " Communications capability of the transponder",
+                        "options": [
+                            [
+                                "0",
+                                "No communications capability (surveillance only)"
+                            ],
+                            [
+                                "1",
+                                "Comm. A and Comm. B capability"
+                            ],
+                            [
+                                "2",
+                                "Comm. A, Comm. B and Uplink ELM"
+                            ],
+                            [
+                                "3",
+                                "Comm. A, Comm. B, Uplink ELM and Downlink ELM"
+                            ],
+                            [
+                                "4",
+                                "Level 5 Transponder capability 5 to 7Not assigned"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 10,
+                        "name1": "STAT",
+                        "name2": " Flight Status",
+                        "options": [
+                            [
+                                "0",
+                                "No alert, no SPI, aircraft airborne"
+                            ],
+                            [
+                                "1",
+                                "No alert, no SPI, aircraft on ground"
+                            ],
+                            [
+                                "2",
+                                "Alert, no SPI, aircraft airborne"
+                            ],
+                            [
+                                "3",
+                                "Alert, no SPI, aircraft on ground"
+                            ],
+                            [
+                                "4",
+                                "Alert, SPI, aircraft airborne or on ground"
+                            ],
+                            [
+                                "5",
+                                "No alert, SPI, aircraft airborne or on ground "
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 10,
+                        "bit end": 8,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "SSC",
+                        "name2": "Specific service capability",
+                        "options": [
+                            [
+                                "0",
+                                "No"
+                            ],
+                            [
+                                "1",
+                                "Yes"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "ARC",
+                        "name2": "Altitude reporting capability",
+                        "options": [
+                            [
+                                "0",
+                                "100 ft resolution"
+                            ],
+                            [
+                                "1",
+                                "25 ft resolution"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "AIC",
+                        "name2": "Aircraft identification capability",
+                        "options": [
+                            [
+                                "0",
+                                "No"
+                            ],
+                            [
+                                "1",
+                                "Yes"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 0,
+                        "name1": "B1B",
+                        "name2": "(B1B) BDS 1,0 bits",
+                        "type": "int"
+                    }
+                ],
+                "id": 10,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 14,
+                        "name1": "AC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "unknown"
+                            ],
+                            [
+                                "01",
+                                "ACAS not operational"
+                            ],
+                            [
+                                "10",
+                                "ACAS operational"
+                            ],
+                            [
+                                "11",
+                                "invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 12,
+                        "name1": "MN",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "unknown"
+                            ],
+                            [
+                                "01",
+                                "Multiple navigational aids not operating"
+                            ],
+                            [
+                                "10",
+                                "Multiple navigational aids operating"
+                            ],
+                            [
+                                "11",
+                                "invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 10,
+                        "name1": "DC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "unknown"
+                            ],
+                            [
+                                "01",
+                                "Differential correction"
+                            ],
+                            [
+                                "10",
+                                "No differential correction"
+                            ],
+                            [
+                                "11",
+                                "invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 10,
+                        "bit end": 9,
+                        "name1": "GBS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Transponder Ground Bit not set or unknown"
+                            ],
+                            [
+                                "1",
+                                "Transponder Ground Bit set"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 9,
+                        "bit end": 3,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 0,
+                        "name1": "STAT",
+                        "name2": " Flight Status",
+                        "options": [
+                            [
+                                "0",
+                                "No emergency"
+                            ],
+                            [
+                                "1",
+                                "General emergency"
+                            ],
+                            [
+                                "2",
+                                "Lifeguard / medical"
+                            ],
+                            [
+                                "3",
+                                "Minimum fuel"
+                            ],
+                            [
+                                "4",
+                                "No communications"
+                            ],
+                            [
+                                "5",
+                                "Unlawful interference"
+                            ],
+                            [
+                                "6",
+                                "\u201cDowned\u201d Aircraft"
+                            ],
+                            [
+                                "7",
+                                "Unknown"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 11,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 56,
+                        "bit end": 0,
+                        "name1": "MB Data",
+                        "name2": "(MB Data) 56-bit",
+                        "type": "int"
+                    }
+                ],
+                "id": 12,
+                "note": "Refer to ICAO Draft SARPs for ACAS for detailed explanations.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "name1": "Barometric Vertica",
+                        "name2": "Barometric Vertical",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "feet/minute"
+                    }
+                ],
+                "id": 13,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "name1": "Geometric Vertical",
+                        "name2": "Geometric Vertical",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "feet/minute"
+                    }
+                ],
+                "id": 14,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.01,
+                        "max": 180,
+                        "min": -180,
+                        "name1": "Roll Angle in two\u2019",
+                        "name2": "Roll Angle in two\u2019s",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 15,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 14,
+                        "name1": "TI",
+                        "name2": "Turn Indicator",
+                        "options": [
+                            [
+                                "00",
+                                "Not available"
+                            ],
+                            [
+                                "01",
+                                "Left"
+                            ],
+                            [
+                                "10",
+                                "Right"
+                            ],
+                            [
+                                "11",
+                                "Straight"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 8,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "lsb": 0.25,
+                        "max": 15,
+                        "min": -15,
+                        "name1": "Rate of Turn in tw",
+                        "name2": "Rate of Turn in two\u2019s",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg/s"
+                    },
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "type": "spare"
+                    }
+                ],
+                "id": 16,
+                "note": "S 1. A positive value represents a right turn, whereas a negative value represents a left turn. 2. Value 15 means 15deg/s or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "Track Angle",
+                        "name2": "Track Angle",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 17,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "max": 2,
+                        "min": -2,
+                        "name1": "Ground Speed in tw",
+                        "name2": "Ground Speed in two's",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM/s"
+                    }
+                ],
+                "id": 18,
+                "subfield info": ""
+            },
+            {
+                "data": [],
+                "id": 19,
+                "note": "Velocity uncertainty category of the least accurate velocity component",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 64,
+                        "bit end": 63,
+                        "name1": "WS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Not valid Wind Speed"
+                            ],
+                            [
+                                "1",
+                                "Valid Wind Speed"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 63,
+                        "bit end": 62,
+                        "name1": "WD",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Not valid Wind Direction"
+                            ],
+                            [
+                                "1",
+                                "Valid Wind Direction"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 62,
+                        "bit end": 61,
+                        "name1": "TMP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Not valid Temperature"
+                            ],
+                            [
+                                "1",
+                                "Valid Temperature"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 61,
+                        "bit end": 60,
+                        "name1": "TRB",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Not valid Turbulence"
+                            ],
+                            [
+                                "1",
+                                "Valid Turbulence"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 60,
+                        "bit end": 56,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 56,
+                        "bit end": 40,
+                        "lsb": 1,
+                        "max": 300,
+                        "min": 0,
+                        "name1": "Wind Speed",
+                        "name2": "Wind Speed",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "knot"
+                    },
+                    {
+                        "bit begin": 40,
+                        "bit end": 24,
+                        "lsb": 1,
+                        "max": 360,
+                        "min": 1,
+                        "name1": "Wind Direction",
+                        "name2": "Wind Direction",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 8,
+                        "lsb": 0.25,
+                        "max": 100,
+                        "min": -100,
+                        "name1": "Temperature in deg",
+                        "name2": "Temperature in deg",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "degC"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "Turbulence Integer",
+                        "name2": "Turbulence Integer",
+                        "type": "int"
+                    }
+                ],
+                "id": 20,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "name1": "ECAT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "1",
+                                "light aircraft < 7000 kg"
+                            ],
+                            [
+                                "2",
+                                "reserved"
+                            ],
+                            [
+                                "3",
+                                "7000 kg < medium aircraft < 136000 kg"
+                            ],
+                            [
+                                "4",
+                                "reserved"
+                            ],
+                            [
+                                "5",
+                                "136000 kg < heavy aircraft"
+                            ],
+                            [
+                                "6",
+                                "highly manoeuvrable (5g acceleration capability) and high speed (>400 knots cruise) 7 to"
+                            ],
+                            [
+                                "9",
+                                "reserved"
+                            ],
+                            [
+                                "10",
+                                "rotocraft"
+                            ],
+                            [
+                                "11",
+                                "glider / sailplane"
+                            ],
+                            [
+                                "12",
+                                "lighter-than-air"
+                            ],
+                            [
+                                "13",
+                                "unmanned aerial vehicle"
+                            ],
+                            [
+                                "14",
+                                "space / transatmospheric vehicle"
+                            ],
+                            [
+                                "15",
+                                "ultralight / handglider / paraglider"
+                            ],
+                            [
+                                "16",
+                                "parachutist / skydiver 17 to"
+                            ],
+                            [
+                                "19",
+                                "reserved"
+                            ],
+                            [
+                                "20",
+                                "surface emergency vehicle"
+                            ],
+                            [
+                                "21",
+                                "surface service vehicle"
+                            ],
+                            [
+                                "22",
+                                "fixed ground or tethered obstruction 23 to"
+                            ],
+                            [
+                                "24",
+                                "reserved"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 21,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 48,
+                        "bit end": 24,
+                        "lsb": 2.145767e-05,
+                        "max": 90,
+                        "min": -90,
+                        "name1": "Latitude",
+                        "name2": "(Latitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 0,
+                        "lsb": 2.145767e-05,
+                        "max": 180,
+                        "min": -180,
+                        "name1": "Longitude",
+                        "name2": "(Longitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 22,
+                "note": "Positive longitude indicates East. Positive latitude indicates North.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "max": 150000,
+                        "min": -1500,
+                        "name1": "Altitude",
+                        "name2": "(Altitude) Altitude",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "ft"
+                    }
+                ],
+                "id": 23,
+                "note": "LSB) is required to be thinner than 10 ft by ICAO",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 4,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 0,
+                        "name1": "PUN",
+                        "name2": "(PUN) Position",
+                        "type": "int"
+                    }
+                ],
+                "id": 24,
+                "subfield info": ""
+            },
+            {
+                "data": [],
+                "id": 25,
+                "subfield info": " Format : Repetitive starting with an one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code. "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 72,
+                        "bit end": 64,
+                        "name1": "REP",
+                        "name2": "(REP) Repetition factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 64,
+                        "bit end": 8,
+                        "name1": "MB data",
+                        "name2": "(MB data) 56 bit",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 4,
+                        "name1": "BDS1",
+                        "name2": "(BDS1) Comm B data",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 0,
+                        "name1": "BDS2",
+                        "name2": "(BDS2) Comm B data",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "Only DAPs that can not be encoded into other subfields of this item should be sent using subfield ,25",
+                "subfield info": "REP MSB MB Data (56 bits) 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 LSB BDS 1 BDS 2 "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 1,
+                        "max": 1100,
+                        "min": 0,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "Kt"
+                    }
+                ],
+                "id": 26,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.008,
+                        "max": 4.096,
+                        "min": 0,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": ""
+                    }
+                ],
+                "id": 27,
+                "subfield info": "Mach Number "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "lsb": 0.1,
+                        "max": 409.5,
+                        "min": 0,
+                        "name1": "BPS",
+                        "name2": "(BPS)",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "mb"
+                    }
+                ],
+                "id": 28,
+                "mandatory": "false",
+                "note": "BPS is the barometric pressure setting of the aircraft minus 800 mb.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/390": {
+        "format": "compound",
+        "item definition": "All flight plan related information, provided by ground-based systems.",
+        "item name": "Flight Plan Related Data",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identity",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int) . ",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 7,
+                        "type": "string"
+                    }
+                ],
+                "id": 2,
+                "note": "Each one of the seven Octets contains an ASCII Character. The Callsign is always left adjusted. It contains up to seven upper-case alphanumeric characters, the remaining character positions (if any) are padded with space characters.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 30,
+                        "name1": "TYP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Plan Number"
+                            ],
+                            [
+                                "01",
+                                "Unit 1 internal flight number"
+                            ],
+                            [
+                                "10",
+                                "Unit 2 internal flight number"
+                            ],
+                            [
+                                "11",
+                                "Unit 3 internal flight number"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 30,
+                        "bit end": 27,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 27,
+                        "bit end": 0,
+                        "name1": "NBR",
+                        "name2": "(NBR) Number from",
+                        "type": "int"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 6,
+                        "name1": "GAT/OAT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Unknown"
+                            ],
+                            [
+                                "01",
+                                "General Air Traffic"
+                            ],
+                            [
+                                "10",
+                                "Operational Air Traffic"
+                            ],
+                            [
+                                "11",
+                                "Not applicable"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 4,
+                        "name1": "FR1/FR2",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Instrument Flight Rules"
+                            ],
+                            [
+                                "01",
+                                "Visual Flight rules"
+                            ],
+                            [
+                                "10",
+                                "Not applicable"
+                            ],
+                            [
+                                "11",
+                                "Controlled Visual Flight Rules"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 2,
+                        "name1": "RVSM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Unknown"
+                            ],
+                            [
+                                "01",
+                                "Approved"
+                            ],
+                            [
+                                "10",
+                                "Exempt"
+                            ],
+                            [
+                                "11",
+                                "Not Approved"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "HPR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Normal Priority Flight"
+                            ],
+                            [
+                                "1",
+                                "High Priority Flight"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "type": "spare"
+                    }
+                ],
+                "id": 4,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 4,
+                        "type": "string"
+                    }
+                ],
+                "id": 5,
+                "note": "S 1. Each one of the four Octets composing the type of an aircraft contains an ASCII Character (upper-case alphanumeric characters with trailing spaces) . 2. The types of aircraft are defined in (Ref.4)",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "name1": "Wake Turbulence Cat",
+                        "name2": " Wake Turbulence Category is an ASCII character code which should be one of the following values : L = Light M = Medium H = Heavy J = \u201cSuper\u201d  ",
+                        "type": "char"
+                    }
+                ],
+                "id": 6,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 4,
+                        "type": "string"
+                    }
+                ],
+                "id": 7,
+                "note": "S 1. Each one of the four Octets composing the name of an airport contains an ASCII Character (upper case alphabetic) . 2. The Airport Names are indicated in the ICAO Location Indicators book.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 4,
+                        "type": "string"
+                    }
+                ],
+                "id": 8,
+                "note": "S 1. Each one of the four Octets composing the name of an airport contains an ASCII Character (upper case alphabetic) . 2. The Airport Names are indicated in the ICAO Location Indicators book.",
+                "subfield info": "Destination Airport "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 16,
+                        "name1": "NU1",
+                        "name2": "(NU1) First number",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "NU2",
+                        "name2": "(NU2) Second number",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "LTR",
+                        "name2": "(LTR) Letter",
+                        "type": "int"
+                    }
+                ],
+                "id": 9,
+                "note": "S 1. NU1, NU2 and LTR each contain an ASCII character 2. For details refer to.5 Section 5",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "CFL",
+                        "name2": "(CFL)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "FL"
+                    }
+                ],
+                "id": 10,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 8,
+                        "name1": "Centre",
+                        "name2": "(Centre) 8-bit",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "Position",
+                        "name2": "(Position) 8-bit",
+                        "type": "int"
+                    }
+                ],
+                "id": 11,
+                "note": "The centre and the control position identification codes have to be defined between communication partners.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 32,
+                        "name1": "REP",
+                        "name2": "(REP) Repetition Factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 27,
+                        "name1": "TYP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Scheduled off-block time"
+                            ],
+                            [
+                                "1",
+                                "Estimated off-block time"
+                            ],
+                            [
+                                "2",
+                                "Estimated take-off time"
+                            ],
+                            [
+                                "3",
+                                "Actual off-block time"
+                            ],
+                            [
+                                "4",
+                                "Predicted time at runway hold"
+                            ],
+                            [
+                                "5",
+                                "Actual time at runway hold"
+                            ],
+                            [
+                                "6",
+                                "Actual line-up time"
+                            ],
+                            [
+                                "7",
+                                "Actual take-off time"
+                            ],
+                            [
+                                "8",
+                                "Estimated time of arrival"
+                            ],
+                            [
+                                "9",
+                                "Predicted landing time"
+                            ],
+                            [
+                                "10",
+                                "Actual landing time"
+                            ],
+                            [
+                                "11",
+                                "Actual time off runway"
+                            ],
+                            [
+                                "12",
+                                "Predicted time to gate"
+                            ],
+                            [
+                                "13",
+                                "Actual on-block time"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 27,
+                        "bit end": 25,
+                        "name1": "DAY",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Today"
+                            ],
+                            [
+                                "01",
+                                "Yesterday"
+                            ],
+                            [
+                                "10",
+                                "Tomorrow"
+                            ],
+                            [
+                                "11",
+                                "Invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 25,
+                        "bit end": 21,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 21,
+                        "bit end": 16,
+                        "name1": "HOR",
+                        "name2": "(HOR) Hours, from",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 14,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 8,
+                        "name1": "MIN",
+                        "name2": "(MIN) Minutes,",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "AVS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Seconds available"
+                            ],
+                            [
+                                "1",
+                                "Seconds not available"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 0,
+                        "name1": "SEC",
+                        "name2": "(SEC) Seconds,",
+                        "type": "int"
+                    }
+                ],
+                "id": 12,
+                "note": "Estimated times are derived from flight plan systems. Predicted times are derived by the fusion system, based on surveillance data. For definitions, see (Ref.4)",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 6,
+                        "type": "string"
+                    }
+                ],
+                "id": 13,
+                "note": "Each one of the six Octets contains an ASCII Character. The Aircraft Stand identification is always left adjusted. It contains up to six upper- case alphanumeric characters, the remaining character positions (if any) are padded with space characters.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 6,
+                        "name1": "EMP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Empty"
+                            ],
+                            [
+                                "01",
+                                "Occupied"
+                            ],
+                            [
+                                "10",
+                                "Unknown"
+                            ],
+                            [
+                                "11",
+                                "Invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 4,
+                        "name1": "AVL",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Available"
+                            ],
+                            [
+                                "01",
+                                "Not available"
+                            ],
+                            [
+                                "10",
+                                "Unknown"
+                            ],
+                            [
+                                "11",
+                                "Invalid"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 14,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 56,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 7,
+                        "type": "string"
+                    }
+                ],
+                "id": 15,
+                "note": "Each one of the seven Octets contains an ASCII Character. The SID is always left adjusted. It contains up to seven alphanumeric characters, the remaining character positions (if any) are padded with space characters.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 7,
+                        "type": "string"
+                    }
+                ],
+                "id": 16,
+                "mandatory": "false",
+                "note": "Each one of the seven Octets contains an ASCII Character. The STAR is always left adjusted. It contains up to seven alphanumeric characters, the remaining character positions (if any) are padded with space characters.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 12,
+                        "name1": "VA",
+                        "name2": "Validity",
+                        "options": [
+                            [
+                                "0",
+                                "No valid Mode 3/A available"
+                            ],
+                            [
+                                "1",
+                                "Valid Mode 3/A available"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode-3/A reply",
+                        "name2": "Mode-3/A reply",
+                        "type": "int"
+                    }
+                ],
+                "id": 17,
+                "note": "S 1. This subfield is used only when the aircraft is transmitting an emergency Mode 3/A code 2. If VA = 0, the content of bits 12/1 is meaningless",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "char length": 8,
+                        "string length": 7,
+                        "type": "string"
+                    }
+                ],
+                "id": 18,
+                "note": "S 1. Each one of the seven Octets contains an ASCII Character. The Callsign is always left adjusted. It contains up to seven upper-case alphanumeric characters, the remaining character positions (if any) are padded with space characters 2. This subfield is used only when an emergency Mode 3/A is associated with the track (I062/390 Subfield ,17)",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/500": {
+        "format": "compound",
+        "item definition": "Overview of all important accuracies",
+        "item name": "Estimated Accuracies",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.5,
+                        "name1": "APC (X-Component)",
+                        "name2": "APC (X-Component)",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.5,
+                        "name1": "APC (Y-Component)",
+                        "name2": "APC (Y-Component)",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m"
+                    }
+                ],
+                "id": 1,
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.5,
+                        "name1": "COV",
+                        "name2": "(COV) XY Covariance",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "m"
+                    }
+                ],
+                "id": 2,
+                "note": "XY covariance component = sign {Cov(X,Y) } * sqrt {abs (Cov (X} 2. The maximum value for the (unsigned) XY covariance component is 16.383 km.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 16,
+                        "lsb": 5.364418e-06,
+                        "name1": "APW (Latitude Comp",
+                        "name2": "APW (Latitude Component)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "degrees"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 5.364418e-06,
+                        "name1": "APW (Longitude Com",
+                        "name2": "APW (Longitude Component)",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "degrees"
+                    }
+                ],
+                "id": 3,
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "name1": "AGA",
+                        "name2": "(AGA) Estimated accuracy",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "ft"
+                    }
+                ],
+                "id": 4,
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "ABA",
+                        "name2": "(ABA) Estimated accuracy",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "FL"
+                    }
+                ],
+                "id": 5,
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 8,
+                        "lsb": 0.25,
+                        "name1": "ATV (X-Component)",
+                        "name2": "ATV (X-Component) (ATV)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "m/s"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "ATV (Y-Component)",
+                        "name2": "ATV (Y-Component) (ATV)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "m/s"
+                    }
+                ],
+                "id": 6,
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 8,
+                        "lsb": 0.25,
+                        "name1": "AA (X-Component) (",
+                        "name2": "AA (X-Component) (AA)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "m/s2"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "AA (Y-Component) (",
+                        "name2": "AA (Y-Component) (AA)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "m/s2"
+                    }
+                ],
+                "id": 7,
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 6.25,
+                        "name1": "ARC",
+                        "name2": "(ARC) Estimated accuracy",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "feet/minute"
+                    }
+                ],
+                "id": 8,
+                "mandatory": "false",
+                "note": "Maximum value means maximum value or above.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I062/510": {
+        "format": "extendible",
+        "item definition": "Identification of a system track",
+        "item name": "Composed Track Number",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 16,
+                        "name1": "SYSTEM UNIT IDENTIFICATION",
+                        "name2": "(SYSTEM UNIT IDENTIFICATION)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 1,
+                        "name1": "SYSTEM TRACK NUMBER",
+                        "name2": "(SYSTEM TRACK NUMBER)",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "SYSTEM UNIT IDENTIFICATION SYSTEM TRACK NUMBER FX "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 16,
+                        "name1": "SYSTEM UNIT IDENTIFICATION",
+                        "name2": "(SYSTEM UNIT IDENTIFICATION)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 1,
+                        "name1": "SYSTEM TRACK NUMBER",
+                        "name2": "(SYSTEM TRACK NUMBER)",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "The Field Reference Number ,2 is kept free in order to prevent a full incompatibility with previous releases of ASTERIX Cat. 062 already implemented. In the above table \uf0b7 the first column indicates the Field Reference Number (FRN) associated to each Data Item used in the UAP; \uf0b7 the fourth column gives the format and the length of each item, a stand-alone figure indicates the octet-count of a fixed-length Data Item, 1+ indicates a variable-length Data Item comprising a first part of 1 octet",
+                "subfield info": ""
+            }
+        ]
+    },
+    "cat": "I062"
+}

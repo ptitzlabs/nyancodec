@@ -1,0 +1,1318 @@
+{
+    "I061/000": {
+        "format": "fixed",
+        "item definition": "This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.",
+        "item name": "Message Type",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 4,
+                        "name1": "FAM",
+                        "name2": "Message family",
+                        "options": [
+                            [
+                                "1",
+                                "Connection Messages"
+                            ],
+                            [
+                                "2",
+                                "Service Messages"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 0,
+                        "name1": "NAT",
+                        "name2": "Message nature within the family \u2212 Connection Messages (family 1) :",
+                        "options": [
+                            [
+                                "1",
+                                "Request for Connection (user to SDPS) ,"
+                            ],
+                            [
+                                "2",
+                                "Request for Disconnection (SDPS to user, user to SDPS) , "
+                            ],
+                            [
+                                "3",
+                                "Connection Acknowledgement (SDPS to user) ,"
+                            ],
+                            [
+                                "4",
+                                "Connection Rejection (SDPS to user) ,"
+                            ],
+                            [
+                                "5",
+                                "Disconnection Acknowledgement (SDPS to user, user to"
+                            ],
+                            [
+                                "6",
+                                "Disconnection Rejection (SDPS to user) . \u2212 Service Messages (family 2) : "
+                            ],
+                            [
+                                "1",
+                                "Service Definition Request (user to SDPS) ,"
+                            ],
+                            [
+                                "2",
+                                "Service Modification Request (user to SDPS) ,"
+                            ],
+                            [
+                                "3",
+                                "Service Suspension Request (SDPS to user, user to"
+                            ],
+                            [
+                                "4",
+                                "Service Resumption Request (SDPS to user, user to"
+                            ],
+                            [
+                                "5",
+                                "Service Termination Request (SDPS to user, user to"
+                            ],
+                            [
+                                "6",
+                                "Service Acknowledgement (SDPS to user, user to SDPS) , "
+                            ],
+                            [
+                                "7",
+                                "Service Rejection (SDPS to user) ,"
+                            ],
+                            [
+                                "8",
+                                "Service Report (SDPS to user) ,"
+                            ],
+                            [
+                                "15",
+                                "End of Batch (SDPS to user) . Transmission of SDPS Session and Service Control Messages Table 2 \u2013 List of Items per Family / Nature M = mandatory; O = optional. Reference Number Description 1 2 3 4 5 6 1 2 3 4 5 6 7 8 15 Request for Connection Request for Disconnection Connection Acknowledgeme Connection Rejection Disconnection Acknowledgeme Disconnection Rejection Service Definition Service Modification Service Suspension Service Resumption Service Termination Service Acknowledgeme Service Rejection Service Report End of Batch I061/000 MESSAGE TYPE M M M M M M M M M M M M M M M I061/010 SDPS IDENTIFICATION M M M M M M M M M M M M M M M I061/012 USER IDENTIFICATION M M M M M M M M M M M M M M M I061/015 SERVICE IDENTIFICATION O 1 M M M M M O 1 M M I061/020 TIME OF MESSAGE M M M M M M M M M M M M M M M I061/045 APPLICATION VERSION NUMBER M I061/050 DEFAULT GEOGRAPHICAL VOLUME O O I061/060 GEOGRAPHICAL AREA O O I061/070 LOWER LIMIT O O I061/080 UPPER LIMIT O O I061/090 PREFERRED FPPS IDENTIFICATION TAG O O I061/100 CONNECTION RELATED REPORT O O O O I061/110 SERVICE IDENTIFICATION O O I061/130 TRACK SELECTOR O O I061/210 ITEM SELECTOR O O I061/220 CYCLICAL UPDATE CHARACTERISTICS O O I061/230 RADAR SYNCHRONISATION CHARACTERISTICS O O I061/240 TRIGGERING CRITERIA FOR APERIODICAL SERVICES O O I061/330 SERVICE RELATED REPORT O O O O O O M I061/350 SENSOR SELECTOR O O I061/360 SENSOR ITEM SELECTOR O O I061/370 PERIODICAL CHARACTERISTICS OF SENSOR INFORMATION O O I061/380 APERIODICAL CHARACTERISTICS OF SENSOR INFORMATION SERVICE O O 1 see encoding rule for I061/015 Transmission of SDPS Session and Service Control Messages"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I061/010": {
+        "format": "fixed",
+        "item definition": "Identification of the SDPS providing track/sensor information",
+        "item name": "SDPS Identification",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int) .",
+                "subfield info": "SAC "
+            }
+        ]
+    },
+    "I061/012": {
+        "format": "fixed",
+        "item definition": "Identification of the user requesting track/sensor information",
+        "item name": "User Identification",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "UID",
+                        "name2": "(UID) User Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "UID "
+            }
+        ]
+    },
+    "I061/015": {
+        "format": "fixed",
+        "item definition": "Identification of the service provided to one or more users.",
+        "item name": "Service Identification",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SID",
+                        "name2": "(SID) Service Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "SID "
+            }
+        ]
+    },
+    "I061/020": {
+        "format": "fixed",
+        "item definition": "Absolute time stamping of the message, in the form of elapsed time since last midnight, expressed as UTC.",
+        "item name": "Time of Message",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 1,
+                "note": "The time of the day value is reset to zero at every midnight.",
+                "subfield info": "Time Of Message LSB  "
+            }
+        ]
+    },
+    "I061/030": {
+        "format": "fixed",
+        "item definition": "A number indicating the completion of a service for that batch of track data, from 0 to N-1, N being the number of batches used to make one complete processing cycle.",
+        "item name": "Batch Number",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "BTN",
+                        "name2": "(BTN) Batch Number",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "BTN "
+            }
+        ]
+    },
+    "I061/045": {
+        "format": "fixed",
+        "item definition": "Version number of the SDPS application .",
+        "item name": "Application Version Number",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "AVN",
+                        "name2": "(AVN) Application",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I061/050": {
+        "format": "fixed",
+        "item definition": "Identifies the default geographical volume of interest of the user",
+        "item name": "Default Geographical Volume",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "type": "spare"
+                    }
+                ],
+                "id": 1,
+                "note": "This item is exclusive with I061/060 , and with I061/070, and with I061/080. Transmission of SDPS Session and Service Control Messages",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I061/060": {
+        "format": "repetitive",
+        "item definition": "Geographical area of interest of the user",
+        "item name": "Geographical Area",
+        "length": 8,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 72,
+                        "bit end": 64,
+                        "name1": "REP",
+                        "name2": "(REP) Repetition Factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 64,
+                        "bit end": 32,
+                        "lsb": 5.364418e-06,
+                        "max": 90,
+                        "min": -90,
+                        "name1": "Latitude",
+                        "name2": "(Latitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 0,
+                        "lsb": 5.364418e-06,
+                        "max": 180,
+                        "min": -180,
+                        "name1": "Longitude",
+                        "name2": "(Longitude) In WGS.84",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. Closure of the polygon is not required Transmission of SDPS Session and Service Control Messages 2. None of the border segments that make up the geographical area should cross or overlap 3. This item is exclusive with I061/0505 .2.10 Data Item I061/070, Lower Limit Definition : Lower limit of the geographical volume of interest Format : Two-octet fixed length Data Item",
+                "subfield info": "REP Latitude in WGS - 84 LSB Longitude in WGS - 84 LSB "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "max": 1500,
+                        "min": -15,
+                        "name1": "Lower Limit",
+                        "name2": "(Lower Limit) QLSBQ",
+                        "signed": "true",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "Lower Limit "
+            }
+        ]
+    },
+    "I061/080": {
+        "format": "fixed",
+        "item definition": "Upper limit of the geographical volume of interest",
+        "item name": "Upper Limit",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "max": 1500,
+                        "min": -15,
+                        "name1": "Upper Limit",
+                        "name2": "(Upper Limit) QLSBQ",
+                        "signed": "true",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "Upper Limit "
+            }
+        ]
+    },
+    "I061/100": {
+        "format": "repetitive",
+        "item definition": "Report message sent by the SDPS to the User in relation to a connection.",
+        "item name": "Connection Related Report",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": " Repetition Factor :",
+                        "name2": " Repetition Factor : 1 to 255 (The Repetition Factor will be > 1 when e.g. several errors have been detected within a connection Request) . ",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": " : Report (CODE) ",
+                        "name2": " : Report (CODE) ",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "Repetition Factor "
+            }
+        ]
+    },
+    "I061/130": {
+        "format": "compound",
+        "item definition": "Track Selection elements in a Service Request.",
+        "item name": "Track Selector",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 16,
+                        "type": "spare"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 24,
+                        "name1": "Repetition Factor",
+                        "name2": "Repetition Factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 0,
+                        "name1": "24 bits aircraft",
+                        "name2": "24 bits aircraft",
+                        "type": "int"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 48,
+                        "name1": "Repetition Factor B",
+                        "name2": " Repetition Factor Bits 48/1 characters 1-8 (coded on 6 bits each) defining callsign when flight plan is available or the registration marking when no flight plan is available. See ICAO document Annex 10, Volume I, Part I, section 3.8.2.9 for the coding rules. ",
+                        "type": "rep"
+                    }
+                ],
+                "id": 3,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 48,
+                        "bit end": 16,
+                        "name1": "Repetition Factor",
+                        "name2": "Repetition Factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 12,
+                        "name1": "Wildcard Indicators : For each code digit (A, B,  C,  D) ,  a Wildcard (respectively W1,  W2,  W3,  W4) can be set to indicate that the track selection will have to be done whatever is the value of the digit in question. (Wi)",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "option 1"
+                            ],
+                            [
+                                "1",
+                                "option 2"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode 3/A Code under",
+                        "name2": "Mode 3/A Code under",
+                        "type": "int"
+                    }
+                ],
+                "id": 4,
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 32,
+                        "name1": "Repetition Factor B",
+                        "name2": "Repetition Factor Bits 32/1 Airport Name. Each one of the four Octets composing the name of an airport contains an ASCII Character (upper-case alphabetic) .",
+                        "type": "rep"
+                    }
+                ],
+                "id": 5,
+                "note": "the airport names are indicated in the ICAO location indicators book.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 32,
+                        "name1": "Repetition Factor B",
+                        "name2": "Repetition Factor Bits 32/1 Airport Name. Each one of the four Octets composing the name of an airport contains an ASCII Character (upper-case alphabetic) .",
+                        "type": "rep"
+                    }
+                ],
+                "id": 6,
+                "note": "the airport names are indicated in the ICAO location indicators book. Transmission of SDPS Session and Service Control Messages",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 32,
+                        "name1": "Repetition Factor B",
+                        "name2": "Repetition Factor Bits 32/1 Type of Aircraft. Each one of the four Octets composing the type of an aircraft contains an ASCII Character (upper-case alphabetic with trailing spaces) .",
+                        "type": "rep"
+                    }
+                ],
+                "id": 7,
+                "note": "the types of aircraft are defined in ICAO Document 4444.",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "name1": "Repetition Factor",
+                        "name2": "Repetition Factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "CENTRE",
+                        "name2": "(CENTRE) 8-bit",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "POSITION",
+                        "name2": "(POSITION) 8-bit",
+                        "type": "int"
+                    }
+                ],
+                "id": 8,
+                "note": "the centre and the control position identification codes have to be defined between communication partners. Transmission of SDPS Session and Service Control Messages",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 30,
+                        "name1": "SIM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "tracks from live surveillance reports"
+                            ],
+                            [
+                                "01",
+                                "tracks from simulated surveillance reports"
+                            ],
+                            [
+                                "10",
+                                "tracks from both live and simulated surveillance reports"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 30,
+                        "bit end": 29,
+                        "name1": "CSR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "no combined radar reports"
+                            ],
+                            [
+                                "1",
+                                "combined radar reports"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 29,
+                        "bit end": 28,
+                        "name1": "PSR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "no primary radar reports"
+                            ],
+                            [
+                                "1",
+                                "primary radar reports"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 28,
+                        "bit end": 27,
+                        "name1": "SSR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "no secondary radar reports"
+                            ],
+                            [
+                                "1",
+                                "secondary radar reports"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 27,
+                        "bit end": 26,
+                        "name1": "MDS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "no Mode S radar reports"
+                            ],
+                            [
+                                "1",
+                                "Mode S radar reports"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 26,
+                        "bit end": 25,
+                        "name1": "ADS",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "no ADS reports"
+                            ],
+                            [
+                                "1",
+                                "ADS reports"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 25,
+                        "bit end": 23,
+                        "name1": "VALT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "default"
+                            ],
+                            [
+                                "01",
+                                "tracks with altitude using valid Flight Level reports (e.g. Mode C) only"
+                            ],
+                            [
+                                "10",
+                                "tracks with altitude using assumed height only"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 23,
+                        "bit end": 21,
+                        "name1": "FPC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "default"
+                            ],
+                            [
+                                "01",
+                                "tracks correlated to Flight Plan(s) only"
+                            ],
+                            [
+                                "10",
+                                "tracks not correlated to Flight Plan(s) only"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 21,
+                        "bit end": 20,
+                        "name1": "CNF",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "tentative tracks shall be sent"
+                            ],
+                            [
+                                "1",
+                                "tentative tracks shall not be sent"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 20,
+                        "bit end": 19,
+                        "name1": "SPI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "tracks with SPI flag shall be sent"
+                            ],
+                            [
+                                "1",
+                                "tracks with SPI flag shall not be sent"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 19,
+                        "bit end": 18,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 18,
+                        "bit end": 16,
+                        "name1": "GAT/OAT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "All Traffic"
+                            ],
+                            [
+                                "01",
+                                "General Air Traffic"
+                            ],
+                            [
+                                "10",
+                                "Operational Air Traffic"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "IFR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No IFR"
+                            ],
+                            [
+                                "1",
+                                "IFR selected Transmission of SDPS Session and Service Control Messages"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "VFR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No VFR"
+                            ],
+                            [
+                                "1",
+                                "VFR selected"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 13,
+                        "name1": "CFR",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "No CVFR"
+                            ],
+                            [
+                                "1",
+                                "CVFR selected"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 11,
+                        "name1": "RVSM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "All"
+                            ],
+                            [
+                                "01",
+                                "Approved"
+                            ],
+                            [
+                                "10",
+                                "Exempt"
+                            ],
+                            [
+                                "11",
+                                "Not approved"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 11,
+                        "bit end": 9,
+                        "name1": "FRI/FOE",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Tracks shall be sent irrespectively of Mode 4 value"
+                            ],
+                            [
+                                "01",
+                                "Tracks shall be sent for friendly targets only"
+                            ],
+                            [
+                                "10",
+                                "Tracks shall be sent for unknown targets only"
+                            ],
+                            [
+                                "11",
+                                "Tracks shall be sent for not replying targets only"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 9,
+                        "bit end": 8,
+                        "name1": "ME",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "tracks with ME flag shall be sent"
+                            ],
+                            [
+                                "1",
+                                "tracks with ME flag shall not be sent"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "MI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "tracks with MI flag shall be sent"
+                            ],
+                            [
+                                "1",
+                                "tracks with MI flag shall not be sent"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 0,
+                        "type": "spare"
+                    }
+                ],
+                "id": 9,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I061/210": {
+        "format": "extendible",
+        "item definition": "The Item Selector is used to define the composition of the track information messages. The bits that compose the Item Selector points the items composing the category 062 UAP.",
+        "item name": "Item Selector",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 25,
+                        "name1": "Bits 24/18 (Ni)",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Data Item corresponding to FRN ,i of category 062 UAP not selected Bits 16/10"
+                            ],
+                            [
+                                "1",
+                                "Data Item corresponding to FRN ,i of category 062 UAP selected Bits 8/2 Bit 25 Bit 17 (FX) field extension Bit 9 Bit 1"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "The bits in the item selector are arranged in the order defined in Category 062 User Application Profile, described in (Ref.3) . Transmission of SDPS Session and Service Control Messages",
+                "subfield info": "N1 N2 N3 N4 N5 N6 N7 FX N8 N9 N10 N11 N12 N13 N14 FX "
+            }
+        ]
+    },
+    "I061/220": {
+        "format": "fixed",
+        "item definition": "Definition of the Scanning Period, Update Period, Max Data Flow and Extra Delay (to be considered for the track extrapolation) in case of periodical service.",
+        "item name": "Cyclical Update Characteristics",
+        "length": 5,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 40,
+                        "bit end": 38,
+                        "name1": "Directive for scanning: (SD)",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "no directive"
+                            ],
+                            [
+                                "01",
+                                "scanning by column"
+                            ],
+                            [
+                                "10",
+                                "scanning by row"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 38,
+                        "bit end": 32,
+                        "name1": "SCANNING PERIOD",
+                        "name2": "(SCANNING PERIOD)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 28,
+                        "name1": "BATCH PERIOD",
+                        "name2": "(BATCH PERIOD)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 28,
+                        "bit end": 16,
+                        "name1": "UPDATE PERIOD",
+                        "name2": "(UPDATE PERIOD)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 14,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 8,
+                        "name1": " (DELAY) : number ",
+                        "name2": " (DELAY) : number ",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "MAXFLOW",
+                        "name2": "(MAXFLOW) Maximum",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "Value 255 means no maximum user input data flow Transmission of SDPS Session and Service Control Messages",
+                "subfield info": "SD SCANNING PERIOD BATCH PERIOD UPDATE PERIOD 0 EXTRA DELAY MAXFLOW "
+            }
+        ]
+    },
+    "I061/230": {
+        "format": "variable",
+        "item definition": "Transmission Characteristics for a radar synchronised service.",
+        "item name": "Radar Synchronisation Characteristics",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 48,
+                        "bit end": 40,
+                        "name1": "MSAC",
+                        "name2": "(MSAC) Source Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 40,
+                        "bit end": 32,
+                        "name1": "MSIC",
+                        "name2": "(MSIC) Source Identity",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 25,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 25,
+                        "bit end": 16,
+                        "name1": "BSAC",
+                        "name2": "(BSAC) Source Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "BSIC",
+                        "name2": "(BSIC) Source Identity",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "type": "spare"
+                    }
+                ],
+                "id": 0,
+                "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int) . Transmission of SDPS Session and Service Control Messages",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I061/240": {
+        "format": "compound",
+        "item definition": "This item contains a number of flags to indicate which events shall be considered for triggering the track information transmission (aperiodical way of transmission) .",
+        "item name": "Triggering Criteria for Aperiodical Services",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "type": "spare"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            },
+            {
+                "data": [],
+                "id": 2,
+                "subfield info": "Spare "
+            },
+            {
+                "data": [],
+                "id": 3,
+                "subfield info": "Rate of Climb/Descent Threshold "
+            },
+            {
+                "data": [],
+                "id": 4,
+                "subfield info": "Position Threshold \u2013 TO BE DELETED? "
+            },
+            {
+                "data": [],
+                "id": 5,
+                "subfield info": "Rate of Turn Threshold "
+            },
+            {
+                "data": [],
+                "id": 6,
+                "subfield info": "Track Angle Threshold "
+            },
+            {
+                "data": [],
+                "id": 7,
+                "subfield info": "Ground Speed Threshold "
+            },
+            {
+                "data": [],
+                "id": 8,
+                "subfield info": "Longitudinal Acceleration Threshold \u2013 What happens if Cartesian Acceleration? "
+            },
+            {
+                "data": [],
+                "id": 9,
+                "subfield info": "Altitude Threshold "
+            },
+            {
+                "data": [],
+                "id": 10,
+                "subfield info": "Factor K "
+            },
+            {
+                "data": [],
+                "id": 11,
+                "subfield info": "Refreshment Period "
+            },
+            {
+                "data": [],
+                "id": 12,
+                "subfield info": "Minimal Period "
+            }
+        ]
+    },
+    "I061/330": {
+        "format": "repetitive",
+        "item definition": "Report message sent by the Server to the User in relation to a connection or a service.",
+        "item name": "Service Related Report",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 16,
+                        "name1": "Repetition Factor B",
+                        "name2": "Repetition Factor Bits 16/12 (CODE) \u2013 system dependent value",
+                        "type": "rep"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "Repetition factor "
+            }
+        ]
+    },
+    "I061/350": {
+        "format": "repetitive",
+        "item definition": "List of Sensor SAC/SIC identifications for which Sensor information are to be provided.",
+        "item name": "Sensor Selector",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 16,
+                        "name1": "Repetition Factor =",
+                        "name2": "Repetition Factor = 0 to 30",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) Source Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) Source Identity",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int) . Transmission of SDPS Session and Service Control Messages",
+                "subfield info": "Repetition Factor "
+            }
+        ]
+    },
+    "I061/360": {
+        "format": "extendible",
+        "item definition": "The Item Selector is used to define the composition of the Sensor information messages. The bits that compose the Item Selector point to the items composing the category 063 UAP.",
+        "item name": "Sensor Item Selector",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 17,
+                        "name1": "Ni",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Data Item corresponding to FRN ,i of category 063 UAP not selected Bits 16/10"
+                            ],
+                            [
+                                "1",
+                                "Data Item corresponding to FRN ,i of category 063 UAP selected Bits 8/2 Bit 17 Bit 9 (FX) field extension Bit 1"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "The bits in the item selector are arranged in the order defined in Category 063 User Application Profile, described in (Ref.4) .",
+                "subfield info": "N1 N2 N3 N4 N5 N6 N7 FX N8 N9 N10 N11 N12 N13 N14 FX "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 1,
+                        "name1": "UPDATE PERIOD",
+                        "name2": "(UPDATE PERIOD)",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "UPDATE PERIOD LSB  "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 1,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "lsb": 1,
+                        "name1": "REFRESH PERIOD",
+                        "name2": "(REFRESH PERIOD) period",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "s"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 1,
+                        "name1": "TIME STAMPING BIA",
+                        "name2": "(TIME STAMPING BIAS",
+                        "signed": "false",
+                        "type": "time",
+                        "unit": "ms"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.007812,
+                        "name1": "SSR RANGE BIAS",
+                        "name2": "(SSR RANGE BIAS) variation",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "name1": "SSR RANGE GAIN",
+                        "name2": "(SSR RANGE GAIN)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "SSR AZIMUTH BIAS",
+                        "name2": "(SSR AZIMUTH BIAS)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.007812,
+                        "name1": "PSR RANGE BIAS",
+                        "name2": "(PSR RANGE BIAS) variation",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "name1": "PSR RANGE GAIN",
+                        "name2": "(PSR RANGE GAIN)",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 0,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "PSR AZIMUTH BIAS",
+                        "name2": "(PSR AZIMUTH BIAS)",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "Primary subfield RP DP TSB SRB SGB SAB PRB FX PGB PAB sb FX "
+            }
+        ]
+    },
+    "cat": "I061"
+}

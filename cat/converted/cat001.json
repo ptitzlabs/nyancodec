@@ -1,0 +1,1103 @@
+{
+    "I001/010": {
+        "format": "fixed",
+        "item definition": "Identification of the radar station from which the data are received.",
+        "item name": "Data Source Identifier",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The defined SACs are listed in Part 1, Table 2. (Ref.2 ) 2. The defined SICs are listed in Part 1, Annex B. (Ref.2 ) Transmission of Monoradar Target Reports",
+                "subfield info": "SAC SIC "
+            }
+        ]
+    },
+    "I001/020": {
+        "format": "variable",
+        "item definition": "Type and characteristics of the radar data as transmitted by a radar station.",
+        "item name": "Target Report Descriptor",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "TYP",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Plot"
+                            ],
+                            [
+                                "1",
+                                "Track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "SIM",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Actual plot or track"
+                            ],
+                            [
+                                "1",
+                                "Simulated plot or track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 4,
+                        "name1": "SSR/PSR",
+                        "name2": " Radar detection in last antenna scan, as follows:",
+                        "options": [
+                            [
+                                "00",
+                                "No detection;"
+                            ],
+                            [
+                                "01",
+                                "Sole primary detection;"
+                            ],
+                            [
+                                "10",
+                                "Sole secondary detection;"
+                            ],
+                            [
+                                "11",
+                                "Combined primary and secondary detection."
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "ANT",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Target report from antenna 1"
+                            ],
+                            [
+                                "1",
+                                "Target report from antenna 2"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "SPI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Special Position Identification"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "RAB",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Plot or track from a fixed transponder"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "Bit-7 (SIM) is used to identify a simulated target report as produced by a traffic simulator. Transmission of Monoradar Target Reports 16",
+                "subfield info": ""
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "TST",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Test target indicator"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 5,
+                        "name1": "DS1/DS2",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Default"
+                            ],
+                            [
+                                "01",
+                                "Unlawful interference (code 7500)"
+                            ],
+                            [
+                                "10",
+                                "Radio-communication failure (code 7600)"
+                            ],
+                            [
+                                "11",
+                                "Emergency (code 7700)"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "ME",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Military emergency"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "MI",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Military identification"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 1,
+                        "type": "spare"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I001/030": {
+        "format": "variable",
+        "item definition": "Warning/error conditions detected by a radar station for the target report involved.",
+        "item name": "Warning/Error Conditions",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "name1": "W/E Value",
+                        "name2": "(W/E Value) First",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. Warning/error condition values 0-63 are reserved for common standard use, whereas the values 64-127 are application dependent. 2. The following set of common W/E values is defined: - W/E = 0, no warning nor error condition; - W/E = 1, garbled reply; - W/E = 2, reflection; - W/E = 3, sidelobe reply; - W/E = 4, split plot; - W/E = 5, second time around reply; - W/E = 6, angels; - W/E = 7, terrestrial vehicles. 3. The following set of applications dependent W/E values are reserved: - W/E = 64, possible wrong code in Mode-3/A; - W/E = 65, possible wrong altitude information, transmitted when the Code C credibility check fails together with the Mode-C code in binary notation; - W/E = 66 possible phantom MSSR plot; - W/E = 80 fixed PSR plot; - W/E = 81 slow PSR plot; - W/E = 82 low quality PSR plot. Transmission of Monoradar Target Reports 18",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I001/040": {
+        "format": "fixed",
+        "item definition": "Measured position of an aircraft in local polar coordinates.",
+        "item name": "Measured Position in Polar Coordinates",
+        "length": 4,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.007812,
+                        "max": 512,
+                        "min": 0,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 1,
+                "note": "When expressed in 16 bits, signed or unsigned azimuths have the same value. Transmission of Monoradar Target Reports",
+                "subfield info": "RHO LSB THETA LSB "
+            }
+        ]
+    },
+    "I001/042": {
+        "format": "fixed",
+        "item definition": "Calculated position of an aircraft in cartesian coordinates.",
+        "item name": "Calculated Position in Cartesian Coordinates",
+        "length": 4,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.015625,
+                        "max": 512.0,
+                        "min": 0,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "where"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.015625,
+                        "max": 512.0,
+                        "min": 0,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": ""
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. A default quantisation unit of 1/64 NM is obtained for a value of f = 0. 2. Negative values are expressed in 2's complement form, bit-32 and bit-16 shall be set to 0 for positive values and 1 for negative values. Transmission of Monoradar Target Reports 20",
+                "subfield info": "X-Component LSB Y-Component LSB "
+            }
+        ]
+    },
+    "I001/050": {
+        "format": "fixed",
+        "item definition": "Reply to Mode-2 interrogation.",
+        "item name": "Mode-2 Code in Octal Representation",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code validated"
+                            ],
+                            [
+                                "1",
+                                "Code not validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 13,
+                        "name1": "L",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Mode-2 code as derived from the reply of the transponder"
+                            ],
+                            [
+                                "1",
+                                "Smoothed Mode-2 code as provided by a local tracker"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode-2 code in",
+                        "name2": "Mode-2 code in",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. Smoothed Mode-2 data (bit-14 set to one) is used when the plot contains no Mode-2 code or the Mode-2 codes of the plot and track are different. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-2 and are set to 0 for a calculated track. Transmission of Monoradar Target Reports",
+                "subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
+            }
+        ]
+    },
+    "I001/060": {
+        "format": "fixed",
+        "item definition": "Confidence level for each bit of a Mode-2 reply as provided by a monopulse SSR station.",
+        "item name": "Mode-2 Code Confidence Indicator",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "QXi",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "High quality pulse Xi"
+                            ],
+                            [
+                                "1",
+                                "Low quality pulse Xi"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "This Data Item is only transmitted if at least one pulse is of low quality. Transmission of Monoradar Target Reports 22",
+                "subfield info": "0 0 0 0 QA4 QA2 QA1 QB4 QB2 QB1 QC4 QC2 QC1 QD4 QD2 QD1 "
+            }
+        ]
+    },
+    "I001/070": {
+        "format": "fixed",
+        "item definition": "Mode-3/A code converted into octal representation.",
+        "item name": "Mode-3/A Code in Octal Representation",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code validated"
+                            ],
+                            [
+                                "1",
+                                "Code not validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 14,
+                        "bit end": 13,
+                        "name1": "L",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Mode-3/A code as derived from the reply of the transponder"
+                            ],
+                            [
+                                "1",
+                                "Smoothed Mode-3/A code as provided by a local tracker"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 13,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "Mode-3/A reply",
+                        "name2": "Mode-3/A reply",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The detector signals a garbled code (bit-15 set to one) when at least two replies are overlapping. 2. Smoothed Mode-3/A data (bit-14 set to a one) are used in the case of the absence of Mode-3/A code information in the plot, or in the case of a difference between the plot and track Mode-3/A code information. 3. Bits-16/15 have no meaning in the case of a smoothed Mode-3/A and are set to 0 for a calculated track. Transmission of Monoradar Target Reports",
+                "subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
+            }
+        ]
+    },
+    "I001/080": {
+        "format": "fixed",
+        "item definition": "Confidence level for each bit of a Mode-3/A reply as provided by a monopulse SSR station.",
+        "item name": "Mode-3/A Code Confidence Indicator",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "QXi",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "High quality pulse Xi"
+                            ],
+                            [
+                                "1",
+                                "Low quality pulse Xi"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "This Data Item will only be transmitted if at least one pulse is of low quality.",
+                "subfield info": "0 0 0 0 QA4 QA2 QA1 QB4 QB2 QB1 QC4 QC2 QC1 QD4 QD2 QD1 "
+            }
+        ]
+    },
+    "I001/090": {
+        "format": "fixed",
+        "item definition": "Mode-C height converted into binary representation.",
+        "item name": "Mode-C Code in Binary Representation",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code validated"
+                            ],
+                            [
+                                "1",
+                                "Code not validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 14,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "FL"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The detector signals a garbled code when at least two replies are overlapping. 2. The maximum height which can be represented is 204 775 ft. Practically the maximum valid value is 126 750 ft (refer to ICAO Annex 10) . 3. Negative values are expressed in 2's complement form, bit-14 is set to 0 for positive values and 1 for negative values. Transmission of Monoradar Target Reports 24",
+                "subfield info": "V G Mode-C HEIGHT LSB  "
+            }
+        ]
+    },
+    "I001/100": {
+        "format": "fixed",
+        "item definition": "Mode-C height in Gray notation as received from the transponder together with the confidence level for each reply bit as provided by a monopulse SSR station.",
+        "item name": "Mode-C Code and Code Confidence Indicator",
+        "length": 4,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 31,
+                        "name1": "V",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Code validated"
+                            ],
+                            [
+                                "1",
+                                "Code not validated"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 31,
+                        "bit end": 30,
+                        "name1": "G",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Garbled code"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 30,
+                        "bit end": 28,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 28,
+                        "bit end": 16,
+                        "name1": "Mode-C reply in",
+                        "name2": "Mode-C reply in",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 12,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 0,
+                        "name1": "QXi",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "High quality pulse Xi"
+                            ],
+                            [
+                                "1",
+                                "Low quality pulse Xi"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. This Data Item is only transmitted if at least one pulse is of low quality. 2. The detector signals a garbled code when at least two replies are overlapping. Transmission of Monoradar Target Reports",
+                "subfield info": "V G 0 0 C1 A1 C2 A2 C4 A4 B1 D1 B2 D2 B1 D1 0 0 0 0 QC1 QA1 QC2 QA2 QC4 QA4 QB1 QD1 QB2 QD2 QB1 QD1 "
+            }
+        ]
+    },
+    "I001/120": {
+        "format": "fixed",
+        "item definition": "Radial component of the ground speed as measured by means of Doppler filter banks in radar signal processors.",
+        "item name": "Measured Radial Doppler Speed",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "lsb": 6.103516e-05,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM/s"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. A default quantisation unit of 14.0625 kt and a maximum of +/- 1 800 kt is obtained for a value of f = 6. 2. Negative values are expressed in 2's complement form, bit-8 is set to 0 for positive values and 1 for negative values.",
+                "subfield info": "LSB  "
+            }
+        ]
+    },
+    "I001/130": {
+        "format": "variable",
+        "item definition": "Additional information on the quality of the target report.",
+        "item name": "Radar Plot Characteristics",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "name1": "= Indicator. The",
+                        "name2": "= Indicator. The",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "This Data Item may contain parameters such as plot runlength (primary and secondary) , difference between primary and secondary derived azimuth, pulse amplitude, etc. Transmission of Monoradar Target Reports 26",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I001/131": {
+        "format": "fixed",
+        "item definition": "Measurement of the received power.",
+        "item name": "Received Power",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 7,
+                        "bit end": 0,
+                        "lsb": 1,
+                        "name1": "POWER",
+                        "name2": "(POWER) Decimal logarithm",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "dBm"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. POWER is the measured value of the power received on the sum pattern for a plot. 2. Negative values are expressed in 2's complement form, bit-8 is set to 0 for positive values and 1 for negative values.",
+                "subfield info": "POWER LSB  "
+            }
+        ]
+    },
+    "I001/141": {
+        "format": "fixed",
+        "item definition": "Absolute time stamping expressed as Coordinated Universal Time (UTC) time.",
+        "item name": "Truncated Time of Day",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": ") s"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The exchange of this Data Item allows the easy derivation of the correct UTC time value, provided that the clocks at the data source and sink(s) are less than 512 seconds out of synchronisation. Special care has to be taken at the transition of an \"all ones\"value to an \"all zeros\" value (every 512 seconds) . 2. The time of day value is reset to 0 each day at midnight. 3. For time management in radar transmission applications, refer to Part 1, paragraph 5.4 (Ref. 2) . Transmission of Monoradar Target Reports",
+                "subfield info": "LSB  "
+            }
+        ]
+    },
+    "I001/150": {
+        "format": "fixed",
+        "item definition": "Presence of the X-Pulse for the various modes applied in the interrogation interlace pattern.",
+        "item name": "Presence of X-Pulse",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "XA",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "X-pulse received in Mode-3/A reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "XC",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "X-pulse received in Mode-C reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 3,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "X2",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "X-pulse received in Mode-2 reply"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 0,
+                        "type": "spare"
+                    }
+                ],
+                "id": 1,
+                "note": "This Data Item is transmitted only if at least one X-pulse has been received in a Mode-A, Mode-2 or Mode-C reply.",
+                "subfield info": "XA 0 XC 0 0 X2 0 0 "
+            }
+        ]
+    },
+    "I001/161": {
+        "format": "fixed",
+        "item definition": "An integer value representing a unique reference to a track/plot record within a particular track/plot file.",
+        "item name": "Track Plot Number",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [],
+                "id": 65,
+                "subfield info": "Variable length Data Item comprising a first part of one- octet, followed by one-octet extents as necessary.  "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "CON",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Confirmed track"
+                            ],
+                            [
+                                "1",
+                                "Track in initialisation phase"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "RAD",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Primary track"
+                            ],
+                            [
+                                "1",
+                                "SSR/Combined track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "MAN",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Aircraft manoeuvring"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "DOU",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Doubtful plot to track association"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "RDPC",
+                        "name2": "Radar Data Processing Chain",
+                        "options": [
+                            [
+                                "0",
+                                "RDP Chain 1"
+                            ],
+                            [
+                                "1",
+                                "RDP Chain 2"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "GHO",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Ghost track"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. Bit-2 (GHO) is used to signal that the track is suspected to have been generated by a fake target. 2. Bit-4 (RDPC) is used to signal the discontinuity of the track numbers. Transmission of Monoradar Target Reports",
+                "subfield info": "CON RAD MAN DOU RDPC 0 GHO FX "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "TRE",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Last report for a track"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 1,
+                        "type": "spare"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I001/200": {
+        "format": "fixed",
+        "item definition": "Calculated track velocity expressed in polar coordinates.",
+        "item name": "Calculated Track Velocity in Polar Coordinates",
+        "length": 4,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.25,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": ") NM/s"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "CALCULATED GROUNDSPEED (max. 2 NM/s) LSB CALCULATED HEADING LSB "
+            }
+        ]
+    },
+    "I001/210": {
+        "format": "variable",
+        "item definition": "Relative track quality.",
+        "item name": "Track Quality",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "name1": "Quality indicator.",
+                        "name2": "Quality indicator.",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The order of the quality bits in this Data Item is the same as in Transmission of Monoradar Target Reports 38",
+                "subfield info": "First Part :  "
+            }
+        ]
+    },
+    "cat": "I001"
+}

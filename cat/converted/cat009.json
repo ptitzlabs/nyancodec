@@ -1,0 +1,260 @@
+{
+    "I009/000": {
+        "format": "fixed",
+        "item definition": "This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.",
+        "item name": "Message Type",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "= Message type",
+                        "name2": "= Message type",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The following Message Types are standardised for category 009 records: 002, Cartesian vector 253, Intermediate-update-step message 254, Start-of-picture message 255, End-of-picture message",
+                "subfield info": "Message Type "
+            }
+        ]
+    },
+    "I009/010": {
+        "format": "fixed",
+        "item definition": "Identification of the Track Server from which the data are received.",
+        "item name": "Data Source Identifier",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) = System",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) = System",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The SACs are available at www.eurocontrol.int/asterix/public/standard_page/sac_list.html NOTE- The SICs are nationally assigned.",
+                "subfield info": "SAC SIC "
+            }
+        ]
+    },
+    "I009/020": {
+        "format": "variable",
+        "item definition": "This Data Item defines the orientation of the following sequence of Cartesian vectors, their intensity level and the relevant coordinate system.",
+        "item name": "Vector Qualifier",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "ORG",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "option 1"
+                            ],
+                            [
+                                "1",
+                                "option 2"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 4,
+                        "name1": "I1/I2/I3",
+                        "name2": "(I1/I2/I3) = Intensity",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 1,
+                        "name1": "S1/S2/S3",
+                        "name2": "(S1/S2/S3) = Shading",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "For polar vectors bits-4/2 are meaningless and shall be set to zero.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I009/030": {
+        "format": "repetitive",
+        "item definition": "Sequence of weather vectors in local or system Cartesian coordinates.",
+        "item name": "Sequence of Cartesian Vectors",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 56,
+                        "bit end": 48,
+                        "name1": "REP",
+                        "name2": "(REP) = Repetition factor",
+                        "type": "rep"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1) f shall be incorporated as a parameter in the SOP message. 2) Negative values are expressed in two\u2019s complement form.",
+                "subfield info": "REP X-coordinate lsb Y-coordinate lsb Vector length lsb "
+            }
+        ]
+    },
+    "I009/060": {
+        "format": "variable",
+        "item definition": "This Data Item provides the serial Step Number.",
+        "item name": "Synchronisation/Control Signal",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 2,
+                        "name1": "= Serial Step Number",
+                        "name2": "= Serial Step Number",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "type": "spare"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I009/070": {
+        "format": "fixed",
+        "item definition": "Absolute time stamping expressed as UTC time.",
+        "item name": "Time of Day",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [],
+                "id": 1,
+                "note": "The time of day value is reset to zero each day at midnight.",
+                "subfield info": "Time of Day lsb "
+            }
+        ]
+    },
+    "I009/080": {
+        "format": "variable",
+        "item definition": "Processing status of the Track Server.",
+        "item name": "Processing Status",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 19,
+                        "name1": "f",
+                        "name2": "(f) = Scaling factor",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 19,
+                        "bit end": 16,
+                        "name1": "R",
+                        "name2": "(R) = Reduction",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 1,
+                        "name1": "Q",
+                        "name2": "(Q) = Processing",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "A negative value for the scaling factor (f) is expressed in two\u2019s complement.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I009/090": {
+        "format": "repetitive",
+        "item definition": "Current radar configuration and status of all operational radars.",
+        "item name": "Radar Configuration and Status",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 24,
+                        "name1": "REP",
+                        "name2": "(REP) = Repetition factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 16,
+                        "name1": "SAC",
+                        "name2": "(SAC) = SAC of",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SIC",
+                        "name2": "(SIC) = SIC of",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 5,
+                        "name1": "= Spare (always",
+                        "name2": "= Spare (always",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 0,
+                        "name1": "R1/R2/R3",
+                        "name2": "(R1/R2/R3) = Reduction",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "REP SAC SIC 0 0 0 CP WO R1/R2/R3 "
+            }
+        ]
+    },
+    "I009/100": {
+        "format": "fixed",
+        "item definition": "Total number of vectors defining a complete weather picture.",
+        "item name": "Vector Count",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [],
+                "id": 1,
+                "subfield info": ""
+            }
+        ]
+    },
+    "cat": "I009"
+}

@@ -1,0 +1,434 @@
+{
+    "I008/000": {
+        "format": "fixed",
+        "item definition": "This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.",
+        "item name": "Message Type",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [],
+                "id": 255,
+                "subfield info": "Two-octet fixed length Data Item.  "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The defined SACs are on the EUROCONTROL ASTERIX website (www.eurocontrol.int/asterix)",
+                "subfield info": "SAC SIC "
+            }
+        ]
+    },
+    "I008/020": {
+        "format": "variable",
+        "item definition": "Precipitation intensity level, shading orientation of the vectors representing the precipitation area and coordinate system used.",
+        "item name": "Vector Qualifier",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "ORG",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Local Coordinates"
+                            ],
+                            [
+                                "1",
+                                "System Coordinates"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 4,
+                        "name1": "I1/I2/I3",
+                        "name2": "(I1/I2/I3) Intensity",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 1,
+                        "name1": "S1/S2/S3",
+                        "name2": "(S1/S2/S3) Shading",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "For polar vectors bits-4/2 are meaningless and are set to zero.",
+                "subfield info": "Octet no. 1 "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 3,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "TST",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Test vector"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "ER",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Default"
+                            ],
+                            [
+                                "1",
+                                "Error condition encountered"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 2,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I008/034": {
+        "format": "repetitive",
+        "item definition": "Sequence of weather vectors in local polar coordinates.",
+        "item name": "Sequence of Polar Vectors in SPF Notation",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 40,
+                        "bit end": 32,
+                        "lsb": 0.007812,
+                        "max": 2.0,
+                        "min": 0,
+                        "name1": "REP",
+                        "name2": "(REP) Number of weather",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.007812,
+                        "max": 2.0,
+                        "min": 0,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.005493,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "deg"
+                    }
+                ],
+                "id": 1,
+                "note": "f is a parameter of the SOP message.",
+                "subfield info": "REP START RANGE LSB END RANGE LSB AZIMUTH LSB "
+            }
+        ]
+    },
+    "I008/036": {
+        "format": "repetitive",
+        "item definition": "Sequence of weather vectors, in the representation start point/ length, in local or in system cartesian coordinates.",
+        "item name": "Sequence of Cartesian Vectors in SPF Notation",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 24,
+                        "lsb": 0.015625,
+                        "name1": "REP",
+                        "name2": "(REP) Number of weather",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 8,
+                        "lsb": 0.015625,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "lsb": 0.015625,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. f is a parameter of the SOP message. 2. Negative values are expressed in 2's complement form, bit-24 and bit-16 are set to 0 for positive values and 1 for negative values.",
+                "subfield info": "REP X-COMPONENT LSB Y-COMPONENT LSB LENGTH LSB "
+            }
+        ]
+    },
+    "I008/038": {
+        "format": "repetitive",
+        "item definition": "Sequence of weather vectors, in the representation start point/ end point, in local or in system cartesian coordinates.",
+        "item name": "Sequence of Weather Vectors in SPF Notation",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [],
+                "id": 1,
+                "note": "S 1. f is a parameter of the SOP message. 2. Negative values are expressed in 2's complement form, bits-32, 24, 16 and 8 are set to 0 for positive values and 1 for negative values.",
+                "subfield info": "REP Y1 Component LSB Y2 Component LSB "
+            }
+        ]
+    },
+    "I008/040": {
+        "format": "fixed",
+        "item definition": "Contour serial number together with the precipitation intensity levels and the coordinates system used.",
+        "item name": "Contour Identifier",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 15,
+                        "name1": "ORG",
+                        "name2": "",
+                        "options": [
+                            [
+                                "0",
+                                "Local coordinates"
+                            ],
+                            [
+                                "1",
+                                "System coordinates"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 15,
+                        "bit end": 12,
+                        "name1": "I1/I2/I3",
+                        "name2": "(I1/I2/I3) Intensity",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 12,
+                        "bit end": 10,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 10,
+                        "bit end": 8,
+                        "name1": "FST/LST",
+                        "name2": "",
+                        "options": [
+                            [
+                                "00",
+                                "Intermediate record of a contour"
+                            ],
+                            [
+                                "01",
+                                "Last record of a contour of at least two records"
+                            ],
+                            [
+                                "10",
+                                "First record of a contour of at least two records"
+                            ],
+                            [
+                                "11",
+                                "First and only record, fully defining a contour"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "CSN Contour Serial",
+                        "name2": "CSN Contour Serial",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "ORG I1 I2 I3 0 0 FST/LST CSN (CONTOUR SERIAL NUMBER) "
+            }
+        ]
+    },
+    "I008/050": {
+        "format": "repetitive",
+        "item definition": "Cartesian coordinates of a variable number of points defining a contour.",
+        "item name": "Sequence of Contour Points in SPF Notation",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 16,
+                        "lsb": 0.015625,
+                        "name1": "REP",
+                        "name2": "(REP) Number of consecutive",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.015625,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "float",
+                        "unit": "NM"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. f is a parameter of the SOP message. 2. Negative values are expressed in 2's complement form, bit-16 and bit-8 shall be set to 0 for positive values and 1 for negative values.",
+                "subfield info": "REP X1 LSB Y1 LSB "
+            }
+        ]
+    },
+    "I008/090": {
+        "format": "fixed",
+        "item definition": "Absolute time stamping expressed as Coordinated Universal Time (UTC) time.",
+        "item name": "Time of Day",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "lsb": 27,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "true",
+                        "type": "time",
+                        "unit": "s"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The time of day value is reset to zero each day at midnight. 2. For time management in radar transmission applications, refer to Part 1, paragraph 5.4 (Ref. 1) .",
+                "subfield info": "24 23 22 21 20 19 18 17 LSB  "
+            }
+        ]
+    },
+    "I008/100": {
+        "format": "variable",
+        "item definition": "Information concerning the scaling factor currently applied, current reduction step in use, etc.",
+        "item name": "Processing Status",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 19,
+                        "name1": "f",
+                        "name2": "(f) Scaling factor,",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 19,
+                        "bit end": 16,
+                        "name1": "R",
+                        "name2": "(R) Current reduction",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 1,
+                        "name1": "Q",
+                        "name2": "(Q) Processing",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": ""
+            }
+        ]
+    },
+    "I008/110": {
+        "format": "variable",
+        "item definition": "Information concerning the use and status of some vital hardware components of a radar system .",
+        "item name": "Station Configuration Status",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [],
+                "id": 1,
+                "note": "Due to the diversity in hardware design and requirements of present and future radar stations, it is felt impractical to attempt to define individual bits.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I008/120": {
+        "format": "fixed",
+        "item definition": "Total number of vectors, respectively contour points, constituting the total weather image, provided with the EOP message.",
+        "item name": "Total Number of Items Constituting One Weather Picture",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [],
+                "id": 1,
+                "note": "This item provides information on some vital hardware components of the radar station. Its contents, which are application dependent, being agreed between the users concerned. Recommendation Although Data Item I008/110 is designed as a variable length Data Item, it is possible for most applications to limit its length to one-octet (i.e. its first part) . Due to the diversity in hardware design and requirements of radar stations, coding and interpretation of Data Item I008/110 should be defined and mutually agreed by the users concerned.",
+                "subfield info": ""
+            }
+        ]
+    },
+    "cat": "I008"
+}
