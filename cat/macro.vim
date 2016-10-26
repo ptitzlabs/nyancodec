@@ -230,6 +230,9 @@ silent! g/^$/d
 silent! g!/^["{\[]/d
 silent! g/^"subfields/j
 silent! g/^"data/j
+silent! %s/"bit end" : \zs\(\d\+\)\ze/\=submatch(0)-1/
+silent! %s/"bit end" : \(\d\+\).*\n.*"bit begin" : \zs\(\d\+\)\ze/\1
+%s/^.*"bit begin" : \zs\(0\)\ze.*char length" : \(\d\+\).*string length" : \(\d\+\)/\=submatch(1)*submatch(2)
 silent! %s/^"item"/\r\r\r"item"
 silent! %s/{\n"id"/\r\r{"id"
 silent! %s/"data" :.*\(\n{"bit begin.*\)\{-}\zs\ze\n{\@!/\r],
@@ -255,8 +258,6 @@ silent! g/^$/d
 silent! %s/\[\s\+{/[{/g
 silent! %s/},\s+\]/},]/g
 silent! %s/"\s*,\s*}/"}/g
-silent! %s/"bit end" : \zs\(\d\+\)\ze/\=submatch(0)-1/
-silent! %s/"bit end" : \(\d\+\).*\n.*"bit begin" : \zs\(\d\+\)\ze/\1
 silent! %s/\],\n}/\]\r}
 silent! %s/\]\s\{-},\s\{-}}/\]}/g
 silent! %s/: \[{/:\r[\r{/g

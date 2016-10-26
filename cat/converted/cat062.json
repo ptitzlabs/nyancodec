@@ -1099,7 +1099,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 48,
                         "bit end": 24,
                         "lsb": 2.145767e-05,
                         "max": 90,
@@ -1130,7 +1130,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 15,
                         "type": "spare"
                     },
@@ -1158,7 +1158,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 14,
+                        "bit begin": 16,
                         "bit end": 12,
                         "type": "spare"
                     },
@@ -1177,7 +1177,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.007812,
                         "name1": "TOS",
@@ -1193,7 +1193,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 5,
                         "type": "spare"
                     },
@@ -1709,7 +1709,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 1,
+                        "bit begin": 8,
                         "bit end": 1,
                         "lsb": 2.8125,
                         "name1": "",
@@ -1725,7 +1725,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 1,
+                        "bit begin": 8,
                         "bit end": 1,
                         "lsb": 1,
                         "name1": "",
@@ -1769,7 +1769,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1787,7 +1787,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1805,7 +1805,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1823,7 +1823,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 16383.75,
@@ -1841,7 +1841,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1859,7 +1859,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1877,7 +1877,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1895,7 +1895,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1913,7 +1913,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1959,7 +1959,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1977,7 +1977,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -1995,7 +1995,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2013,7 +2013,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2031,7 +2031,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2049,7 +2049,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2067,7 +2067,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2086,7 +2086,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2104,7 +2104,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2122,7 +2122,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2140,7 +2140,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2158,7 +2158,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2176,7 +2176,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2194,7 +2194,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2212,7 +2212,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2230,7 +2230,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2248,7 +2248,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2266,7 +2266,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2284,7 +2284,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2302,7 +2302,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2320,7 +2320,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2338,7 +2338,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2356,7 +2356,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2374,7 +2374,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2392,7 +2392,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2410,7 +2410,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2428,7 +2428,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2446,7 +2446,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2464,7 +2464,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2482,7 +2482,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 63.75,
@@ -2623,7 +2623,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 16,
                         "lsb": 1.387779e-17,
                         "max": 256,
@@ -2652,7 +2652,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 25,
                         "name1": "Height",
@@ -2668,7 +2668,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 15,
                         "name1": "V",
                         "name2": "",
@@ -2720,7 +2720,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 15,
                         "name1": "V",
                         "name2": "",
@@ -2790,7 +2790,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 5,
                         "name1": "TYP",
                         "name2": "",
@@ -2915,7 +2915,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 48,
                         "bit end": 0,
                         "char size": 6,
                         "name1": "Characters 1-8 (coded on 6 bits each) defining a target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in 3 Section 3.1.2.9.1.2 and Table 3-9",
@@ -2928,7 +2928,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 180.0,
                         "name1": "Magnetic Heading",
@@ -2944,7 +2944,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 15,
                         "name1": "IM",
                         "options": [
@@ -2987,7 +2987,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 15,
                         "name1": "SAS",
                         "name2": "",
@@ -3047,7 +3047,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 15,
                         "name1": "MV",
                         "name2": "Manage Vertical Mode",
@@ -3116,7 +3116,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 7,
                         "name1": "NAV",
                         "name2": "",
@@ -3161,7 +3161,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 1,
+                        "bit begin": 128,
                         "bit end": 120,
                         "name1": "REP",
                         "name2": "(REP) Repetition Factor",
@@ -3390,7 +3390,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 13,
                         "name1": "COM",
                         "name2": " Communications capability of the transponder",
@@ -3508,7 +3508,7 @@
                         "type": "enum"
                     },
                     {
-                        "bit begin": 4,
+                        "bit begin": 5,
                         "bit end": 0,
                         "name1": "B1B",
                         "name2": "(B1B) BDS 1,0 bits",
@@ -3521,7 +3521,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 14,
                         "name1": "AC",
                         "name2": "",
@@ -3679,7 +3679,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 6.25,
                         "name1": "Barometric Vertica",
@@ -3695,7 +3695,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 6.25,
                         "name1": "Geometric Vertical",
@@ -3711,7 +3711,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.01,
                         "max": 180,
@@ -3729,7 +3729,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 14,
                         "name1": "TI",
                         "name2": "Turn Indicator",
@@ -3783,7 +3783,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.005493,
                         "name1": "Track Angle",
@@ -3799,7 +3799,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 2,
@@ -3945,7 +3945,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "name1": "ECAT",
                         "name2": "",
@@ -4067,7 +4067,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 6.25,
                         "max": 150000,
@@ -4086,7 +4086,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 4,
                         "type": "spare"
                     },
@@ -4144,7 +4144,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 1,
                         "max": 1100,
@@ -4162,7 +4162,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.008,
                         "max": 4.096,
@@ -4180,7 +4180,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 12,
                         "type": "spare"
                     },
@@ -4234,7 +4234,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 56,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 7,
@@ -4248,7 +4248,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 30,
                         "name1": "TYP",
                         "name2": "",
@@ -4291,7 +4291,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 6,
                         "name1": "GAT/OAT",
                         "name2": "",
@@ -4394,7 +4394,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 4,
@@ -4408,7 +4408,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "name1": "Wake Turbulence Cat",
                         "name2": " Wake Turbulence Category is an ASCII character code which should be one of the following values : L = Light M = Medium H = Heavy J = \u201cSuper\u201d  ",
@@ -4421,7 +4421,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 4,
@@ -4435,7 +4435,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 4,
@@ -4449,7 +4449,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 24,
                         "bit end": 16,
                         "name1": "NU1",
                         "name2": "(NU1) First number",
@@ -4477,7 +4477,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.25,
                         "name1": "CFL",
@@ -4493,7 +4493,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 8,
                         "name1": "Centre",
                         "name2": "(Centre) 8-bit",
@@ -4514,7 +4514,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 40,
                         "bit end": 32,
                         "name1": "REP",
                         "name2": "(REP) Repetition Factor",
@@ -4671,7 +4671,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 48,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 6,
@@ -4685,7 +4685,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 6,
                         "name1": "EMP",
                         "name2": "",
@@ -4755,7 +4755,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 56,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 7,
@@ -4770,7 +4770,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 12,
                         "type": "spare"
                     },
@@ -4806,7 +4806,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 56,
                         "bit end": 0,
                         "char length": 8,
                         "string length": 7,
@@ -4855,7 +4855,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.5,
                         "name1": "COV",
@@ -4872,7 +4872,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 16,
                         "lsb": 5.364418e-06,
                         "name1": "APW (Latitude Comp",
@@ -4899,7 +4899,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 6.25,
                         "name1": "AGA",
@@ -4916,7 +4916,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 0.25,
                         "name1": "ABA",
@@ -4933,7 +4933,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 8,
                         "lsb": 0.25,
                         "name1": "ATV (X-Component)",
@@ -4960,7 +4960,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 8,
                         "lsb": 0.25,
                         "name1": "AA (X-Component) (",
@@ -4987,7 +4987,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 8,
                         "bit end": 0,
                         "lsb": 6.25,
                         "name1": "ARC",
@@ -5033,7 +5033,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 1,
+                        "bit begin": 24,
                         "bit end": 16,
                         "name1": "SYSTEM UNIT IDENTIFICATION",
                         "name2": "(SYSTEM UNIT IDENTIFICATION)",

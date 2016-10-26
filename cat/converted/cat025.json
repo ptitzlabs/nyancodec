@@ -1,0 +1,386 @@
+{
+    "I025/000": {
+        "format": "fixed",
+        "item definition": "This Data Item allows for a more convenient handling of the reports at the receiver side by further defining the type of transaction.",
+        "item name": "Report Type",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 1,
+                        "name1": "Report Type",
+                        "name2": "Report Type",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. In applications where transactions of various types are exchanged, the Report Type Data Item facilitates the proper report handling at the receiver side. 2. All Report Type values are reserved for common standard use. 3. The following set of Report Types are standardised for Category 025 records: \u2022 001 Service and System Status report (see 4.5.1.1. above) \u2022 002 Component Status report (see 4.5.1.2. above) \u2022 003 Service Statistics report (see 4.5.1.3. above) 4. The list of items present for the three report types is defined in the following table. M stands for mandatory, O for optional, X for never present. Table 2 - Report Types Type Item 001 Service and System Status 002 Component Status 003 Service Statistics I025/000 Report Type M M M I025/010 Data Source Identifier M M M I025/015 Service Identification M X M I025/020 Service Designator O X O I025/070 Time of Day M M M I025/100 System & Service Status O X X I025/105 Service Error Codes O X X I025/120 Component Status O M X I025/140 Service Statistics X X M I025/200 Message Identification O O O",
+                "subfield info": "Report Type RG "
+            }
+        ]
+    },
+    "I025/010": {
+        "format": "fixed",
+        "item definition": "Identification of the Ground System from which the data is received.",
+        "item name": "Data Source Identifier",
+        "length": 2,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "SAC",
+                        "name2": "(SAC) System Area",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SIC",
+                        "name2": "(SIC) System Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix) . NOTE - The SICs are allocated by the national authority responsible for the surveillance infrastructure.",
+                "subfield info": "SAC SIC "
+            }
+        ]
+    },
+    "I025/015": {
+        "format": "fixed",
+        "item definition": "Identifies the service being reported.",
+        "item name": "Service Identification",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "SID",
+                        "name2": "(SID) Service Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "subfield info": "SID "
+            }
+        ]
+    },
+    "I025/020": {
+        "format": "fixed",
+        "item definition": "Designator of the service being reported.",
+        "item name": "Service Designator",
+        "length": 6,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 48,
+                        "bit end": 0,
+                        "char size": 6,
+                        "name1": " Service Designator. Characters 1-8 (coded on 6 Bits each) defining the text readable designator for each Service. Each character of the service designator is encoded as defined below (see ICAO Annex 10, Volume IV,  page 3-77,  table 3-9) : b6 0 0 1 1 b5 0 1 0 1 b4 b3 b2 b1 0 0 0 0 P SP1 0 0 0 0 1 A Q 1 0 0 1 0 B R 2 0 0 1 1 C S 3 0 1 0 0 D T 4 0 1 0 1 E U 5 0 1 1 0 F V 6 0 1 1 1 G W 7 1 0 0 0 H X 8 1 0 0 1 I Y 9 1 0 1 0 J Z 1 0 1 1 K 1 1 0 0 L 1 1 0 1 M 1 1 1 0 N 1 1 1 1 O SP1 = SPACE code For each character the following bit numbering convention shall be observed: b6 b5 b4 b3 b2 b1 ",
+                        "type": "string"
+                    }
+                ],
+                "id": 1,
+                "note": "Assignments of Service designators to specific services/systems and interpretation of these fields are implementation dependent. 2. Examples of Service Designators are \u201c1090ADSB\u201d, \u201cWAM\u201d, \u201c1090TISB\u201d, etc. 3. Multiple Service Type Designators may be used to describe a single service where applicable",
+                "subfield info": ""
+            }
+        ]
+    },
+    "I025/070": {
+        "format": "fixed",
+        "item definition": "Absolute time stamping expressed as UTC time.",
+        "item name": "Time of Day",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 1,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "",
+                        "name2": "",
+                        "signed": "false",
+                        "type": "float",
+                        "unit": ") s"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. The time of day value is reset to zero each day at midnight.",
+                "subfield info": "TIME OF DAY LSB  "
+            }
+        ]
+    },
+    "I025/100": {
+        "format": "extendible",
+        "item definition": "Information concerning the status of the Service Volume.",
+        "item name": "System and Service Status",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "NOGO",
+                        "name2": "Operational Release Status of the Data",
+                        "options": [
+                            [
+                                "0",
+                                "Data is released for operational use"
+                            ],
+                            [
+                                "1",
+                                "Data must not be used operationally"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 7,
+                        "bit end": 5,
+                        "name1": "OPS",
+                        "name2": " Operational Service Mode",
+                        "options": [
+                            [
+                                "0",
+                                "Operational"
+                            ],
+                            [
+                                "1",
+                                "Operational but in Standby"
+                            ],
+                            [
+                                "2",
+                                "Maintenance"
+                            ],
+                            [
+                                "3",
+                                "reserved for future use"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 5,
+                        "bit end": 1,
+                        "name1": "SSTAT",
+                        "name2": " System and Service State",
+                        "options": [
+                            [
+                                "0",
+                                "Running"
+                            ],
+                            [
+                                "1",
+                                "Failed"
+                            ],
+                            [
+                                "2",
+                                "Degraded"
+                            ],
+                            [
+                                "3",
+                                "Undefined"
+                            ],
+                            [
+                                "4",
+                                "\u2013 15 reserved for future use"
+                            ]
+                        ],
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "note": "S 1. Bit 8 (NOGO) , when set to \u201c1\u201d indicates that the data transmitted by the system/service is not released for operational use. This indication is independent from the status of the system itself or that of the service. It just indicates that the system or service volume output must not be used for operational services but may be used for, e.g. test and validation purposes. The indication GO/NO-GO indicates a mode of the system rather than a status. Usually this bit will be set by operator input. 2. Bit 7/6 (OPS) , when set to \u201c1\u201d indicates that the system is running but not operationally used (e.g. for a standby system in a redundant configuration) . 3. Bits 5/2 (SSTAT) : This information informs about the state of the overall service volume status. The actual implementation of this field is service dependent and should be described in the system/service specification. However, it is expected that \u2013 as far as this information is available \u2013 a mapping is performed between the states of individual components as reported in data item I025/120. As an example, if one component fails but the system is still operational (at least partially) , the service status should change to \u201cdegraded\u201d.",
+                "subfield info": "NOGO OPS SSTAT FX "
+            }
+        ]
+    },
+    "I025/105": {
+        "format": "repetitive",
+        "item definition": "Error Status of the System and the Service.",
+        "item name": "System and Service Error Codes",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 16,
+                        "bit end": 8,
+                        "name1": "REP",
+                        "name2": "(REP) Number of error codes to be transmitted",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "ERR",
+                        "name2": "(ERR) Warning &",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S: The Warning & Error codes contain information about the reason why the System and Service State (SSTAT in item I025/100 ) is different from \u201crunning\u201d. In this edition of the specification, the following warning & error codes are defined: Error Code Meaning 0 No error detected (shall not be sent) 1 Error Code Undefined 2 Time Source Invalid 3 Time Source Coasting 4 Track ID numbering has restarted 5 Data Processor Overload 6 Ground Interface Data Communications Overload 7 System stopped by operator 8 CBIT failed 9 Test Target Failure 10 \u2013 31 Reserved for allocation by the AMG 32 - 255 Reserved for allocation by system manufacturers 1 A time source is considered as valid when either externally synchronised or running on a local oscillator within the required accuracy of UTC. 2. A value of 4 indicates that the allocation of Track-IDs was re-started. 3. Multiple error codes can be transmitted within the same ASTERIX record. 4. Error codes in the range 0 to 31 shall be allocated centrally by the AMG. Error codes in the range from 32 to 255 are available for specification by the system manufacturers. They are not standardised and shall be described in the Interface Control Document (ICD) of the respective system.",
+                "subfield info": "REP "
+            }
+        ]
+    },
+    "I025/120": {
+        "format": "repetitive",
+        "item definition": "Indications of status of various system components and, when applicable, error codes.",
+        "item name": "Component Status",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 24,
+                        "name1": "REP",
+                        "name2": "(REP) Number of Component Status Reports",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 8,
+                        "name1": "CID",
+                        "name2": "(CID) Component",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 2,
+                        "name1": " (Error Code) 0: ",
+                        "name2": " (Error Code) 0: ",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 2,
+                        "bit end": 0,
+                        "name1": "CS",
+                        "name2": "(CS) Component",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "S: Error codes in the range 2 to 15 shall be allocated centrally by the AMG. Error codes in the range from 16 to 63 are available for specification by the system manufacturers. They are not standardised and shall be described in the Interface Control Document (ICD) of the respective system.",
+                "subfield info": "REP "
+            }
+        ]
+    },
+    "I025/140": {
+        "format": "repetitive",
+        "item definition": "Statistics concerning the service. Provides counts of various message types that have been received since the report was last sent.",
+        "item name": "Service Statistics",
+        "length": 1,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 56,
+                        "bit end": 48,
+                        "name1": "REP",
+                        "name2": "(REP) Number of counters following",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 48,
+                        "bit end": 40,
+                        "name1": "TYPE",
+                        "name2": " Type of report counter, encoded as follows",
+                        "options": [
+                            [
+                                "0",
+                                "Number of unknown messages received"
+                            ],
+                            [
+                                "1",
+                                "Number of \u2018too old\u2019 messages received"
+                            ],
+                            [
+                                "2",
+                                "Number of failed message conversions"
+                            ],
+                            [
+                                "3",
+                                "Total Number of messages received"
+                            ],
+                            [
+                                "4",
+                                "Total number of messages transmitted"
+                            ],
+                            [
+                                "5",
+                                "-19 Reserved for AMG \u2265 20 implementation specific"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 40,
+                        "bit end": 39,
+                        "name1": "REF",
+                        "name2": "Reference from which the messages are counted",
+                        "options": [
+                            [
+                                "0",
+                                "From UTC midnight"
+                            ],
+                            [
+                                "1",
+                                "From the previous report"
+                            ]
+                        ],
+                        "type": "enum"
+                    },
+                    {
+                        "bit begin": 39,
+                        "bit end": 32,
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 32,
+                        "bit end": 0,
+                        "name1": "(COUNTER 32-bit",
+                        "name2": "(COUNTER 32-bit",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "There is no special significance attributed to the numbering of the TYPE field. However the range from 0 to 19 is intended to cover generic messages which may be applicable to many types of service.",
+                "subfield info": "REP TYPE REF SPARE COUNTER VALUE COUNTER VALUE "
+            }
+        ]
+    },
+    "I025/200": {
+        "format": "fixed",
+        "item definition": "Identification of a unique message.",
+        "item name": "Message Identification",
+        "length": 3,
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 24,
+                        "bit end": 0,
+                        "name1": "Message Identification",
+                        "name2": "Message Identification",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "note": "s: 1. The Message Identification Number is to be used to uniquely identify each message. If messages are being sent on redundant links then this number shall be identical for the same message on each link. This will allow the receiver to easily identify and discard duplicate messages. 2. It is not required that Message Identification Numbers be assigned in ascending order by time of message transmission. 5.3 Standard User Application Profile The following standard UAP shown in Table 3 shall be used for the transmission of CNS/ATM Ground System Status reports: Table 3 - Standard UAP for CNS/ATM Ground System Status Reports FRN Data Item Data Item Description Length 1 I025/010 Data Source Identifier 2 2 I025/000 Report Type 1 3 I025/200 Message Identification 3 4 I025/015 Service Identification 1 5 I025/020 Service Designator 6 6 I025/070 Time of Day 3 7 I025/100 System and Service Status 1+ FX N/A. Field Extension Indicator N/A. 8 I025/105 System and Service Error Codes 1+ 9 I025/120 Component Status 1+ 10 I025/140 Service Statistics 1+ 11 SP- Special Purpose Field 1+1+ 12 - Spare N/A. 13 - Spare N/A. 14 - Spare N/A. FX N/A. Field Extension Indicator N/A. where: \u2022 the first column indicates the FRN associated to each Data Item used in the UAP; \u2022 the fourth column gives the format and the length of each item, a stand-alone figure indicates the octet count of a fixed-length Data Item, 1+ indicates a variable-length Data Item comprising a first part of one-",
+                "subfield info": "Message Identification Number Message Identification Number (cont) "
+            }
+        ]
+    },
+    "cat": "I025"
+}

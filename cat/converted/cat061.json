@@ -304,7 +304,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 16,
                         "bit end": 0,
                         "max": 1500,
                         "min": -15,
@@ -391,7 +391,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 16,
+                        "bit begin": 32,
                         "bit end": 24,
                         "name1": "Repetition Factor",
                         "name2": "Repetition Factor",
@@ -411,7 +411,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 56,
                         "bit end": 48,
                         "name1": "Repetition Factor B",
                         "name2": " Repetition Factor Bits 48/1 characters 1-8 (coded on 6 bits each) defining callsign when flight plan is available or the registration marking when no flight plan is available. See ICAO document Annex 10, Volume I, Part I, section 3.8.2.9 for the coding rules. ",
@@ -424,7 +424,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 48,
+                        "bit begin": 24,
                         "bit end": 16,
                         "name1": "Repetition Factor",
                         "name2": "Repetition Factor",
@@ -461,7 +461,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 40,
                         "bit end": 32,
                         "name1": "Repetition Factor B",
                         "name2": "Repetition Factor Bits 32/1 Airport Name. Each one of the four Octets composing the name of an airport contains an ASCII Character (upper-case alphabetic) .",
@@ -475,7 +475,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 32,
+                        "bit begin": 40,
                         "bit end": 32,
                         "name1": "Repetition Factor B",
                         "name2": "Repetition Factor Bits 32/1 Airport Name. Each one of the four Octets composing the name of an airport contains an ASCII Character (upper-case alphabetic) .",
@@ -489,7 +489,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 32,
+                        "bit begin": 40,
                         "bit end": 32,
                         "name1": "Repetition Factor B",
                         "name2": "Repetition Factor Bits 32/1 Type of Aircraft. Each one of the four Octets composing the type of an aircraft contains an ASCII Character (upper-case alphabetic with trailing spaces) .",
@@ -503,7 +503,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 32,
+                        "bit begin": 24,
                         "bit end": 16,
                         "name1": "Repetition Factor",
                         "name2": "Repetition Factor",
@@ -531,7 +531,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 32,
                         "bit end": 30,
                         "name1": "SIM",
                         "name2": "",
@@ -1225,7 +1225,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 0,
+                        "bit begin": 6,
                         "bit end": 1,
                         "type": "spare"
                     },

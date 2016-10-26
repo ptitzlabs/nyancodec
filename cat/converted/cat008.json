@@ -80,7 +80,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 1,
+                        "bit begin": 8,
                         "bit end": 3,
                         "type": "spare"
                     },

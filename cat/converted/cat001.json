@@ -611,7 +611,7 @@
                         "type": "enum"
                     },
                     {
-                        "bit begin": 16,
+                        "bit begin": 14,
                         "bit end": 0,
                         "lsb": 0.25,
                         "name1": "",
