@@ -72,6 +72,8 @@ enum class itype {
   aux  // auxillary item
 };
 
+//// CAT classes
+// data field
 class datafield_spec {
 public:
   void from_json(const json &j); // load from json
@@ -84,16 +86,21 @@ public:
   uint8_t bit_begin;             // first bit
   uint8_t bit_end;               // last bit+1
   dtype data_type;               // data type
+  float lsb;                     // least significant bit
+  string unit;                   // unit
 };
 
+// item subfield
 class subfield_spec : public vector<datafield_spec> {
 public:
   void from_json(const json &j); // load from json
   void to_json(json &j);         // append to existing json
   json to_json();                // create new json
-  uint8_t bit_length; // total subfield bit length
-  uint8_t byte_length; // total subfield byte length
+  uint8_t bit_length;            // total subfield bit length
+  uint8_t byte_length;           // total subfield byte length
 };
+
+// item
 class item_spec : public vector<subfield_spec> {
 public:
   void from_json(const json &j); // load from json
@@ -101,21 +108,26 @@ public:
   json to_json();                // create new json
   ftype item_type;               // item type
 };
+
+// full cat
 class cat_spec : public vector<item_spec> {
 public:
-  void from_json_file(const string & cat_filename, const string & uap_filename); // parse from .json files
-  void from_json(const json &j); // load from json
-  void to_json(json &j);         // append to existing json
-  json to_json();                // create new json
+  void from_json_file(const string &cat_filename,  // cat filename
+                      const string &uap_filename); // uap filename
+  void from_json(const json &j);                   // load from json
+  void to_json(json &j);                           // append to existing json
+  json to_json();                                  // create new json
   map<size_t, string> uap; // map containing item indices IXXX/XXX in UAP order
 };
 
+// fspec
 class fspec : public vector<size_t> {
 public:
   const vector<oct>::iterator fspec_begin; // reference to msg raw data
                                            // containing the start of this fspec
 };
 
+// data field containing decoded data
 class datafield {
 public:
   void parse(vector<oct>::iterator &it);
@@ -123,18 +135,20 @@ public:
   void to_json(json &j);            // append to existing json
   json to_json();                   // create new json
   ostringstream to_string_stream(); // output to printable string stream
-  float to_float(); // output as float
-  long to_int();      // output as integer
-  string to_string(); // output as string
-  void decode( const vector<oct>::iterator &subfield_begin); // decode and store the data
+  float to_float();                 // output as float
+  long to_int();                    // output as integer
+  string to_string();               // output as string
+  void decode(
+      const vector<oct>::iterator &subfield_begin); // decode and store the data
   union {
     char str[20];
     long i;
     float f;
-  } data; // decoded datafield data
+  } data;                      // decoded datafield data
   const datafield_spec &dspec; // reference to relevant datafield_spec object
 };
 
+// subfield containing a vector of decoded data
 class subfield : public vector<datafield> {
 public:
   void parse(vector<oct>::iterator &it); // parse from msg data
@@ -148,9 +162,11 @@ public:
                                               // octets, corresponding to this
                                               // subfield contents
   const vector<oct>::iterator subfield_begin; // reference to msg raw data
-                                              // containing the start of this subfield
+  // containing the start of this subfield
   const subfield_spec &sspec; // reference to relevant subfield spec object
 };
+
+// item, containing subfields with decoded data
 class item : public vector<subfield> {
 public:
   void parse(vector<oct>::iterator &it); // parse from msg data
@@ -164,10 +180,12 @@ public:
                                               // octets, corresponding to this
                                               // item contents
   const vector<oct>::iterator item_begin;     // reference to msg raw data
-                                          // containing the start of this item
+  // containing the start of this item
   fspec fs;               // fspec(only for compound items)
   const item_spec &ispec; // reference to relevant item spec object
 };
+
+// block containing items with decoded data
 class block : public vector<item> {
 public:
   void parse(vector<oct>::iterator &it); // parse from msg data
@@ -181,28 +199,30 @@ public:
                                               // octets, corresponding to this
                                               // block contents
   const vector<oct>::iterator block_begin;    // reference to msg raw data
-                                           // containing the start of this block
+  // containing the start of this block
   fspec fs;              // block fspec
   const cat_spec &cspec; // reference to relevant cat spec object
 };
+
+// message, containing various blocks
 class msg : public vector<block> {
 public:
-  void from_bin_file(const string & filename);  // parse from binary file
-  void from_json_file(const string & filename); // parse from .json file
-  void parse(auto &stream);             // parse from istream
-  void from_json(const json &j);        // parse from json
-  void to_json(json &j);                // append to existing json
-  json to_json();                       // create new json
-  ostream to_binary_stream();           // output to binary stream
-  ostringstream to_string_stream();     // output to printable string stream
-  void decode();                        // decode and store the data
-  void encode();         // fill up the msg_data block with octets
-  vector<oct> msg_data;  // contains raw message bytes
-  const cat_spec &cspec; // reference to relevant cat spec object
-  size_t cat_id;         // cat id
-  size_t msg_len;        // message length in bytes(octets)
-  void print(); // print to terminal
-  void print(const string & filename); // print to file
+  void from_bin_file(const string &filename);  // parse from binary file
+  void from_json_file(const string &filename); // parse from .json file
+  void parse(auto &stream);                    // parse from istream
+  void from_json(const json &j);               // parse from json
+  void to_json(json &j);                       // append to existing json
+  json to_json();                              // create new json
+  ostream to_binary_stream();                  // output to binary stream
+  ostringstream to_string_stream();   // output to printable string stream
+  void decode();                      // decode and store the data
+  void encode();                      // fill up the msg_data block with octets
+  vector<oct> msg_data;               // contains raw message bytes
+  const cat_spec &cspec;              // reference to relevant cat spec object
+  size_t cat_id;                      // cat id
+  size_t msg_len;                     // message length in bytes(octets)
+  void print();                       // print to terminal
+  void print(const string &filename); // print to file
 };
 }
 
