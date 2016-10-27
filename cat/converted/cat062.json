@@ -1141,10 +1141,10 @@
                         "options": [
                             [
                                 "GA reported in",
-                                "100",
+                                100,
                                 "ft",
                                 "GA reported in",
-                                "25",
+                                25,
                                 "ft"
                             ]
                         ],
@@ -2950,12 +2950,12 @@
                         "options": [
                             [
                                 "Air Speed = IAS,",
-                                "0.25",
+                                0.25,
                                 "NM/s"
                             ],
                             [
                                 "Air Speed = Mach,",
-                                "0.001",
+                                0.001,
                                 ""
                             ]
                         ],
