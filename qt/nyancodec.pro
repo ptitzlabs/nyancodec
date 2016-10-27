@@ -14,8 +14,10 @@ SOURCES += ../main.cpp
 
 HEADERS  += \
     ../nyancodec.hpp \
+    ../nyancodec_v2.hpp \
     ../util.hpp \
 FORMS    += 
 
 DISTFILES += \
-    ../cat/CAT062.json
+    ../cat/CAT062.json \
+    ../cat/converted/cat062.json

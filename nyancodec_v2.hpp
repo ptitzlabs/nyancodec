@@ -28,12 +28,10 @@ using util::grab_string;
 using util::b6_char;
 typedef unsigned char oct;
 
-const array<string, 12> dtype_s = {
+const array<string, 9> dtype_s = {
     "enum",           // enumerator
     "int",            // integer
-    "unsigned int",   // unsigned integer
     "float",          // float
-    "unsigned float", // unsigned float
     "variable float", // variable floating point
     "time",           // time
     "string",         // string
@@ -41,12 +39,11 @@ const array<string, 12> dtype_s = {
     "spare",          // spare bits
     "rep",            // repeat flag
 };
+
 enum class dtype {
   num,    // enumerator
   i,      // integer
-  ui,     // unsigned integer
   f,      // float
-  uf,     // unsigned float
   vf,     // variable floating point
   time,   // time
   string, // string
@@ -54,15 +51,19 @@ enum class dtype {
   spare,  // spare bits
   rep,    // repeat flag
 };
-// item types
-const array<string, 5> itype_s = {
-    "fixed",     // fixed length item
-    "extended",  // extended length item
-    "variable",  // variable length item
-    "repeating", // repetitive item
-    "composite", // composite item
-    "aux"        // auxillary item
+
+const map<string, dtype> dtype_map{
+    {"enum", dtype::num},
+    {"int", dtype::i},
+    {"float", dtype::f},
+    {"lsb-selector", dtype::vf},
+    {"time", dtype::time},
+    {"string", dtype::string},
+    {"oct", dtype::num},
+    {"spare", dtype::spare},
+    {"rep", dtype::rep},
 };
+// item types
 enum class itype {
   fix, // fixed length item
   ext, // extended length item
@@ -71,29 +72,115 @@ enum class itype {
   com, // composite item
   aux  // auxillary item
 };
+const map<string, itype> itype_map = {
+    {"fixed", itype::fix},     // fixed length item
+    {"extended", itype::ext},  // extended length item
+    {"variable", itype::var},  // variable length item
+    {"repeating", itype::rep}, // repetitive item
+    {"composite", itype::com}, // composite item
+    {"aux", itype::aux},       // auxillary item
+};
 
 //// CAT classes
 // data field
 class datafield_spec {
 public:
-  void from_json(const json &j); // load from json
-  void to_json(json &j);         // append to existing json
-  json to_json();                // create new json
-  string name1;                  // short name
-  string name2;                  // long name
-  vector<string> enum_val1;      // enum options(if present)
-  vector<string> enum_val2;      // enum option values(if present)
-  uint8_t bit_begin;             // first bit
-  uint8_t bit_end;               // last bit+1
-  dtype data_type;               // data type
-  float lsb;                     // least significant bit
-  string unit;                   // unit
+  void from_json(const json &j) { // load from json
+    name1 = j["name1"];
+    name2 = j["name2"];
+    bit_begin = j["bit begin"];
+    bit_end = j["bit end"];
+    data_type = dtype_map[j["type"]];
+    switch (data_type) {
+    case dtype::num:
+      for (auto &a : j["options"]) {
+        enum_val1.push_back(a[0]);
+        enum_val2.push_back(a[1]);
+      }
+      break;
+    case dtype::f:
+      lsb = j["lsb"];
+      unit = j["unit"];
+      break;
+    case dtype::vf:
+      for (auto &a : j["options"]) {
+        enum_val1.push_back(a[0]);
+        enum_val3.push_back(a[1]);
+        enum_val1.push_back(a[2]);
+      }
+      break;
+    case dtype::time:
+      lsb = j["lsb"];
+      unit = j["unit"];
+      break;
+    case dtype::string:
+      char_size = j["char size"];
+      str_len = j["str len"];
+      break;
+    default:
+      break;
+    }
+  }
+  void to_json(json &j){    // append to existing json
+    j["name1"] = name1 ;
+    j["name2"] = name2 ;
+    j["bit begin"] = bit_begin ;
+    j["bit end"] = bit_end ;
+    dtype_map[j["type"]] = data_type ;
+    switch (data_type) {
+    case dtype::num:
+        j["options"].resize(enum_val1.size());
+        for(auto i: indices(enum_val1)){
+            j["options"][i] = tuple<string,string>(enum_val1[i],enum_val2[i]);
+        }
+      break;
+    case dtype::f:
+      j["lsb"] = lsb ;
+      j["unit"] = unit ;
+      break;
+    case dtype::vf:
+        j["options"].resize(enum_val1.size());
+        for(auto i: indices(enum_val1)){
+            j["options"][i] = tuple<string,double,string>(enum_val1[i],enum_val3[i],enum_val2[i]);
+        }
+
+      break;
+    case dtype::time:
+      j["lsb"] = lsb;
+      j["unit"] = unit ;
+      break;
+    case dtype::string:
+      j["char size"] = char_size ;
+      j["str len"] = str_len ;
+      break;
+    default:
+      break;
+    }
+  }
+  json to_json(){           // create new json
+      json j;
+      to_json(j);
+      return j;
+  }
+  string name1;             // short name
+  string name2;             // long name
+  vector<string> enum_val1; // enum options(if present)
+  vector<string> enum_val2; // enum option values(if present)
+  vector<float> enum_val3;  // enum option values(if present)
+  uint8_t bit_begin;        // first bit
+  uint8_t bit_end;          // last bit+1
+  dtype data_type;          // data type
+  float lsb;                // least significant bit
+  string unit;              // unit
+  uint8_t char_size;
+  uint8_t str_len;
 };
 
 // item subfield
 class subfield_spec : public vector<datafield_spec> {
 public:
-  void from_json(const json &j); // load from json
+  void from_json(const json &j){ // load from json
+  }
   void to_json(json &j);         // append to existing json
   json to_json();                // create new json
   uint8_t bit_length;            // total subfield bit length
