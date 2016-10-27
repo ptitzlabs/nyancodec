@@ -128,8 +128,8 @@ silent! %s/bits-\d\+\zs.\ze\d\+/\//g
 silent! %s/)\zs\ze\S/ /g
 silent! g/^bit\A\d\+.\{-}.*\cresolution.*=.*\d\+.*=.*\d\+.*/s/bit\A\(\d\+\)\s\{-}(\(\S.\{-}\))/"bit begin" : \1, "bit end" : \1, "type" : "lsb-selector", "name1" : "\2", "options" : [ /g
 silent! g/^bit\A\d\+.\{-}=\s\{,2}.*\clsb.*=\s\{,2}\d\s\{,2}/s/bit\A\(\d\+\)\s\{-}(\(\S.\{-}\))/"bit begin" : \1, "bit end" : \1, "type" : "lsb-selector", "name1" : "\2", "options" : [ 
-silent! g/.*"lsb-selector".*=.*=.*=.*=/s/=\s\{,2}\d\+\s\{1,}.\{-}\(\S.\{-}\)\c.lsb.\{-}=\s\{-}\(\d\+\(\.\d\+\)\=\)\(\s\{,3}\)\=\(\S\{,20}\)\|$/["\1", "\2", "\5"],/g
-g/.*"lsb-selector".*=[^=]*=[^=]*/s/=\s\{,2}\d\+\(.\{-}\)\(\d\+\)\s\+\(\S*\).\{-}=\s\{,2}\d\+\(.\{-}\)\(\d\+\)\s\+\(\S*\)/\["\1", "\2","\3", "\4","\5", "\6"\] 
+silent! g/.*"lsb-selector".*=.*=.*=.*=/s/=\s\{,2}\d\+\s\{1,}.\{-}\(\S.\{-}\)\c.lsb.\{-}=\s\{-}\(\d\+\(\.\d\+\)\=\)\(\s\{,3}\)\=\(\S\{,20}\)\|$/["\1", \2, "\5"],/g
+g/.*"lsb-selector".*=[^=]*=[^=]*/s/=\s\{,2}\d\+\(.\{-}\)\(\d\+\)\s\+\(\S*\).\{-}=\s\{,2}\d\+\(.\{-}\)\(\d\+\)\s\+\(\S*\)/\["\1", \2,"\3", "\4",\5, "\6"\] 
 silent! g/.*"lsb-selector".*/s/.*\zs/],
 silent! %s/Structure.*\nbit\zs-\(\d\+\)\ze\D\{2,}.*LSB.*\n\"note"/s-\1\/1
 silent!  %s/"length" : \(\d\+\)\_.\{,500}\nbit\zs-\ze\d.*QLSBQ/s-\1XBYTES\//g
@@ -187,7 +187,7 @@ silent! g/.*"type" : "enum".*"options" : [^\[]*$/s/.*"options" : \zs.*/ ["0", "o
 silent! g/^bits.*\character/s/^bits.\(\d\+\)\D\(\d\+\)\(.\{-}\(\d\).\{,4}bits .*\)/"bit begin" : \1, "bit end" : \2, "type" : "string", "char size" : \4, "name18" : "\3",
 silent! %s/\n\@!\(Character \d\)/\r\1/g
 silent! %s/\n\n\(Character \d\)/\r\1\g
-silent! %s/\(\nCharacter \d.*\)\_.\{,20}\nCharacter \(\d\).*\(\n"note".*ASCII.*\)/\r"bit begin" : \2, "bit end" : 1, "type" : "string", "string length" : \2, "char length" : 8,\3
+silent! %s/\(\nCharacter \d.*\)\_.\{,20}\nCharacter \(\d\).*\(\n"note".*ASCII.*\)/\r"bit begin" : \2, "bit end" : 1, "type" : "string", "string length" : \2, "char size" : 8,\3
 silent! %s/bit begin" : \zs\(\d\)\ze.*"string length"/\=submatch(0)*8/ "silent! g/^bits.*\coctal/s/^bits.\(\d\+\)\D\(\d\+\)\s\{-}\(.*\)/"bit begin" : \1, "bit end" : \2, "type" : "octal", "namea19" : "\3", 
 silent! g/^bits.*\cASCII.\{-}character/s/^bits.\(\d\+\)\D\(\d\+\)\s\{-}\(\(.\{,20}\).*\)/"bit begin" : \1, "bit end" : \2, "type" : "char", "name110" : "\4", "name2": "\3"
 silent! g/^bits.*float.*/s/^bits.\(\d\+\)\D\(\d\+\)\(\s\{-}\)\=\(.\{-,15}).\{-}\)\ze"type/"bit begin" : \1, "bit end" : \2, "name114" : "\5", "name2" : "\6", 
@@ -232,7 +232,7 @@ silent! g/^"subfields/j
 silent! g/^"data/j
 silent! %s/"bit end" : \zs\(\d\+\)\ze/\=submatch(0)-1/
 silent! %s/"bit end" : \(\d\+\).*\n.*"bit begin" : \zs\(\d\+\)\ze/\1
-silent! %s/^.*"bit begin" : \zs\(0\)\ze.*char length" : \(\d\+\).*string length" : \(\d\+\)/\=submatch(1)*submatch(2)
+silent! %s/^.*"bit begin" : \zs\(0\)\ze.*char size" : \(\d\+\).*string length" : \(\d\+\)/\=submatch(1)*submatch(2)
 silent! %s/^"item"/\r\r\r"item"
 silent! %s/{\n"id"/\r\r{"id"
 silent! %s/"data" :.*\(\n{"bit begin.*\)\{-}\zs\ze\n{\@!/\r],
@@ -282,6 +282,9 @@ silent! %s/"\zs\s\+\ze[^":,]*"//g
 silent! %s/"name1" : "(\([^)]*\))\s\{-}\([^"]*\)", "name2" : ""/"name1" : "\1", "name2" : "\2"
 silent! %s/"name1" : "(\([^)]*\))\s\{-}\([^"]*\)"/"name1" : "\1"
 silent! %s/#/,/g
+silent! g/"bit begin"\(.*"name1".*\)\@!/s/"bit end" \: \d\+, \zs\ze/"name1" : "",/g
+silent! g/"bit begin"\(.*"name2".*\)\@!.*/s/.*"name1" : "[^"]*"\zs/, "name2" : ""/g
+g^"string"\(.*"string length".*\)\@!^s^"bit begin" : \(\d\+\),.\{-}"bit end" : \(\d\+\),.\{-}char size" : \(\d\+\)\zs\ze^\=', "string length" : ' . (submatch(1) - submatch(2)) / submatch(3) 
 %!python -m json.tool
 
 
