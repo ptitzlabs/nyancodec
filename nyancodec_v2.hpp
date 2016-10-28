@@ -121,46 +121,46 @@ public:
       break;
     }
   }
-  void to_json(json &j){    // append to existing json
-    j["name1"] = name1 ;
-    j["name2"] = name2 ;
-    j["bit begin"] = bit_begin ;
-    j["bit end"] = bit_end ;
-    dtype_map[j["type"]] = data_type ;
+  void to_json(json &j) { // append to existing json
+    j["name1"] = name1;
+    j["name2"] = name2;
+    j["bit begin"] = bit_begin;
+    j["bit end"] = bit_end;
+    dtype_map[j["type"]] = data_type;
     switch (data_type) {
     case dtype::num:
-        j["options"].resize(enum_val1.size());
-        for(auto i: indices(enum_val1)){
-            j["options"][i] = tuple<string,string>(enum_val1[i],enum_val2[i]);
-        }
+      j["options"].resize(enum_val1.size());
+      for (auto i : indices(enum_val1)) {
+        j["options"][i] = tuple<string, string>(enum_val1[i], enum_val2[i]);
+      }
       break;
     case dtype::f:
-      j["lsb"] = lsb ;
-      j["unit"] = unit ;
+      j["lsb"] = lsb;
+      j["unit"] = unit;
       break;
     case dtype::vf:
-        j["options"].resize(enum_val1.size());
-        for(auto i: indices(enum_val1)){
-            j["options"][i] = tuple<string,double,string>(enum_val1[i],enum_val3[i],enum_val2[i]);
-        }
-
+      j["options"].resize(enum_val1.size());
+      for (auto i : indices(enum_val1)) {
+        j["options"][i] = tuple<string, double, string>(
+            enum_val1[i], enum_val3[i], enum_val2[i]);
+      }
       break;
     case dtype::time:
       j["lsb"] = lsb;
-      j["unit"] = unit ;
+      j["unit"] = unit;
       break;
     case dtype::string:
-      j["char size"] = char_size ;
-      j["str len"] = str_len ;
+      j["char size"] = char_size;
+      j["str len"] = str_len;
       break;
     default:
       break;
     }
   }
-  json to_json(){           // create new json
-      json j;
-      to_json(j);
-      return j;
+  json to_json() { // create new json
+    json j;
+    to_json(j);
+    return j;
   }
   string name1;             // short name
   string name2;             // long name
@@ -179,12 +179,17 @@ public:
 // item subfield
 class subfield_spec : public vector<datafield_spec> {
 public:
-  void from_json(const json &j){ // load from json
+  void from_json(const json &j) { // load from json
+      resize(j["data"].size());
+      for(auto i: indices(*this)){
+          (*this)[i].from_json(j["data"][i]);
+      }
   }
-  void to_json(json &j);         // append to existing json
-  json to_json();                // create new json
-  uint8_t bit_length;            // total subfield bit length
-  uint8_t byte_length;           // total subfield byte length
+  void to_json(json &j) {// append to existing json
+  }
+  json to_json();        // create new json
+  uint8_t bit_length;    // total subfield bit length
+  uint8_t byte_length;   // total subfield byte length
 };
 
 // item
