@@ -126,7 +126,12 @@ public:
     j["name2"] = name2;
     j["bit begin"] = bit_begin;
     j["bit end"] = bit_end;
-    dtype_map[j["type"]] = data_type;
+    for(auto & mval: dtype_map){
+        if(mval.second == data_type){
+            j["type"] = mval.first;
+            break;
+        }
+    }
     switch (data_type) {
     case dtype::num:
       j["options"].resize(enum_val1.size());
@@ -186,19 +191,51 @@ public:
       }
   }
   void to_json(json &j) {// append to existing json
+      for(auto i: indices(*this)){
+         (*this)[i].to_json(j["data"][i]);
+      }
   }
-  json to_json();        // create new json
-  uint8_t bit_length;    // total subfield bit length
-  uint8_t byte_length;   // total subfield byte length
+  json to_json(){ // create new json
+      json j;
+      to_json(j);
+      return j;
+  }
 };
 
 // item
 class item_spec : public vector<subfield_spec> {
 public:
-  void from_json(const json &j); // load from json
-  void to_json(json &j);         // append to existing json
-  json to_json();                // create new json
-  ftype item_type;               // item type
+  void from_json(const json &j){ // load from json
+      resize(j["subfields"]).size();
+      byte_length = j["length"];
+      item_type = itype_map[j["format"]];
+      item_name = j["item name"];
+      for(auto i: indices(*this)){
+          (*this)[i].from_json(j["subfields"][i]);
+      }
+  }
+  void to_json(json &j){         // append to existing json
+      j["length"] = byte_length;
+      j["item name"] = item_name;
+    for(auto & mval: itype_map){
+        if(mval.second == item_type){
+            j["format"] = mval.first;
+            break;
+        }
+    }
+    for(auto i: indices(*this)){
+        (*this)[i].to_json(j["subfields"][i]);
+    }
+  }
+  json to_json(){                // create new json
+      json j;
+      to_json(j);
+      return j;
+  }
+  string item_name;
+  itype item_type;               // item type
+  int byte_length;
+
 };
 
 // full cat
@@ -206,10 +243,32 @@ class cat_spec : public vector<item_spec> {
 public:
   void from_json_file(const string &cat_filename,  // cat filename
                       const string &uap_filename); // uap filename
-  void from_json(const json &j);                   // load from json
-  void to_json(json &j);                           // append to existing json
-  json to_json();                                  // create new json
-  map<size_t, string> uap; // map containing item indices IXXX/XXX in UAP order
+  void from_json(const json &j, const json & uap){                   // load from json
+      resize(uap["uap"].size());
+      cat_name = j["cat"];
+      this->uap.resize(uap["uap"].size());
+      for(auto i: indices(*this)){
+          this->uap[i] = uap["uap"][i];
+          if(this->uap[i] != "spare"){
+              (*this)[i].from_json(j[uap[i]]);
+          }
+      }
+  }
+  void to_json(json &j){                           // append to existing json
+      j["cat"] = cat_name;
+      for(auto i: indices(*this)){
+          if(uap[i]!="spare"){
+              (*this)[i].to_json(j[uap[i]]);
+          }
+      }
+  }
+  json to_json(){                                  // create new json
+      json j;
+      to_json(j);
+      return j;
+  }
+  vector<string> uap; // map containing item indices IXXX/XXX in UAP order
+  string cat_name;
 };
 
 // fspec

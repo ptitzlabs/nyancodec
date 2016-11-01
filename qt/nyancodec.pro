@@ -20,4 +20,5 @@ FORMS    +=
 
 DISTFILES += \
     ../cat/CAT062.json \
-    ../cat/converted/cat062.json
+    ../cat/converted/cat062.json \
+    ../cat/converted/cat062_uap.json
