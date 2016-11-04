@@ -286,5 +286,7 @@ silent! g/"bit begin"\(.*"name1".*\)\@!/s/"bit end" \: \d\+, \zs\ze/"name1" : ""
 silent! g/"bit begin"\(.*"name2".*\)\@!.*/s/.*"name1" : "[^"]*"\zs/, "name2" : ""/g
 g^"string"\(.*"string length".*\)\@!^s^"bit begin" : \(\d\+\),.\{-}"bit end" : \(\d\+\),.\{-}char size" : \(\d\+\)\zs\ze^\=', "string length" : ' . (submatch(1) - submatch(2)) / submatch(3) 
 %!python -m json.tool
+%s/"true"/true
+%s/"false"/false
 
 

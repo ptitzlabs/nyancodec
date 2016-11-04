@@ -23,7 +23,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "true",
+                "mandatory": true,
                 "note": "The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int/asterix) .",
                 "subfield info": "SAC SIC "
             }
@@ -46,7 +46,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "the service identification is allocated by the system",
                 "subfield info": "Service Identification "
             }
@@ -69,7 +69,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "true",
+                "mandatory": true,
                 "subfield info": "TRACK NUMBER "
             }
         ]
@@ -147,7 +147,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "subfield info": "V G CH 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
             }
         ]
@@ -161,18 +161,18 @@
             {
                 "data": [
                     {
-                        "bit begin": 16,
+                        "bit begin": 24,
                         "bit end": 0,
-                        "lsb": 0.25,
+                        "lsb": 0.0078125,
                         "name1": "",
                         "name2": "",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
                 ],
                 "id": 1,
-                "mandatory": "true",
+                "mandatory": true,
                 "note": "S 1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.",
                 "subfield info": "Time Of Track Information LSB  "
             }
@@ -297,7 +297,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "true",
+                "mandatory": true,
                 "subfield info": "MON SPI MRH SRC CNF FX "
             },
             {
@@ -844,7 +844,7 @@
                         "lsb": 0.5,
                         "name1": "X",
                         "name2": "X",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m"
                     },
@@ -854,13 +854,13 @@
                         "lsb": 0.5,
                         "name1": "Y",
                         "name2": "Y",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "subfield info": "X LSB Y LSB "
             }
         ]
@@ -881,7 +881,7 @@
                         "min": -90,
                         "name1": "Latitude",
                         "name2": "(Latitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "25 degrees"
                     },
@@ -893,13 +893,13 @@
                         "min": -180,
                         "name1": "Longitude",
                         "name2": "(Longitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "degrees"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "The LSB provides a resolution at least better than 0.6m.",
                 "subfield info": "Latitude in WGS - 84 LSB Longitude in WGS - 84 LSB "
             }
@@ -1106,7 +1106,7 @@
                         "min": -90,
                         "name1": "Latitude",
                         "name2": "(Latitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "degrees"
                     },
@@ -1118,7 +1118,7 @@
                         "min": -180,
                         "name1": "Longitude",
                         "name2": "(Longitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "degrees"
                     }
@@ -1182,7 +1182,7 @@
                         "lsb": 0.007812,
                         "name1": "TOS",
                         "name2": "(TOS) Time Offset coded",
-                        "signed": "true",
+                        "signed": true,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1310,7 +1310,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "subfield info": "0 0 0 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
             }
         ]
@@ -1331,13 +1331,13 @@
                         "min": -1500,
                         "name1": "Altitude",
                         "name2": "Altitude",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "ft"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "S 1. LSB is required to be less than 10 ft by ICAO 2. The source of altitude is identified in bits (SRC) of item I062/080 Track Status",
                 "subfield info": "Altitude LSB  "
             }
@@ -1376,13 +1376,13 @@
                         "min": -15,
                         "name1": "Calculated Track B",
                         "name2": "Calculated Track Barometric",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "FL"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "ICAO specifies a range between \u201310 FL and 1267 FL for Mode C",
                 "subfield info": "QNH Calculated Track Barometric Altitude LSB  "
             }
@@ -1404,13 +1404,13 @@
                         "min": -15,
                         "name1": "Measured Flight Le",
                         "name2": "Measured Flight Level",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "FL"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "S 1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between \u201310 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B",
                 "subfield info": "Measured Flight Level LSB  "
             }
@@ -1432,7 +1432,7 @@
                         "min": -8192,
                         "name1": "Vx",
                         "name2": "Vx",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m/s"
                     },
@@ -1444,13 +1444,13 @@
                         "min": -8192,
                         "name1": "Vy",
                         "name2": "Vy",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m/s"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "The y-axis points to the Geographical North at the location of the target.",
                 "subfield info": "Vx LSB Vy LSB "
             }
@@ -1563,7 +1563,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "The ADF, if set,  indicates that a difference has been detected in the altitude information derived from radar as compared to other technologies (such as ADS-B) .",
                 "subfield info": "TRANS LONG VERT ADF 0 "
             }
@@ -1583,7 +1583,7 @@
                         "lsb": 0.25,
                         "name1": "Ax",
                         "name2": "Ax",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m/s2"
                     },
@@ -1593,13 +1593,13 @@
                         "lsb": 0.25,
                         "name1": "Ay",
                         "name2": "Ay",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m/s2"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "S 1. The y-axis points to the Geographical North at the location of the target. 2. Maximum value means maximum value or above.",
                 "subfield info": "Ax LSB Ay LSB "
             }
@@ -1619,13 +1619,13 @@
                         "lsb": 6.25,
                         "name1": "Rate of Climb/Desc",
                         "name2": "Rate of Climb/Descent",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "feet/minute"
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "A positive value indicates a climb, whereas a negative value indicates a descent.",
                 "subfield info": "Rate of Climb/Descent LSB  "
             }
@@ -1678,7 +1678,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "S 1. For coding, see section 3.1.2.9 of (Ref.3) 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield ,2 if downlinked from the aircraft or thanks to I062/390 Subfield ,2 if the target is correlated to a flight plan) , and in order to avoid confusion at end user\u2019s side, this item SHALL not be used.",
                 "subfield info": "STI 0 0 0 0 0 0 "
             }
@@ -1698,7 +1698,7 @@
                         "lsb": 1,
                         "name1": "",
                         "name2": "",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "m"
                     }
@@ -1714,7 +1714,7 @@
                         "lsb": 2.8125,
                         "name1": "",
                         "name2": "",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "deg"
                     }
@@ -1730,13 +1730,13 @@
                         "lsb": 1,
                         "name1": "",
                         "name2": "",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "m"
                     }
                 ],
                 "id": 3,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "S 1. The orientation gives the direction which the target nose is pointing to, relative to the Geographical North. 2. When the length only is sent, the largest dimension is provided.",
                 "subfield info": ""
             }
@@ -1758,7 +1758,7 @@
                         "min": 0,
                         "name1": "TRK",
                         "name2": "(TRK) Actual track",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1776,7 +1776,7 @@
                         "min": 0,
                         "name1": "PSR",
                         "name2": "(PSR) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1794,7 +1794,7 @@
                         "min": 0,
                         "name1": "SSR",
                         "name2": "(SSR) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1812,7 +1812,7 @@
                         "min": 0,
                         "name1": "MDS",
                         "name2": "(MDS) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1830,7 +1830,7 @@
                         "min": 0,
                         "name1": "ADS",
                         "name2": "(ADS) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1848,7 +1848,7 @@
                         "min": 0,
                         "name1": "ES",
                         "name2": "(ES) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1866,7 +1866,7 @@
                         "min": 0,
                         "name1": "VDL",
                         "name2": "(VDL) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1884,7 +1884,7 @@
                         "min": 0,
                         "name1": "UAT",
                         "name2": "(UAT) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1902,7 +1902,7 @@
                         "min": 0,
                         "name1": "LOP",
                         "name2": "(LOP) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1920,13 +1920,13 @@
                         "min": 0,
                         "name1": "MLT",
                         "name2": "(MLT) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
                 ],
                 "id": 10,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "S 1. Except for Track Age, the ages are counted from Data Item I062/070 ,  Time Of Track Information, using the following formula: Age = Time of track information - Time of last detection used to update the track 2. The time of last detection is derived from monosensor category time of day 3. If the data has never been received, then the corresponding subfield is not sent. 4. Maximum value means maximum value or above.",
                 "subfield info": ""
             }
@@ -1948,7 +1948,7 @@
                         "min": 0,
                         "name1": "MFL",
                         "name2": "(MFL) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1966,7 +1966,7 @@
                         "min": 0,
                         "name1": "MD1",
                         "name2": "(MD1) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -1984,7 +1984,7 @@
                         "min": 0,
                         "name1": "MD2",
                         "name2": "(MD2) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2002,7 +2002,7 @@
                         "min": 0,
                         "name1": "MDA",
                         "name2": "(MDA) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2020,7 +2020,7 @@
                         "min": 0,
                         "name1": "MD4",
                         "name2": "(MD4) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2038,7 +2038,7 @@
                         "min": 0,
                         "name1": "MD5",
                         "name2": "(MD5) Age of the last",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2056,7 +2056,7 @@
                         "min": 0,
                         "name1": "MHG",
                         "name2": "(MHG) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2074,7 +2074,7 @@
                         "min": 0,
                         "name1": "IAS",
                         "name2": "(IAS) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2093,7 +2093,7 @@
                         "min": 0,
                         "name1": "TAS",
                         "name2": "(TAS) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2111,7 +2111,7 @@
                         "min": 0,
                         "name1": "SAL",
                         "name2": "(SAL) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2129,7 +2129,7 @@
                         "min": 0,
                         "name1": "FSS",
                         "name2": "(FSS) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2147,7 +2147,7 @@
                         "min": 0,
                         "name1": "TID",
                         "name2": "(TID) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2165,7 +2165,7 @@
                         "min": 0,
                         "name1": "COM",
                         "name2": "(COM) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2183,7 +2183,7 @@
                         "min": 0,
                         "name1": "SAB",
                         "name2": "(SAB) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2201,7 +2201,7 @@
                         "min": 0,
                         "name1": "ACS",
                         "name2": "(ACS) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2219,7 +2219,7 @@
                         "min": 0,
                         "name1": "BVR",
                         "name2": "(BVR) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2237,7 +2237,7 @@
                         "min": 0,
                         "name1": "GVR",
                         "name2": "(GVR) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2255,7 +2255,7 @@
                         "min": 0,
                         "name1": "RAN",
                         "name2": "(RAN) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2273,7 +2273,7 @@
                         "min": 0,
                         "name1": "TAR",
                         "name2": "(TAR) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2291,7 +2291,7 @@
                         "min": 0,
                         "name1": "TAN",
                         "name2": "(TAN) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2309,7 +2309,7 @@
                         "min": 0,
                         "name1": "GSP",
                         "name2": "(GSP) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2327,7 +2327,7 @@
                         "min": 0,
                         "name1": "VUN",
                         "name2": "(VUN) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2345,7 +2345,7 @@
                         "min": 0,
                         "name1": "MET",
                         "name2": "(MET) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2363,7 +2363,7 @@
                         "min": 0,
                         "name1": "EMC",
                         "name2": "(EMC) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2381,7 +2381,7 @@
                         "min": 0,
                         "name1": "POS",
                         "name2": "(POS) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2399,7 +2399,7 @@
                         "min": 0,
                         "name1": "GAL",
                         "name2": "(GAL) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2417,7 +2417,7 @@
                         "min": 0,
                         "name1": "PUN",
                         "name2": "(PUN) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2435,7 +2435,7 @@
                         "min": 0,
                         "name1": "MB",
                         "name2": "(MB) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2453,7 +2453,7 @@
                         "min": 0,
                         "name1": "IAR",
                         "name2": "(IAR) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2471,7 +2471,7 @@
                         "min": 0,
                         "name1": "MAC",
                         "name2": "(MAC) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
@@ -2489,13 +2489,13 @@
                         "min": 0,
                         "name1": "BPS",
                         "name2": "(BPS) Age of the DAP",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     }
                 ],
                 "id": 31,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "In all the subfields, the age is the time delay since the value was measured",
                 "subfield info": ""
             }
@@ -2588,7 +2588,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "subfield info": "VFI "
             }
         ]
@@ -2630,7 +2630,7 @@
                         "min": 0,
                         "name1": "RHO",
                         "name2": " (RHO) Measured distance:",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "NM"
                     },
@@ -2640,7 +2640,7 @@
                         "lsb": 0.005493,
                         "name1": "THETA",
                         "name2": "(THETA) Measured azimuth",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "deg"
                     }
@@ -2657,7 +2657,7 @@
                         "lsb": 25,
                         "name1": "Height",
                         "name2": "Height",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "feet"
                     }
@@ -2709,7 +2709,7 @@
                         "min": -12,
                         "name1": "Last Measured Mode",
                         "name2": "Last Measured Mode",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "FL"
                     }
@@ -2888,7 +2888,7 @@
                     }
                 ],
                 "id": 6,
-                "mandatory": "false",
+                "mandatory": false,
                 "subfield info": ""
             }
         ]
@@ -2933,7 +2933,7 @@
                         "lsb": 180.0,
                         "name1": "Magnetic Heading",
                         "name2": "Magnetic Heading",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "deg"
                     }
@@ -2976,7 +2976,7 @@
                         "min": 0,
                         "name1": "True Air Speed",
                         "name2": "True Air Speed",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "knot"
                     }
@@ -3036,7 +3036,7 @@
                         "min": -1300,
                         "name1": "Altitude",
                         "name2": "(Altitude) Altitude",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "ft"
                     }
@@ -3105,7 +3105,7 @@
                         "min": -1300,
                         "name1": "Altitude",
                         "name2": "(Altitude) Altitude",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "ft"
                     }
@@ -3216,7 +3216,7 @@
                         "min": -1500,
                         "name1": "Altitude",
                         "name2": "(Altitude) Altitude",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "ft"
                     },
@@ -3228,7 +3228,7 @@
                         "min": -90,
                         "name1": "Latitude",
                         "name2": "(Latitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "23 deg."
                     },
@@ -3240,7 +3240,7 @@
                         "min": -180,
                         "name1": "Longitude",
                         "name2": "(Longitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "deg"
                     },
@@ -3366,7 +3366,7 @@
                         "lsb": 1,
                         "name1": "TOV",
                         "name2": "(TOV) Time Over Point",
-                        "signed": "false",
+                        "signed": false,
                         "type": "time",
                         "unit": "s"
                     },
@@ -3378,7 +3378,7 @@
                         "min": 0,
                         "name1": "TTR",
                         "name2": "(TTR) TCP Turn radius",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "Nm"
                     }
@@ -3684,7 +3684,7 @@
                         "lsb": 6.25,
                         "name1": "Barometric Vertica",
                         "name2": "Barometric Vertical",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "feet/minute"
                     }
@@ -3700,7 +3700,7 @@
                         "lsb": 6.25,
                         "name1": "Geometric Vertical",
                         "name2": "Geometric Vertical",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "feet/minute"
                     }
@@ -3718,7 +3718,7 @@
                         "min": -180,
                         "name1": "Roll Angle in two\u2019",
                         "name2": "Roll Angle in two\u2019s",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "deg"
                     }
@@ -3766,7 +3766,7 @@
                         "min": -15,
                         "name1": "Rate of Turn in tw",
                         "name2": "Rate of Turn in two\u2019s",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "deg/s"
                     },
@@ -3788,7 +3788,7 @@
                         "lsb": 0.005493,
                         "name1": "Track Angle",
                         "name2": "Track Angle",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "deg"
                     }
@@ -3806,7 +3806,7 @@
                         "min": -2,
                         "name1": "Ground Speed in tw",
                         "name2": "Ground Speed in two's",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "NM/s"
                     }
@@ -3903,7 +3903,7 @@
                         "min": 0,
                         "name1": "Wind Speed",
                         "name2": "Wind Speed",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "knot"
                     },
@@ -3915,7 +3915,7 @@
                         "min": 1,
                         "name1": "Wind Direction",
                         "name2": "Wind Direction",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "deg"
                     },
@@ -3927,7 +3927,7 @@
                         "min": -100,
                         "name1": "Temperature in deg",
                         "name2": "Temperature in deg",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "degC"
                     },
@@ -4043,7 +4043,7 @@
                         "min": -90,
                         "name1": "Latitude",
                         "name2": "(Latitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "deg"
                     },
@@ -4055,7 +4055,7 @@
                         "min": -180,
                         "name1": "Longitude",
                         "name2": "(Longitude) In WGS.84",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "deg"
                     }
@@ -4074,7 +4074,7 @@
                         "min": -1500,
                         "name1": "Altitude",
                         "name2": "(Altitude) Altitude",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "ft"
                     }
@@ -4151,7 +4151,7 @@
                         "min": 0,
                         "name1": "",
                         "name2": "",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "Kt"
                     }
@@ -4169,7 +4169,7 @@
                         "min": 0,
                         "name1": "",
                         "name2": "",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": ""
                     }
@@ -4192,13 +4192,13 @@
                         "min": 0,
                         "name1": "BPS",
                         "name2": "(BPS)",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "mb"
                     }
                 ],
                 "id": 28,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "BPS is the barometric pressure setting of the aircraft minus 800 mb.",
                 "subfield info": ""
             }
@@ -4482,7 +4482,7 @@
                         "lsb": 0.25,
                         "name1": "CFL",
                         "name2": "(CFL)",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "FL"
                     }
@@ -4763,7 +4763,7 @@
                     }
                 ],
                 "id": 16,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "Each one of the seven Octets contains an ASCII Character. The STAR is always left adjusted. It contains up to seven alphanumeric characters, the remaining character positions (if any) are padded with space characters.",
                 "subfield info": ""
             },
@@ -4776,7 +4776,7 @@
                     },
                     {
                         "bit begin": 12,
-                        "bit end": 12,
+                        "bit end": 11,
                         "name1": "VA",
                         "name2": "Validity",
                         "options": [
@@ -4792,7 +4792,7 @@
                         "type": "enum"
                     },
                     {
-                        "bit begin": 12,
+                        "bit begin": 11,
                         "bit end": 0,
                         "name1": "Mode-3/A reply",
                         "name2": "Mode-3/A reply",
@@ -4833,7 +4833,7 @@
                         "lsb": 0.5,
                         "name1": "APC (X-Component)",
                         "name2": "APC (X-Component)",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m"
                     },
@@ -4843,7 +4843,7 @@
                         "lsb": 0.5,
                         "name1": "APC (Y-Component)",
                         "name2": "APC (Y-Component)",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m"
                     }
@@ -4860,7 +4860,7 @@
                         "lsb": 0.5,
                         "name1": "COV",
                         "name2": "(COV) XY Covariance",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "m"
                     }
@@ -4877,7 +4877,7 @@
                         "lsb": 5.364418e-06,
                         "name1": "APW (Latitude Comp",
                         "name2": "APW (Latitude Component)",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "degrees"
                     },
@@ -4887,7 +4887,7 @@
                         "lsb": 5.364418e-06,
                         "name1": "APW (Longitude Com",
                         "name2": "APW (Longitude Component)",
-                        "signed": "true",
+                        "signed": true,
                         "type": "float",
                         "unit": "degrees"
                     }
@@ -4904,7 +4904,7 @@
                         "lsb": 6.25,
                         "name1": "AGA",
                         "name2": "(AGA) Estimated accuracy",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "ft"
                     }
@@ -4921,7 +4921,7 @@
                         "lsb": 0.25,
                         "name1": "ABA",
                         "name2": "(ABA) Estimated accuracy",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "FL"
                     }
@@ -4938,7 +4938,7 @@
                         "lsb": 0.25,
                         "name1": "ATV (X-Component)",
                         "name2": "ATV (X-Component) (ATV)",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "m/s"
                     },
@@ -4948,7 +4948,7 @@
                         "lsb": 0.25,
                         "name1": "ATV (Y-Component)",
                         "name2": "ATV (Y-Component) (ATV)",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "m/s"
                     }
@@ -4965,7 +4965,7 @@
                         "lsb": 0.25,
                         "name1": "AA (X-Component) (",
                         "name2": "AA (X-Component) (AA)",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "m/s2"
                     },
@@ -4975,7 +4975,7 @@
                         "lsb": 0.25,
                         "name1": "AA (Y-Component) (",
                         "name2": "AA (Y-Component) (AA)",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "m/s2"
                     }
@@ -4992,13 +4992,13 @@
                         "lsb": 6.25,
                         "name1": "ARC",
                         "name2": "(ARC) Estimated accuracy",
-                        "signed": "false",
+                        "signed": false,
                         "type": "float",
                         "unit": "feet/minute"
                     }
                 ],
                 "id": 8,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "Maximum value means maximum value or above.",
                 "subfield info": ""
             }
@@ -5048,7 +5048,7 @@
                     }
                 ],
                 "id": 1,
-                "mandatory": "false",
+                "mandatory": false,
                 "note": "The Field Reference Number ,2 is kept free in order to prevent a full incompatibility with previous releases of ASTERIX Cat. 062 already implemented. In the above table \uf0b7 the first column indicates the Field Reference Number (FRN) associated to each Data Item used in the UAP; \uf0b7 the fourth column gives the format and the length of each item, a stand-alone figure indicates the octet-count of a fixed-length Data Item, 1+ indicates a variable-length Data Item comprising a first part of 1 octet",
                 "subfield info": ""
             }
