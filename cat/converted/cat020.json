@@ -815,8 +815,8 @@
                     {
                         "bit begin": 24,
                         "bit end": 0,
-                        "name1": "",
-                        "name2": "",
+                        "name1": "Time",
+                        "name2": "Time",
                         "type": "int"
                     }
                 ],
@@ -1333,6 +1333,7 @@
             {
                 "data": [
                     {
+
                         "bit begin": 8,
                         "bit end": 0,
                         "name1": "VFI",
@@ -1463,6 +1464,7 @@
                                 "4",
                                 "Emergency operation (fire, medical\u2026)"
                             ],
+
                             [
                                 "5",
                                 "Work in progress (maintenance, birds scarer, sweepers\u2026)"
