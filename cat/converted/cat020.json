@@ -1365,7 +1365,7 @@
 		}]
 	},
 	"I020/500": {
-		"format": "compound",
+		"format": "Position Accuracy",
 		"item definition": "PosAccuracy",
 		"item name": "PosAccuracy",
 		"length": 1,
