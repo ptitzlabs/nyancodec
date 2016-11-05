@@ -554,14 +554,14 @@
 			}, {
 				"bit begin": 13,
 				"bit end": 12,
-				"name1": "Code",
+				"name1": "",
 				"name2": "",
 				"type": "spare"
 			}, {
 				"bit begin": 12,
 				"bit end": 0,
-				"name1": "Mode-3/A reply",
-				"name2": "Mode-3/A reply",
+				"name1": "Code",
+				"name2": "",
 				"type": "oct"
 			}],
 			"id": 1,
