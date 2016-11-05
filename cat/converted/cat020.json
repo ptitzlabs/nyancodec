@@ -1,1609 +1,1440 @@
 {
-    "I020/010": {
-        "format": "fixed",
-        "item definition": "Identification of the system from which the data are received.",
-        "item name": "Data Source Identifier",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 8,
-                        "name1": "SAC",
-                        "name2": "(SAC) System Area",
-                        "type": "int"
-                    },
-                    {
-                        "bit begin": 8,
-                        "bit end": 0,
-                        "name1": "SIC",
-                        "name2": "(SIC) System Identification",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": true,
-                "subfield info": "Source"
-            }
-        ]
-    },
-    "I020/020": {
-        "format": "variable",
-        "item definition": "Type and characteristics of the data as transmitted by a system.",
-        "item name": "Target Report Descriptor",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "SSR",
-                        "name2": " SSR",
-                        "options": [
-                            [
-                                "1",
-                                "Non-Mode S 1090MHz multilateration"
-                            ],
-                            [
-                                "0",
-                                "no Non-Mode S 1090MHz multilat. MS"
-                            ]
-                         ]
-                         
-                     },
-                     {
-                        "bit begin": 7,
-                        "bit end": 6,
-                        "name1": "MS",
-                        "name2": " MS",
-                        "options": [       
-                            [
-                                "1",
-                                "Mode-S 1090 MHz multilateration"
-                            ],
-                            [
-                                "0",
-                                "no Mode-S 1090 MHz multilateration HF"
-                            ]
-                         ]
-                     },
-                     {
-                        "bit begin": 6,
-                        "bit end": 5,
-                        "name1": "HF",
-                        "name2": " HF",
-                        "options": [       
-                            [
-                                "1",
-                                "HF multilateration"
-                            ],
-                            [
-                                "0",
-                                "no HF multilateration VDL4"
-                            ]
-                         ]
-                     },
-                     {
-                        "bit begin": 5,
-                        "bit end": 4,
-                        "name1": "VDL4",
-                        "name2": " VDL4",
-                        "options": [       
-                            [
-                                "1",
-                                "VDL Mode 4 multilateration"
-                            ],
-                            [
-                                "0",
-                                "no VDL Mode 4 multilateration UAT"
-                            ]
-                         ]
-                     },
-                     {
-                        "bit begin": 4,
-                        "bit end": 3,
-                        "name1": "UAT",
-                        "name2": " UAT",
-                        "options": [       
-                            [
-                                "1",
-                                "UAT multilateration"
-                            ],
-                            [
-                                "0",
-                                "no UAT multilateration DME"
-                            ]
-                         ]
-                     },
-                     {
-                        "bit begin": 3,
-                        "bit end": 2,
-                        "name1": "DME",
-                        "name2": " DME",
-                        "options": [       
-                            [
-                                "1",
-                                "DME/TACAN multilateration"
-                            ],
-                            [
-                                "0",
-                                "no DME/TACAN multilateration OT"
-                            ]
-                         ]
-                     },
-                     {
-                        "bit begin": 2,
-                        "bit end": 1,
-                        "name1": "OT",
-                        "name2": " OT",
-                        "options": [       
-                            [
-                                "1",
-                                "Other Technology Multilateration"
-                            ],
-                            [
-                                "0",
-                                "No Other Technology Multilateration"
-                            ]
-                        ]
-                        "type": "enum"
+	"I020/010": {
+		"format": "fixed",
+		"item definition": "Identification of the system from which the data are received.",
+		"item name": "Data Source Identifier",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 8,
+				"name1": "SAC",
+				"name2": "(SAC) System Area",
+				"type": "int"
+			}, {
+				"bit begin": 8,
+				"bit end": 0,
+				"name1": "SIC",
+				"name2": "(SIC) System Identification",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": true,
+			"subfield info": "Source"
+		}]
+	},
+	"I020/020": {
+		"format": "variable",
+		"item definition": "Type and characteristics of the data as transmitted by a system.",
+		"item name": "Target Report Descriptor",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+					"bit begin": 8,
+					"bit end": 7,
+					"name1": "SSR",
+					"name2": " SSR",
+					"options": [
+						[
+							"1",
+							"Non-Mode S 1090MHz multilateration"
+						],
+						[
+							"0",
+							"no Non-Mode S 1090MHz multilat. MS"
+						]
+					]
 
-                    }
-                ],
-                "id": 1,
-                "mandatory": true,
-                "subfield info": "Type"
-            },
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "RAB",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Report from target transponder"
-                            ],
-                            [
-                                "1",
-                                "Report from field monitor (fixed transponder)"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 7,
-                        "bit end": 6,
-                        "name1": "SPI",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Absence of SPI"
-                            ],
-                            [
-                                "1",
-                                "Special Position Identification"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 6,
-                        "bit end": 5,
-                        "name1": "CHN",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Chain 1"
-                            ],
-                            [
-                                "1",
-                                "Chain 2"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 5,
-                        "bit end": 4,
-                        "name1": "GBS",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Transponder Ground bit not set"
-                            ],
-                            [
-                                "1",
-                                "Transponder Ground bit set"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 4,
-                        "bit end": 3,
-                        "name1": "CRT",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "No Corrupted reply in multilateration"
-                            ],
-                            [
-                                "1",
-                                "Corrupted replies in multilateration"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 3,
-                        "bit end": 2,
-                        "name1": "SIM",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Actual target report"
-                            ],
-                            [
-                                "1",
-                                "Simulated target report"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 2,
-                        "bit end": 1,
-                        "name1": "TST",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Test Target"
-                            ]
-                        ],
-                        "type": "enum"
-                    }
-                ],
-                "id": 2,
-                "subfield info": ""
-            }
-        ]
-    },
-    "I020/030": {
-        "format": "variable",
-        "item definition": "Warning/error conditions detected by a system for the target report involved.",
-        "item name": "WarningError",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 1,
-                        "name1": "WarningError",
-                        "name2": "(W/E Value) Warning/error",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "W/E Value FX "
-            }
-        ]
-    },
-    "I020/041": {
-        "format": "fixed",
-        "item definition": "LatLongWGS84",
-        "item name": "LatLongWGS84",
-        "length": 8,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 64,
-                        "bit end": 32,
-                        "lsb": 5.364418e-06,
-                        "max": 90,
-                        "min": -90,
-                        "name1": "Lat",
-                        "name2": "(Latitude) In WGS-84",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "degrees"
-                    },
-                    {
-                        "bit begin": 32,
-                        "bit end": 0,
-                        "lsb": 5.364418e-06,
-                        "max": 180,
-                        "min": -180,
-                        "name1": "Long",
-                        "name2": "(Longitude) In WGS-84",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "deg"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "Latitude in WGS - 84 LSB Longitude in WGS - 84 LSB "
-            }
-        ]
-    },
-    "I020/042": {
-        "format": "fixed",
-        "item definition": "Calculated position in Cartesian Coordinates, in two\u2019s complement representation.",
-        "item name": "Position in Cartesian Coordinates",
-        "length": 6,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 48,
-                        "bit end": 24,
-                        "lsb": 0.5,
-                        "max": 4194.3,
-                        "min": 0,
-                        "name1": "X",
-                        "name2": "X",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "m"
-                    },
-                    {
-                        "bit begin": 24,
-                        "bit end": 0,
-                        "lsb": 0.5,
-                        "max": 4194.3,
-                        "min": 0,
-                        "name1": "Y",
-                        "name2": "Y",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "m"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "X LSB Y LSB "
-            }
-        ]
-    },
-    "I020/050": {
-        "format": "fixed",
-        "item definition": "Mode-2 code converted into octal representation.",
-        "item name": "Mode2",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 15,
-                        "name1": "Mode2AV",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Code validated"
-                            ],
-                            [
-                                "1",
-                                "Code not validated"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 15,
-                        "bit end": 14,
-                        "name1": "Mode2AG",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Garbled code"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 14,
-                        "bit end": 13,
-                        "name1": "Mode2",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Mode-2 code derived from the reply of the transponder"
-                            ],
-                            [
-                                "1",
-                                "Smoothed Mode-2 code as provided by a local tracker n"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 13,
-                        "bit end": 12,
-                        "name1": "",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 12,
-                        "bit end": 0,
-                        "name1": "Mode-2 reply in",
-                        "name2": "Mode-2 reply in",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
-            }
-        ]
-    },
-    "I020/055": {
-        "format": "fixed",
-        "item definition": "Mode-1 code converted into octal representation.",
-        "item name": "Mode1",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "Mode1V",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Code validated"
-                            ],
-                            [
-                                "1",
-                                "Code not validated"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 7,
-                        "bit end": 6,
-                        "name1": "Mode1G",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Garbled code"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 6,
-                        "bit end": 5,
-                        "name1": "Mode1L",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Mode-1 code derived from the reply of the transponder"
-                            ],
-                            [
-                                "1",
-                                "Smoothed Mode-1 code as provided by a local tracker"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 5,
-                        "bit end": 0,
-                        "name1": "Mode1",
-                        "name2": "Mode-1 Code in",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "V G L A4 A2 A1 B2 B1 "
-            }
-        ]
-    },
-    "I020/070": {
-        "format": "fixed",
-        "item definition": "Mode3A",
-        "item name": "Mode3A",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 15,
-                        "name1": "Mode3AV",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Code validated"
-                            ],
-                            [
-                                "1",
-                                "Code not validated"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 15,
-                        "bit end": 14,
-                        "name1": "Mode3AG",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Garbled code"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 14,
-                        "bit end": 13,
-                        "name1": "Mode3AL",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Mode-3/A code derived from the reply of the transponder"
-                            ],
-                            [
-                                "1",
-                                "Mode-3/A code not extracted during the last update period"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 13,
-                        "bit end": 12,
-                        "name1": "Code",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 12,
-                        "bit end": 0,
-                        "name1": "Mode-3/A reply",
-                        "name2": "Mode-3/A reply",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
-            }
-        ]
-    },
-    "I020/090": {
-        "format": "fixed",
-        "item definition": "ModeC",
-        "item name": "ModeC",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 15,
-                        "name1": "ModeCV",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Code validated"
-                            ],
-                            [
-                                "1",
-                                "Code not validated"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 15,
-                        "bit end": 14,
-                        "name1": "ModeCG",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Garbled code"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 14,
-                        "bit end": 0,
-                        "lsb": 0.25,
-                        "name1": "ModeC",
-                        "name2": "(Flight Level)",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "FL"
-                    }
-                ],
-                "id": 1,
-                "subfield info": "V G Flight Level LSB  "
-            }
-        ]
-    },
-    "I020/100": {
-        "format": "fixed",
-        "item definition": "ModeCGray",
-        "item name": "ModeCGray",
-        "length": 4,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 32,
-                        "bit end": 31,
-                        "name1": "ModeCGrayV",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Code validated"
-                            ],
-                            [
-                                "1",
-                                "Code not validated"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 31,
-                        "bit end": 30,
-                        "name1": "ModeCGrayG",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Garbled code"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 30,
-                        "bit end": 28,
-                        "name1": "",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 28,
-                        "bit end": 16,
-                        "name1": "ModeCGray",
-                        "name2": "Mode-C reply in",
-                        "type": "int"
-                    },
-                    {
-                        "bit begin": 16,
-                        "bit end": 12,
-                        "name1": "",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 12,
-                        "bit end": 0,
-                        "name1": "ModeCGrayQualLow",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "High quality pulse Xi"
-                            ],
-                            [
-                                "1",
-                                "Low quality pulse Xi"
-                            ]
-                        ],
-                        "type": "enum"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "note": "For Mode S, bit 31 (G) is set to one when an error correction has been attempted. 2. For Mode S, D1 is also designated as Q, and is used to denote either 25ft or 100ft reporting.",
-                "subfield info": "V G 0 0 C1 A1 C2 A2 C4 A4 B1 D1 B2 D2 B4 D4 0 0 0 0 QC1 QA1 QC2 QA2 QC4 QA4 QB1 QD1 QB2 QD2 QB4 QD4 "
-            }
-        ]
-    },
-    "I020/105": {
-        "format": "fixed",
-        "item definition": "GeoHeight",
-        "item name": "GeoHeight)",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 0,
-                        "lsb": 6.25,
-                        "name1": "Geometric Height (",
-                        "name2": "Geometric Height (WGS-84)",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "ft"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "Geometric Height (WGS-84) LSB  "
-            }
-        ]
-    },
-    "I020/110": {
-        "format": "fixed",
-        "item definition": "Height above local 2D co-ordinate system in reference to the MLT System Reference Point as defined in item I019/610 , in two\u2019s complement form, based on a direct measurement not related to barometric pressure.",
-        "item name": "Measured Height (Local Cartesian Coordinates)",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 0,
-                        "lsb": 6.25,
-                        "name1": "Measured Height",
-                        "name2": "Measured Height",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "ft"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "Measured Height LSB  "
-            }
-        ]
-    },
-    "I020/140": {
-        "format": "fixed",
-        "item definition": "Absolute time stamping expressed as UTC.",
-        "item name": "Time of Day",
-        "length": 3,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 24,
-                        "bit end": 0,
-                        "name1": "Time",
-                        "name2": "Time",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": true,
-                "note": "The time of day value is reset to zero each day at midnight.",
-                "subfield info": "Time Of Day LSB  "
-            }
-        ]
-    },
-    "I020/161": {
-        "format": "fixed",
-        "item definition": "An integer value representing a unique reference to a track record within a particular track file.",
-        "item name": "Track Number",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 12,
-                        "name1": "Tracknumber",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 12,
-                        "bit end": 0,
-                        "name1": "Tracknumber.",
-                        "name2": "Track number.",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "0 0 0 0 TRACK NUMBER(0\u20264095) "
-            }
-        ]
-    },
-    "I020/170": {
-        "format": "variable",
-        "item definition": "Status.",
-        "item name": "Status",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "TNT",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Confirmed track"
-                            ],
-                            [
-                                "1",
-                                "Track in initiation phase"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 7,
-                        "bit end": 6,
-                        "name1": "TRE",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Last report for a track"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 6,
-                        "bit end": 3,
-                        "name1": "CDM",
-                        "name2": "",
-                        "options": [
-                            [
-                                "00",
-                                "Maintaining"
-                            ],
-                            [
-                                "01",
-                                "Climbing"
-                            ],
-                            [
-                                "10",
-                                "Descending"
-                            ],
-                            [
-                                "11",
-                                "Invalid"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 3,
-                        "bit end": 2,
-                        "name1": "MAH",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Horizontal manoeuvre"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 2,
-                        "bit end": 1,
-                        "name1": "STH",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Measured position"
-                            ],
-                            [
-                                "1",
-                                "Smoothed position"
-                            ]
-                        ],
-                        "type": "enum"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": ""
-            },
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "GHO",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "Ghost track"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 7,
-                        "bit end": 1,
-                        "name1": "",
-                        "name2": "",
-                        "type": "spare"
-                    }
-                ],
-                "id": 2,
-                "note": "S 1. Bit-8 (GHO) is used to signal that the track is suspected to have been generated by a fake target.",
-                "subfield info": ""
-            }
-        ]
-    },
-    "I020/202": {
-        "format": "fixed",
-        "item definition": "Velocity",
-        "item name": "Velocity",
-        "length": 4,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 32,
-                        "bit end": 16,
-                        "lsb": 0.25,
-                        "max": 8192,
-                        "min": 0,
-                        "name1": "& 1",
-                        "name2": "& 1",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "m/s"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "Vx LSB Vy LSB "
-            }
-        ]
-    },
-    "I020/210": {
-        "format": "fixed",
-        "item definition": "CAccel",
-        "item name": "CAccel",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 8,
-                        "name1": "AccelX",
-                        "name2": "",
-                        "type": "int"
-                    },
-                    {
-                        "bit begin": 8,
-                        "bit end": 0,
-                        "name1": "AccelY",
-                        "name2": "",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "Ax LSB Ay LSB "
-            }
-        ]
-    },
-    "I020/220": {
-        "format": "fixed",
-        "item definition": "ModeS",
-        "item name": "ModeS",
-        "length": 3,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 24,
-                        "bit end": 0,
-                        "name1": "ModeS",
-                        "name2": "ModeS",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "Target Address "
-            }
-        ]
-    },
-    "I020/230": {
-        "format": "fixed",
-        "item definition": "Communications capability of the transponder, capability of the on-board ACAS equipment and flight status.",
-        "item name": "ACASStatus",
-        "length": 2,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 13,
-                        "name1": "ACASCOM",
-                        "name2": "Communications capability of the transponder =",
-                        "options": [
-                            [
-                                "0",
-                                "1 ="
-                            ],
-                            [
-                                "2",
-                                "3"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 13,
-                        "bit end": 10,
-                        "name1": "ACASSTAT",
-                        "name2": " Flight Status",
-                        "options": [
-                            [
-                                "0",
-                                "No alert, no SPI, aircraft airborne"
-                            ],
-                            [
-                                "1",
-                                "No alert, no SPI, aircraft on ground"
-                            ],
-                            [
-                                "2",
-                                "Alert, no SPI, aircraft airborne"
-                            ],
-                            [
-                                "3",
-                                "Alert, no SPI, aircraft on ground"
-                            ],
-                            [
-                                "4",
-                                "Alert, SPI, aircraft airborne or on ground"
-                            ],
-                            [
-                                "5",
-                                "No alert, SPI, aircraft airborne or on ground"
-                            ],
-                            [
-                                "6",
-                                "Not assigned"
-                            ],
-                            [
-                                "7",
-                                "Information not yet extracted"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 10,
-                        "bit end": 8,
-                        "name1": "",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "MSSC",
-                        "name2": "Mode-S Specific Service Capability",
-                        "options": [
-                            [
-                                "0",
-                                "= 1 No Yes"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 7,
-                        "bit end": 6,
-                        "name1": "ARC",
-                        "name2": "Altitude reporting capability",
-                        "options": [
-                            [
-                                "0",
-                                "100 ft resolution"
-                            ],
-                            [
-                                "1",
-                                "25 ft resolution"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 6,
-                        "bit end": 5,
-                        "name1": "AIC",
-                        "name2": "Aircraft identification capability",
-                        "options": [
-                            [
-                                "0",
-                                "No"
-                            ],
-                            [
-                                "1",
-                                "Yes"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 5,
-                        "bit end": 0,
-                        "name1": "B1B",
-                        "name2": "(B1B) BDS 1,0 bits",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": true,
-                "subfield info": "COM STAT 0 0 MSSC ARC AIC B1A B1B "
-            }
-        ]
-    },
-    "I020/245": {
-        "format": "fixed",
-        "item definition": "ModeSId",
-        "item name": "ModeSId",
-        "length": 7,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 56,
-                        "bit end": 54,
-                        "name1": "MeaHeight",
-                        "name2": "MeaHeight",
-                        "options": [
-                            [
-                                "00",
-                                "0"
-                            ],
-                            [
-                                "1",
-                                "1"
-                            ],
-                            [
-                                "0",
-                                "1"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 54,
-                        "bit end": 48,
-                        "name1": "",
-                        "name2": "",
-                        "type": "spare"
-                    },
-                    {
-                        "bit begin": 48,
-                        "bit end": 0,
-                        "char size": 6,
-                        "name1": "Characters 1-8 (coded on 6 bits each) defining target identification.",
-                        "name2": "",
-                        "string length": 8,
-                        "type": "string"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "STI 0 0 0 0 0 0 MSB "
-            }
-        ]
-    },
-    "I020/250": {
-        "format": "repetitive",
-        "item definition": "ModeSMB",
-        "item name": "ModeSMB",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 72,
-                        "bit end": 64,
-                        "name1": "REP",
-                        "name2": "(REP) Repetition factor",
-                        "type": "rep"
-                    },
-                    {
-                        "bit begin": 64,
-                        "bit end": 8,
-                        "name1": "MB Data",
-                        "name2": "(MB Data) 56-bit",
-                        "type": "int"
-                    },
-                    {
-                        "bit begin": 8,
-                        "bit end": 4,
-                        "name1": "BDS1",
-                        "name2": "(BDS1) Comm B Data",
-                        "type": "int"
-                    },
-                    {
-                        "bit begin": 4,
-                        "bit end": 0,
-                        "name1": "BDS2",
-                        "name2": "(BDS2) Comm B Data",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "REP MSB MB DATA 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 LSB BDS1 BDS2 "
-            }
-        ]
-    },
-    "I020/260": {
-        "format": "fixed",
-        "item definition": "Currently active Resolution Advisory (RA) , if any, generated by the ACAS associated with the transponder transmitting the report and threat identity data.",
-        "item name": "ACASResolution",
-        "length": 7,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 56,
-                        "bit end": 0,
-                        "name1": "MB Data",
-                        "name2": "(MB Data) 56-bit",
-                        "type": "int"
-                    }
-                ],
-                "id": 1,
-                "mandatory": true,
-                "subfield info": "56 55 54 53 52 51 50 49 48 47 46 45 44 43 42 41 MB DATA 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 "
-            }
-        ]
-    },
-    "I020/300": {
-        "format": "fixed",
-        "item definition": "FleetId",
-        "item name": "FleetId",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
+				}, {
+					"bit begin": 7,
+					"bit end": 6,
+					"name1": "MS",
+					"name2": " MS",
+					"options": [
+						[
+							"1",
+							"Mode-S 1090 MHz multilateration"
+						],
+						[
+							"0",
+							"no Mode-S 1090 MHz multilateration HF"
+						]
+					]
+				}, {
+					"bit begin": 6,
+					"bit end": 5,
+					"name1": "HF",
+					"name2": " HF",
+					"options": [
+						[
+							"1",
+							"HF multilateration"
+						],
+						[
+							"0",
+							"no HF multilateration VDL4"
+						]
+					]
+				}, {
+					"bit begin": 5,
+					"bit end": 4,
+					"name1": "VDL4",
+					"name2": " VDL4",
+					"options": [
+						[
+							"1",
+							"VDL Mode 4 multilateration"
+						],
+						[
+							"0",
+							"no VDL Mode 4 multilateration UAT"
+						]
+					]
+				}, {
+					"bit begin": 4,
+					"bit end": 3,
+					"name1": "UAT",
+					"name2": " UAT",
+					"options": [
+						[
+							"1",
+							"UAT multilateration"
+						],
+						[
+							"0",
+							"no UAT multilateration DME"
+						]
+					]
+				}, {
+					"bit begin": 3,
+					"bit end": 2,
+					"name1": "DME",
+					"name2": " DME",
+					"options": [
+						[
+							"1",
+							"DME/TACAN multilateration"
+						],
+						[
+							"0",
+							"no DME/TACAN multilateration OT"
+						]
+					]
+				}, {
+					"bit begin": 2,
+					"bit end": 1,
+					"name1": "OT",
+					"name2": " OT",
+					"options": [
+						[
+							"1",
+							"Other Technology Multilateration"
+						],
+						[
+							"0",
+							"No Other Technology Multilateration"
+						]
 
-                        "bit begin": 8,
-                        "bit end": 0,
-                        "name1": "FleetId",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Unknown"
-                            ],
-                            [
-                                "1",
-                                "ATC equipment maintenance"
-                            ],
-                            [
-                                "2",
-                                "Airport maintenance"
-                            ],
-                            [
-                                "3",
-                                "Fire"
-                            ],
-                            [
-                                "4",
-                                "Bird scarer"
-                            ],
-                            [
-                                "5",
-                                "Snow plough"
-                            ],
-                            [
-                                "6",
-                                "Runway sweeper"
-                            ],
-                            [
-                                "7",
-                                "Emergency"
-                            ],
-                            [
-                                "8",
-                                "Police"
-                            ],
-                            [
-                                "9",
-                                "Bus"
-                            ],
-                            [
-                                "10",
-                                "Tug (push/tow)"
-                            ],
-                            [
-                                "11",
-                                "Grass cutter"
-                            ],
-                            [
-                                "12",
-                                "Fuel"
-                            ],
-                            [
-                                "13",
-                                "Baggage"
-                            ],
-                            [
-                                "14",
-                                "Catering"
-                            ],
-                            [
-                                "15",
-                                "Aircraft maintenance"
-                            ],
-                            [
-                                "16",
-                                "Flyco (follow me)"
-                            ]
-                        ],
-                        "type": "enum"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "VFI "
-            }
-        ]
-    },
-    "I020/310": {
-        "format": "fixed",
-        "item definition": "PreProgMsg",
-        "item name": "PreProgMsg",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 8,
-                        "bit end": 7,
-                        "name1": "PPMsgTRB",
-                        "name2": "",
-                        "options": [
-                            [
-                                "0",
-                                "Default"
-                            ],
-                            [
-                                "1",
-                                "In Trouble"
-                            ]
-                        ],
-                        "type": "enum"
-                    },
-                    {
-                        "bit begin": 7,
-                        "bit end": 0,
-                        "name1": "PPMsg",
-                        "name2": "",
-                        "options": [
-                            [
-                                "1",
-                                "Towing aircraft"
-                            ],
-                            [
-                                "2",
-                                "\u201cFollow me\u201d operation"
-                            ],
-                            [
-                                "3",
-                                "Runway check"
-                            ],
-                            [
-                                "4",
-                                "Emergency operation (fire, medical\u2026)"
-                            ],
+					],
+					"type": "enum"
 
-                            [
-                                "5",
-                                "Work in progress (maintenance, birds scarer, sweepers\u2026)"
-                            ]
-                        ],
-                        "type": "enum"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "TRB MSG "
-            }
-        ]
-    },
-    "I020/400": {
-        "format": "repetitive",
-        "item definition": "Overview of the devices, which have contributed to the Target Detection. In case of active Multilateration systems this may include transmitters.",
-        "item name": "Contributing Devices",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 8,
-                        "name1": "ContRec",
-                        "name2": "ContRec",
-                        "type": "rep"
-                    }
-                ],
-                "id": 1,
-                "mandatory": false,
-                "subfield info": "REP x x x x x x x x "
-            }
-        ]
-    },
-    "I020/500": {
-        "format": "compound",
-        "item definition": "PosAccuracy",
-        "item name": "PosAccuracy",
-        "length": 1,
-        "subfields": [
-            {
-                "data": [
-                    {
-                        "bit begin": 48,
-                        "bit end": 32,
-                        "lsb": 0.25,
-                        "name1": "DopX",
-                        "name2": "DopX",
-                        "signed": true,
-                        "type": "float",
-                        "unit": ""
-                    },
-                    {
-                        "bit begin": 32,
-                        "bit end": 16,
-                        "lsb": 0.25,
-                        "name1": "DopY",
-                        "name2": "DopY",
-                        "signed": true,
-                        "type": "float",
-                        "unit": ""
-                    },
-                    {
-                        "bit begin": 16,
-                        "bit end": 0,
-                        "lsb": 0.25,
-                        "name1": "DopXY",
-                        "name2": "DopXY",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "Note"
-                    }
-                ],
-                "id": 1,
-                "subfield info": ""
-            },
-            {
-                "data": [
-                    {
-                        "bit begin": 48,
-                        "bit end": 32,
-                        "lsb": 0.25,
-                        "name1": "SigX",
-                        "name2": "SigX",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "m"
-                    },
-                    {
-                        "bit begin": 32,
-                        "bit end": 16,
-                        "lsb": 0.25,
-                        "name1": "SigY",
-                        "name2": "SigY",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "m"
-                    },
-                    {
-                        "bit begin": 16,
-                        "bit end": 0,
-                        "lsb": 0.25,
-                        "name1": "SigRho",
-                        "name2": "SigRho",
-                        "signed": true,
-                        "type": "float",
-                        "unit": ""
-                    }
-                ],
-                "id": 2,
-                "subfield info": ""
-            },
-            {
-                "data": [
-                    {
-                        "bit begin": 16,
-                        "bit end": 0,
-                        "lsb": 0.5,
-                        "name1": "SigGeoHght",
-                        "name2": "SigGeoHght",
-                        "signed": true,
-                        "type": "float",
-                        "unit": "m"
-                    }
-                ],
-                "id": 3,
-                "note": "...",
-                "subfield info": ""
-            }
-        ]
-    },
-    "cat": "I020"
+				}
+
+			],
+			"id": 1,
+			"mandatory": true,
+			"subfield info": "Type"
+		}, {
+			"data": [{
+				"bit begin": 8,
+				"bit end": 7,
+				"name1": "RAB",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Report from target transponder"
+					],
+					[
+						"1",
+						"Report from field monitor (fixed transponder)"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 6,
+				"name1": "SPI",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Absence of SPI"
+					],
+					[
+						"1",
+						"Special Position Identification"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 5,
+				"name1": "CHN",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Chain 1"
+					],
+					[
+						"1",
+						"Chain 2"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 5,
+				"bit end": 4,
+				"name1": "GBS",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Transponder Ground bit not set"
+					],
+					[
+						"1",
+						"Transponder Ground bit set"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 4,
+				"bit end": 3,
+				"name1": "CRT",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"No Corrupted reply in multilateration"
+					],
+					[
+						"1",
+						"Corrupted replies in multilateration"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 3,
+				"bit end": 2,
+				"name1": "SIM",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Actual target report"
+					],
+					[
+						"1",
+						"Simulated target report"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 1,
+				"name1": "TST",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Test Target"
+					]
+				],
+				"type": "enum"
+			}],
+			"id": 2,
+			"subfield info": ""
+		}]
+	},
+	"I020/030": {
+		"format": "variable",
+		"item definition": "Warning/error conditions detected by a system for the target report involved.",
+		"item name": "WarningError",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 8,
+				"bit end": 1,
+				"name1": "WarningError",
+				"name2": "(W/E Value) Warning/error",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "W/E Value FX "
+		}]
+	},
+	"I020/041": {
+		"format": "fixed",
+		"item definition": "LatLongWGS84",
+		"item name": "LatLongWGS84",
+		"length": 8,
+		"subfields": [{
+			"data": [{
+				"bit begin": 64,
+				"bit end": 32,
+				"lsb": 5.364418e-06,
+				"max": 90,
+				"min": -90,
+				"name1": "Lat",
+				"name2": "(Latitude) In WGS-84",
+				"signed": true,
+				"type": "float",
+				"unit": "degrees"
+			}, {
+				"bit begin": 32,
+				"bit end": 0,
+				"lsb": 5.364418e-06,
+				"max": 180,
+				"min": -180,
+				"name1": "Long",
+				"name2": "(Longitude) In WGS-84",
+				"signed": true,
+				"type": "float",
+				"unit": "deg"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "Latitude in WGS - 84 LSB Longitude in WGS - 84 LSB "
+		}]
+	},
+	"I020/042": {
+		"format": "fixed",
+		"item definition": "Calculated position in Cartesian Coordinates, in two\u2019s complement representation.",
+		"item name": "Position in Cartesian Coordinates",
+		"length": 6,
+		"subfields": [{
+			"data": [{
+				"bit begin": 48,
+				"bit end": 24,
+				"lsb": 0.5,
+				"max": 4194.3,
+				"min": 0,
+				"name1": "X",
+				"name2": "X",
+				"signed": true,
+				"type": "float",
+				"unit": "m"
+			}, {
+				"bit begin": 24,
+				"bit end": 0,
+				"lsb": 0.5,
+				"max": 4194.3,
+				"min": 0,
+				"name1": "Y",
+				"name2": "Y",
+				"signed": true,
+				"type": "float",
+				"unit": "m"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "X LSB Y LSB "
+		}]
+	},
+	"I020/050": {
+		"format": "fixed",
+		"item definition": "Mode-2 code converted into octal representation.",
+		"item name": "Mode2",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 15,
+				"name1": "Mode2AV",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Code validated"
+					],
+					[
+						"1",
+						"Code not validated"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 15,
+				"bit end": 14,
+				"name1": "Mode2AG",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Garbled code"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 14,
+				"bit end": 13,
+				"name1": "Mode2",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Mode-2 code derived from the reply of the transponder"
+					],
+					[
+						"1",
+						"Smoothed Mode-2 code as provided by a local tracker n"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 13,
+				"bit end": 12,
+				"name1": "",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 12,
+				"bit end": 0,
+				"name1": "Mode-2 reply in",
+				"name2": "Mode-2 reply in",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
+		}]
+	},
+	"I020/055": {
+		"format": "fixed",
+		"item definition": "Mode-1 code converted into octal representation.",
+		"item name": "Mode1",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 8,
+				"bit end": 7,
+				"name1": "Mode1V",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Code validated"
+					],
+					[
+						"1",
+						"Code not validated"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 6,
+				"name1": "Mode1G",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Garbled code"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 5,
+				"name1": "Mode1L",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Mode-1 code derived from the reply of the transponder"
+					],
+					[
+						"1",
+						"Smoothed Mode-1 code as provided by a local tracker"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 5,
+				"bit end": 0,
+				"name1": "Mode1",
+				"name2": "Mode-1 Code in",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "V G L A4 A2 A1 B2 B1 "
+		}]
+	},
+	"I020/070": {
+		"format": "fixed",
+		"item definition": "Mode3A",
+		"item name": "Mode3A",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 15,
+				"name1": "Mode3AV",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Code validated"
+					],
+					[
+						"1",
+						"Code not validated"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 15,
+				"bit end": 14,
+				"name1": "Mode3AG",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Garbled code"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 14,
+				"bit end": 13,
+				"name1": "Mode3AL",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Mode-3/A code derived from the reply of the transponder"
+					],
+					[
+						"1",
+						"Mode-3/A code not extracted during the last update period"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 13,
+				"bit end": 12,
+				"name1": "Code",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 12,
+				"bit end": 0,
+				"name1": "Mode-3/A reply",
+				"name2": "Mode-3/A reply",
+				"type": "int"
+			}],
+			"id": 1,
+			"subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
+		}]
+	},
+	"I020/090": {
+		"format": "fixed",
+		"item definition": "ModeC",
+		"item name": "ModeC",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 15,
+				"name1": "ModeCV",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Code validated"
+					],
+					[
+						"1",
+						"Code not validated"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 15,
+				"bit end": 14,
+				"name1": "ModeCG",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Garbled code"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 14,
+				"bit end": 0,
+				"lsb": 0.25,
+				"name1": "ModeC",
+				"name2": "(Flight Level)",
+				"signed": true,
+				"type": "float",
+				"unit": "FL"
+			}],
+			"id": 1,
+			"subfield info": "V G Flight Level LSB  "
+		}]
+	},
+	"I020/100": {
+		"format": "fixed",
+		"item definition": "ModeCGray",
+		"item name": "ModeCGray",
+		"length": 4,
+		"subfields": [{
+			"data": [{
+				"bit begin": 32,
+				"bit end": 31,
+				"name1": "ModeCGrayV",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Code validated"
+					],
+					[
+						"1",
+						"Code not validated"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 31,
+				"bit end": 30,
+				"name1": "ModeCGrayG",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Garbled code"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 30,
+				"bit end": 28,
+				"name1": "",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 28,
+				"bit end": 16,
+				"name1": "ModeCGray",
+				"name2": "Mode-C reply in",
+				"type": "int"
+			}, {
+				"bit begin": 16,
+				"bit end": 12,
+				"name1": "",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 12,
+				"bit end": 0,
+				"name1": "ModeCGrayQualLow",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"High quality pulse Xi"
+					],
+					[
+						"1",
+						"Low quality pulse Xi"
+					]
+				],
+				"type": "enum"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"note": "For Mode S, bit 31 (G) is set to one when an error correction has been attempted. 2. For Mode S, D1 is also designated as Q, and is used to denote either 25ft or 100ft reporting.",
+			"subfield info": "V G 0 0 C1 A1 C2 A2 C4 A4 B1 D1 B2 D2 B4 D4 0 0 0 0 QC1 QA1 QC2 QA2 QC4 QA4 QB1 QD1 QB2 QD2 QB4 QD4 "
+		}]
+	},
+	"I020/105": {
+		"format": "fixed",
+		"item definition": "GeoHeight",
+		"item name": "GeoHeight)",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 0,
+				"lsb": 6.25,
+				"name1": "Geometric Height (",
+				"name2": "Geometric Height (WGS-84)",
+				"signed": true,
+				"type": "float",
+				"unit": "ft"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "Geometric Height (WGS-84) LSB  "
+		}]
+	},
+	"I020/110": {
+		"format": "fixed",
+		"item definition": "Height above local 2D co-ordinate system in reference to the MLT System Reference Point as defined in item I019/610 , in two\u2019s complement form, based on a direct measurement not related to barometric pressure.",
+		"item name": "Measured Height (Local Cartesian Coordinates)",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 0,
+				"lsb": 6.25,
+				"name1": "Measured Height",
+				"name2": "Measured Height",
+				"signed": true,
+				"type": "float",
+				"unit": "ft"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "Measured Height LSB  "
+		}]
+	},
+	"I020/140": {
+		"format": "fixed",
+		"item definition": "Absolute time stamping expressed as UTC.",
+		"item name": "Time of Day",
+		"length": 3,
+		"subfields": [{
+			"data": [{
+				"bit begin": 24,
+				"bit end": 0,
+				"name1": "Time",
+				"name2": "Time",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": true,
+			"note": "The time of day value is reset to zero each day at midnight.",
+			"subfield info": "Time Of Day LSB  "
+		}]
+	},
+	"I020/161": {
+		"format": "fixed",
+		"item definition": "An integer value representing a unique reference to a track record within a particular track file.",
+		"item name": "Track Number",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 12,
+				"name1": "Tracknumber",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 12,
+				"bit end": 0,
+				"name1": "Tracknumber.",
+				"name2": "Track number.",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "0 0 0 0 TRACK NUMBER(0\u20264095) "
+		}]
+	},
+	"I020/170": {
+		"format": "variable",
+		"item definition": "Status.",
+		"item name": "Status",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 8,
+				"bit end": 7,
+				"name1": "TNT",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Confirmed track"
+					],
+					[
+						"1",
+						"Track in initiation phase"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 6,
+				"name1": "TRE",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Last report for a track"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 3,
+				"name1": "CDM",
+				"name2": "",
+				"options": [
+					[
+						"00",
+						"Maintaining"
+					],
+					[
+						"01",
+						"Climbing"
+					],
+					[
+						"10",
+						"Descending"
+					],
+					[
+						"11",
+						"Invalid"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 3,
+				"bit end": 2,
+				"name1": "MAH",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Horizontal manoeuvre"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 1,
+				"name1": "STH",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Measured position"
+					],
+					[
+						"1",
+						"Smoothed position"
+					]
+				],
+				"type": "enum"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": ""
+		}, {
+			"data": [{
+				"bit begin": 8,
+				"bit end": 7,
+				"name1": "GHO",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"Ghost track"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 1,
+				"name1": "",
+				"name2": "",
+				"type": "spare"
+			}],
+			"id": 2,
+			"note": "S 1. Bit-8 (GHO) is used to signal that the track is suspected to have been generated by a fake target.",
+			"subfield info": ""
+		}]
+	},
+	"I020/202": {
+		"format": "fixed",
+		"item definition": "Velocity",
+		"item name": "Velocity",
+		"length": 4,
+		"subfields": [{
+			"data": [{
+				"bit begin": 32,
+				"bit end": 16,
+				"lsb": 0.25,
+				"max": 8192,
+				"min": 0,
+				"name1": "& 1",
+				"name2": "& 1",
+				"signed": true,
+				"type": "float",
+				"unit": "m/s"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "Vx LSB Vy LSB "
+		}]
+	},
+	"I020/210": {
+		"format": "fixed",
+		"item definition": "CAccel",
+		"item name": "CAccel",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 8,
+				"name1": "AccelX",
+				"name2": "",
+				"type": "int"
+			}, {
+				"bit begin": 8,
+				"bit end": 0,
+				"name1": "AccelY",
+				"name2": "",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "Ax LSB Ay LSB "
+		}]
+	},
+	"I020/220": {
+		"format": "fixed",
+		"item definition": "ModeS",
+		"item name": "ModeS",
+		"length": 3,
+		"subfields": [{
+			"data": [{
+				"bit begin": 24,
+				"bit end": 0,
+				"name1": "ModeS",
+				"name2": "ModeS",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "Target Address "
+		}]
+	},
+	"I020/230": {
+		"format": "fixed",
+		"item definition": "Communications capability of the transponder, capability of the on-board ACAS equipment and flight status.",
+		"item name": "ACASStatus",
+		"length": 2,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 13,
+				"name1": "ACASCOM",
+				"name2": "Communications capability of the transponder =",
+				"options": [
+					[
+						"0",
+						"1 ="
+					],
+					[
+						"2",
+						"3"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 13,
+				"bit end": 10,
+				"name1": "ACASSTAT",
+				"name2": " Flight Status",
+				"options": [
+					[
+						"0",
+						"No alert, no SPI, aircraft airborne"
+					],
+					[
+						"1",
+						"No alert, no SPI, aircraft on ground"
+					],
+					[
+						"2",
+						"Alert, no SPI, aircraft airborne"
+					],
+					[
+						"3",
+						"Alert, no SPI, aircraft on ground"
+					],
+					[
+						"4",
+						"Alert, SPI, aircraft airborne or on ground"
+					],
+					[
+						"5",
+						"No alert, SPI, aircraft airborne or on ground"
+					],
+					[
+						"6",
+						"Not assigned"
+					],
+					[
+						"7",
+						"Information not yet extracted"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 10,
+				"bit end": 8,
+				"name1": "",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 8,
+				"bit end": 7,
+				"name1": "MSSC",
+				"name2": "Mode-S Specific Service Capability",
+				"options": [
+					[
+						"0",
+						"= 1 No Yes"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 6,
+				"name1": "ARC",
+				"name2": "Altitude reporting capability",
+				"options": [
+					[
+						"0",
+						"100 ft resolution"
+					],
+					[
+						"1",
+						"25 ft resolution"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 5,
+				"name1": "AIC",
+				"name2": "Aircraft identification capability",
+				"options": [
+					[
+						"0",
+						"No"
+					],
+					[
+						"1",
+						"Yes"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 5,
+				"bit end": 0,
+				"name1": "B1B",
+				"name2": "(B1B) BDS 1,0 bits",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": true,
+			"subfield info": "COM STAT 0 0 MSSC ARC AIC B1A B1B "
+		}]
+	},
+	"I020/245": {
+		"format": "fixed",
+		"item definition": "ModeSId",
+		"item name": "ModeSId",
+		"length": 7,
+		"subfields": [{
+			"data": [{
+				"bit begin": 56,
+				"bit end": 54,
+				"name1": "MeaHeight",
+				"name2": "MeaHeight",
+				"options": [
+					[
+						"00",
+						"0"
+					],
+					[
+						"1",
+						"1"
+					],
+					[
+						"0",
+						"1"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 54,
+				"bit end": 48,
+				"name1": "",
+				"name2": "",
+				"type": "spare"
+			}, {
+				"bit begin": 48,
+				"bit end": 0,
+				"char size": 6,
+				"name1": "Characters 1-8 (coded on 6 bits each) defining target identification.",
+				"name2": "",
+				"string length": 8,
+				"type": "string"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "STI 0 0 0 0 0 0 MSB "
+		}]
+	},
+	"I020/250": {
+		"format": "repetitive",
+		"item definition": "ModeSMB",
+		"item name": "ModeSMB",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 72,
+				"bit end": 64,
+				"name1": "REP",
+				"name2": "(REP) Repetition factor",
+				"type": "rep"
+			}, {
+				"bit begin": 64,
+				"bit end": 8,
+				"name1": "MB Data",
+				"name2": "(MB Data) 56-bit",
+				"type": "int"
+			}, {
+				"bit begin": 8,
+				"bit end": 4,
+				"name1": "BDS1",
+				"name2": "(BDS1) Comm B Data",
+				"type": "int"
+			}, {
+				"bit begin": 4,
+				"bit end": 0,
+				"name1": "BDS2",
+				"name2": "(BDS2) Comm B Data",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "REP MSB MB DATA 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 LSB BDS1 BDS2 "
+		}]
+	},
+	"I020/260": {
+		"format": "fixed",
+		"item definition": "Currently active Resolution Advisory (RA) , if any, generated by the ACAS associated with the transponder transmitting the report and threat identity data.",
+		"item name": "ACASResolution",
+		"length": 7,
+		"subfields": [{
+			"data": [{
+				"bit begin": 56,
+				"bit end": 0,
+				"name1": "MB Data",
+				"name2": "(MB Data) 56-bit",
+				"type": "int"
+			}],
+			"id": 1,
+			"mandatory": true,
+			"subfield info": "56 55 54 53 52 51 50 49 48 47 46 45 44 43 42 41 MB DATA 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 "
+		}]
+	},
+	"I020/300": {
+		"format": "fixed",
+		"item definition": "FleetId",
+		"item name": "FleetId",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+
+				"bit begin": 8,
+				"bit end": 0,
+				"name1": "FleetId",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Unknown"
+					],
+					[
+						"1",
+						"ATC equipment maintenance"
+					],
+					[
+						"2",
+						"Airport maintenance"
+					],
+					[
+						"3",
+						"Fire"
+					],
+					[
+						"4",
+						"Bird scarer"
+					],
+					[
+						"5",
+						"Snow plough"
+					],
+					[
+						"6",
+						"Runway sweeper"
+					],
+					[
+						"7",
+						"Emergency"
+					],
+					[
+						"8",
+						"Police"
+					],
+					[
+						"9",
+						"Bus"
+					],
+					[
+						"10",
+						"Tug (push/tow)"
+					],
+					[
+						"11",
+						"Grass cutter"
+					],
+					[
+						"12",
+						"Fuel"
+					],
+					[
+						"13",
+						"Baggage"
+					],
+					[
+						"14",
+						"Catering"
+					],
+					[
+						"15",
+						"Aircraft maintenance"
+					],
+					[
+						"16",
+						"Flyco (follow me)"
+					]
+				],
+				"type": "enum"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "VFI "
+		}]
+	},
+	"I020/310": {
+		"format": "fixed",
+		"item definition": "PreProgMsg",
+		"item name": "PreProgMsg",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 8,
+				"bit end": 7,
+				"name1": "PPMsgTRB",
+				"name2": "",
+				"options": [
+					[
+						"0",
+						"Default"
+					],
+					[
+						"1",
+						"In Trouble"
+					]
+				],
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 0,
+				"name1": "PPMsg",
+				"name2": "",
+				"options": [
+					[
+						"1",
+						"Towing aircraft"
+					],
+					[
+						"2",
+						"\u201cFollow me\u201d operation"
+					],
+					[
+						"3",
+						"Runway check"
+					],
+					[
+						"4",
+						"Emergency operation (fire, medical\u2026)"
+					],
+
+					[
+						"5",
+						"Work in progress (maintenance, birds scarer, sweepers\u2026)"
+					]
+				],
+				"type": "enum"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "TRB MSG "
+		}]
+	},
+	"I020/400": {
+		"format": "repetitive",
+		"item definition": "Overview of the devices, which have contributed to the Target Detection. In case of active Multilateration systems this may include transmitters.",
+		"item name": "Contributing Devices",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 16,
+				"bit end": 8,
+				"name1": "ContRec",
+				"name2": "ContRec",
+				"type": "rep"
+			}],
+			"id": 1,
+			"mandatory": false,
+			"subfield info": "REP x x x x x x x x "
+		}]
+	},
+	"I020/500": {
+		"format": "compound",
+		"item definition": "PosAccuracy",
+		"item name": "PosAccuracy",
+		"length": 1,
+		"subfields": [{
+			"data": [{
+				"bit begin": 48,
+				"bit end": 32,
+				"lsb": 0.25,
+				"name1": "DopX",
+				"name2": "DopX",
+				"signed": true,
+				"type": "float",
+				"unit": ""
+			}, {
+				"bit begin": 32,
+				"bit end": 16,
+				"lsb": 0.25,
+				"name1": "DopY",
+				"name2": "DopY",
+				"signed": true,
+				"type": "float",
+				"unit": ""
+			}, {
+				"bit begin": 16,
+				"bit end": 0,
+				"lsb": 0.25,
+				"name1": "DopXY",
+				"name2": "DopXY",
+				"signed": true,
+				"type": "float",
+				"unit": "Note"
+			}],
+			"id": 1,
+			"subfield info": ""
+		}, {
+			"data": [{
+				"bit begin": 48,
+				"bit end": 32,
+				"lsb": 0.25,
+				"name1": "SigX",
+				"name2": "SigX",
+				"signed": true,
+				"type": "float",
+				"unit": "m"
+			}, {
+				"bit begin": 32,
+				"bit end": 16,
+				"lsb": 0.25,
+				"name1": "SigY",
+				"name2": "SigY",
+				"signed": true,
+				"type": "float",
+				"unit": "m"
+			}, {
+				"bit begin": 16,
+				"bit end": 0,
+				"lsb": 0.25,
+				"name1": "SigRho",
+				"name2": "SigRho",
+				"signed": true,
+				"type": "float",
+				"unit": ""
+			}],
+			"id": 2,
+			"subfield info": ""
+		}, {
+			"data": [{
+				"bit begin": 16,
+				"bit end": 0,
+				"lsb": 0.5,
+				"name1": "SigGeoHght",
+				"name2": "SigGeoHght",
+				"signed": true,
+				"type": "float",
+				"unit": "m"
+			}],
+			"id": 3,
+			"note": "...",
+			"subfield info": ""
+		}]
+	},
+	"cat": "I020"
 }
