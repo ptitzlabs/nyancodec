@@ -49,7 +49,7 @@
                             [
                                 "0",
                                 "no Non-Mode S 1090MHz multilat. MS"
-                            ]
+                            ]]
                      },
                      {
                         "bit begin": 7,
@@ -64,7 +64,7 @@
                             [
                                 "0",
                                 "no Mode-S 1090 MHz multilateration HF"
-                            ]
+                            ]]
                      },
                      {
                         "bit begin": 6,
@@ -79,7 +79,7 @@
                             [
                                 "0",
                                 "no HF multilateration VDL4"
-                            ]
+                            ]]
                      },
                      {
                         "bit begin": 5,
@@ -94,7 +94,7 @@
                             [
                                 "0",
                                 "no VDL Mode 4 multilateration UAT"
-                            ]
+                            ]]
                      },
                      {
                         "bit begin": 4,
@@ -109,7 +109,7 @@
                             [
                                 "0",
                                 "no UAT multilateration DME"
-                            ]
+                            ]]
                      },
                      {
                         "bit begin": 3,
@@ -124,13 +124,14 @@
                             [
                                 "0",
                                 "no DME/TACAN multilateration OT"
-                            ]
+                            ]]
                      },
                      {
                         "bit begin": 2,
                         "bit end": 1,
                         "name1": "OT",
                         "name2": " OT",
+                        "type": "enum",
                         "options": [       
                             [
                                 "1",
@@ -141,8 +142,6 @@
                                 "No Other Technology Multilateration"
                             ]
                         ]
-                    }
-                        "type": "enum"
                    }
                 ],
                 "id": 1,

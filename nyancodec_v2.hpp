@@ -89,7 +89,7 @@ const map<string, itype> itype_map = {
     {"fixed", itype::fix},      // fixed length item
     {"extendible", itype::ext}, // extended length item
     {"variable", itype::var},   // variable length item
-    {"repeating", itype::rep},  // repetitive item
+    {"repetitive", itype::rep},  // repetitive item
     {"compound", itype::com},   // composite item
     {"aux", itype::aux},        // auxillary item
     {"ref", itype::ref},        // reserved expansion field
@@ -136,7 +136,7 @@ public:
       cout << WARNING << static_cast<const string &>(item_name) << " subfield "
            << int(subfield_id) + 1 << " datafield " << int(datafield_id) + 1
            << ": Data has no type" << endl;
-      data_type = dtype::oct;
+      data_type = dtype::i;
     } else {
       if (dtype_map.find(j["type"]) == dtype_map.end()) {
         cout << WARNING << static_cast<const string &>(item_name)
@@ -228,7 +228,9 @@ public:
              << " subfield " << int(subfield_id) + 1
              << ": Cannot deduce subfield size" << endl;
       } else {
-        bit_len = j["data"][0]["bit begin"];
+          if(j["data"][0]["type"] != "rep"){
+            bit_len = j["data"][0]["bit begin"];
+          }
         byte_len = bit_len >> 3;
       }
       reserve(j["data"].size());
@@ -624,6 +626,9 @@ public:
       break;
     case dtype::spare:
       break;
+    case dtype::rep:
+      oct_to_long(it_begin, dspec.byte_loc, dspec.bit_loc, dspec.bit_len, i);
+        break;
     default:
       it_begin += dspec.byte_loc;
       it_end = it_begin + (dspec.bit_len >> 3);
@@ -749,6 +754,9 @@ public:
         emplace(end(), ispec.at(sub), it_begin, it_end);
       }
       break;
+    case itype::rep:
+        oct_to_long(it_begin,ispec[0][0].byte_loc,ispec[0][0].bit_loc,ispec[0][0].bit_len,rep);
+        break;
     default:
       cout << WARNING << "Undefined handling item type " << ispec.item["format"]
            << endl;
@@ -772,6 +780,7 @@ public:
   vector<oct>::iterator item_begin; // reference to msg raw data
   vector<oct>::iterator item_end;   // reference to msg raw data
   fspec fs;                         // just in case the item is compound
+  long rep;
 };
 
 class block : public vector<item> {
