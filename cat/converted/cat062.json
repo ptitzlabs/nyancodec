@@ -4107,7 +4107,13 @@
                 "subfield info": ""
             },
             {
-                "data": [],
+                "data": [
+                    {
+                        "bit begin": 0,
+                        "bit end": 72,
+                        "type": "spare"
+                    },
+                ],
                 "id": 25,
                 "subfield info": " Format : Repetitive starting with an one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code. "
             },
