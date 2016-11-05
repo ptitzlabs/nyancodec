@@ -24,7 +24,7 @@
                 ],
                 "id": 1,
                 "mandatory": true,
-                "subfield info": "SAC SIC "
+                "subfield info": "Source"
             }
         ]
     },
@@ -38,8 +38,8 @@
                 "data": [
                     {
                         "bit begin": 8,
-                        "bit end": 1,
-                        "name1": "TYP",
+                        "bit end": 7,
+                        "name1": "SSR",
                         "name2": " SSR",
                         "options": [
                             [
@@ -49,7 +49,14 @@
                             [
                                 "0",
                                 "no Non-Mode S 1090MHz multilat. MS"
-                            ],
+                            ]
+                     },
+                     {
+                        "bit begin": 7,
+                        "bit end": 6,
+                        "name1": "MS",
+                        "name2": " MS",
+                        "options": [       
                             [
                                 "1",
                                 "Mode-S 1090 MHz multilateration"
@@ -57,7 +64,14 @@
                             [
                                 "0",
                                 "no Mode-S 1090 MHz multilateration HF"
-                            ],
+                            ]
+                     },
+                     {
+                        "bit begin": 6,
+                        "bit end": 5,
+                        "name1": "HF",
+                        "name2": " HF",
+                        "options": [       
                             [
                                 "1",
                                 "HF multilateration"
@@ -65,7 +79,14 @@
                             [
                                 "0",
                                 "no HF multilateration VDL4"
-                            ],
+                            ]
+                     },
+                     {
+                        "bit begin": 5,
+                        "bit end": 4,
+                        "name1": "VDL4",
+                        "name2": " VDL4",
+                        "options": [       
                             [
                                 "1",
                                 "VDL Mode 4 multilateration"
@@ -73,7 +94,14 @@
                             [
                                 "0",
                                 "no VDL Mode 4 multilateration UAT"
-                            ],
+                            ]
+                     },
+                     {
+                        "bit begin": 4,
+                        "bit end": 3,
+                        "name1": "UAT",
+                        "name2": " UAT",
+                        "options": [       
                             [
                                 "1",
                                 "UAT multilateration"
@@ -81,7 +109,14 @@
                             [
                                 "0",
                                 "no UAT multilateration DME"
-                            ],
+                            ]
+                     },
+                     {
+                        "bit begin": 3,
+                        "bit end": 2,
+                        "name1": "DME",
+                        "name2": " DME",
+                        "options": [       
                             [
                                 "1",
                                 "DME/TACAN multilateration"
@@ -89,7 +124,14 @@
                             [
                                 "0",
                                 "no DME/TACAN multilateration OT"
-                            ],
+                            ]
+                     },
+                     {
+                        "bit begin": 2,
+                        "bit end": 1,
+                        "name1": "OT",
+                        "name2": " OT",
+                        "options": [       
                             [
                                 "1",
                                 "Other Technology Multilateration"
@@ -98,13 +140,14 @@
                                 "0",
                                 "No Other Technology Multilateration"
                             ]
-                        ],
-                        "type": "enum"
+                        ]
                     }
+                        "type": "enum"
+                   }
                 ],
                 "id": 1,
                 "mandatory": true,
-                "subfield info": ""
+                "subfield info": "Type"
             },
             {
                 "data": [
