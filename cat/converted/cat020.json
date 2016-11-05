@@ -562,7 +562,7 @@
 				"bit end": 0,
 				"name1": "Mode-3/A reply",
 				"name2": "Mode-3/A reply",
-				"type": "int"
+				"type": "oct"
 			}],
 			"id": 1,
 			"subfield info": "V G L 0 A4 A2 A1 B4 B2 B1 C4 C2 C1 D4 D2 D1 "
