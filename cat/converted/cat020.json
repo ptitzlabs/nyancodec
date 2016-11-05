@@ -43,7 +43,8 @@
 							"0",
 							"no Non-Mode S 1090MHz multilat. MS"
 						]
-					]
+					],
+                    "type" : "enum"
 
 				}, {
 					"bit begin": 7,
@@ -59,7 +60,9 @@
 							"0",
 							"no Mode-S 1090 MHz multilateration HF"
 						]
-					]
+					],
+                    "type" : "enum"
+
 				}, {
 					"bit begin": 6,
 					"bit end": 5,
@@ -74,7 +77,9 @@
 							"0",
 							"no HF multilateration VDL4"
 						]
-					]
+					],
+                    "type" : "enum"
+
 				}, {
 					"bit begin": 5,
 					"bit end": 4,
@@ -89,7 +94,9 @@
 							"0",
 							"no VDL Mode 4 multilateration UAT"
 						]
-					]
+					],
+                    "type" : "enum"
+
 				}, {
 					"bit begin": 4,
 					"bit end": 3,
@@ -104,7 +111,9 @@
 							"0",
 							"no UAT multilateration DME"
 						]
-					]
+					],
+                    "type" : "enum"
+
 				}, {
 					"bit begin": 3,
 					"bit end": 2,
@@ -119,7 +128,9 @@
 							"0",
 							"no DME/TACAN multilateration OT"
 						]
-					]
+					],
+                    "type" : "enum"
+
 				}, {
 					"bit begin": 2,
 					"bit end": 1,
