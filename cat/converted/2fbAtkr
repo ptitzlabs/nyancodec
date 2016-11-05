@@ -1,0 +1,68 @@
+ASTERIX 20
+{010 Source 2 0 {SAC 8} {SIC 8}}
+{020 Type 1 1 {SSR 1} {MS 1} {HF 1} {VDL4 1} {UAT 1} {DME 1} {OT 1}
+        {RAB 1} {SPI 1} {CHN 1} {GBS 1} {CRT 1} {SIM 1} {TST 1}
+}
+{140 Time 3 0 {Time 24 }}
+{041 LatLongWGS84 8 0 {Lat 32 } {Long 32 }}
+{042 Position 6 0 {X 24 } {Y 24 }}
+{161 Tracknumber 2 0 4 {Tracknumber 12}}
+{170 Status 1 1 {TNT 1} {TRE 1} {CST 1} {CDM 2} {MAH 1} {STH 1} {GHO 1}}
+{070 Mode3A 2 0 {Mode3AV 1} {Mode3AG 1} {Mode3AL 1} 1 {Code 12 }}
+{202 Velocity 4 0 {VelX 16 } {VelY 16 }}
+{090 ModeC 2 0 {ModeCV 1} {ModeCG 1} {ModeC 14}}
+{100 ModeCGray 4 0 {ModeCGrayV 1} {ModeCGrayG 1} 2 {ModeCGray 12 0} 4 {ModeCGrayQualLow 12 0}}
+{220 ModeS 3 0 hex}
+{245 ModeSId 7 0 {ModeSIdSTI 2} 6 {ModeSId 48 6bit}}
+{110 MeaHeight 2 0 {MeaHeight 16 }}
+{105 GeoHeight 2 0 {GeoHeight 16 }}
+{210 CAccel 2 0 {AccelX 8} {AccelY 8}}
+{300 FleetId 1 0 {FleetId 8}}
+{310 PreProgMsg 1 0 {PPMsgTRB 1} {PPMsg 7}}
+{500 PosAccuracy
+    {001 DOP 6 0 {DopX 16} {DopY 16} {DopXY 16}}
+    {002 SDP 6 0 {SigX 16} {SigY 16} {SigRho 16}}
+    {003 SDH 2 0 {SigGeoHght 16}}
+}
+{400 ContRec 0 1 }
+{250 ModeSMB 0 8 }
+{230 ACASStatus 2 0 {ACASCOM 3 1} {ACASSTAT 3 1} 2 {MSSC 1} {ARC 1} {AIC 1} {B1A 1} {B1B 4 0}}
+{260 ACASResolution 7 0 }
+{030 WarningError 1 1 {WE1 7} {WE2 7} {WE3 7} {WE4 7}}
+{055 Mode1 1 0 {Mode1V 1} {Mode1G 1} {Mode1L 1} {Mode1 5}}
+{050 Mode2 2 0 {Mode2AV 1} {Mode2AG 1} {Mode2 12 }}
+{Frn27 RE 0 0
+    {001 RePA
+        {001 ReDOP 6 0 {ReDOPX 16 } {ReDOPY 16 } {ReDOPXY 16 }}
+        {002 ReSDC 6 0 {ReSDCX 16 } {ReSDCY 16 } {ReSDCXY 16 }}
+        {003 ReSDH 2 0 {ReSDH 16}}
+        {004 ReSDW 6 0 {ReSDWLat 16 } {ReSDWLon 16 } {ReSDWCov 16 }}
+    }
+    {002 ReGVV 4 0 {ReGSPEx 1} {ReGSP 15 } {ReTAN 16 }}
+        {003 ReSDH 2 0 {ReSDH 16}}
+        {004 ReSDW 6 0 {ReSDWLat 16 } {ReSDWLon 16 } {ReSDWCov 16 }}
+    }
+    {002 ReGVV 4 0 {ReGSPEx 1} {ReGSP 15 } {ReTAN 16 }}
+    {003 ReGVA 2 0 {ReGSSD 8 } {ReTASD 8 }}
+    {004 ReTRT 3 0 {ReTimeRT 24 }}
+    {005 ReDA
+        {001 ReSPI 1 0 {ReSPIAge 8 }}
+        {002 ReTI 1 0 {ReTIAge 8 }}
+        {003 ReMB 0 2 {ReMBBDS1 4} {ReMBBDS2 4} {ReMBAge 8 }}
+        {004 ReMDA 1 0 {ReMode3AAge 8 }}
+        {005 ReFL 1 0 {ReModeCAge 8 }}
+        {006 ReSTAT 1 0 {ReStatusAge 8 }}
+        {007 ReGH 1 0 {ReHeightAge 8 }}
+        {008 ReTA 1 0 {ReAddrAge 8 }}
+        {009 ReMC 1 0 {ReModeCAge 8 }}
+        {010 ReMSSC 1 0 {ReMSSCAge 8 }}
+        {011 ReARC 1 0 {ReAltRepCapAge 8 }}
+        {012 ReAIC 1 0 {ReAcidCapAge 8 }}
+        {013 ReM2 1 0 {ReMode2Age 8 }}
+        {014 ReM1 1 0 {ReMode1Age 8 }}
+        {015 ReARA 1 0 {ReACASAge 8 }}
+        {016 ReVI 1 0 {ReFleetIdAge 8 }}
+        {017 ReMSG 1 0 {RePreProgAge 8 }}
+    }
+}
+{Frn28 SP 0 0 }
