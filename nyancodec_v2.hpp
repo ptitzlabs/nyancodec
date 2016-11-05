@@ -105,7 +105,7 @@ const map<string, itype> itype_map = {
 class datafield_spec {
 public:
   datafield_spec(json &j, json &item_name, uint8_t &subfield_id,
-                 uint8_t datafield_id, uint16_t& subfield_bit_len)
+                 uint8_t datafield_id, uint16_t &subfield_bit_len)
       : datafield(j), item_name(item_name), subfield_id(subfield_id),
         datafield_id(datafield_id) {
     if (j.find("bit begin") == j.end()) {
@@ -114,23 +114,23 @@ public:
            << ": Data first bit undefined" << endl;
       bit_begin = 0;
     } else {
-      bit_begin = subfield_bit_len-static_cast<const int&>(j["bit begin"]);
+      bit_begin = subfield_bit_len - static_cast<const int &>(j["bit begin"]);
     }
     if (j.find("bit begin") == j.end()) {
       cout << WARNING << static_cast<const string &>(item_name) << " subfield "
            << int(subfield_id) + 1 << " datafield " << int(datafield_id) + 1
            << ": Data last bit undefined" << endl;
-      bit_end= 0;
+      bit_end = 0;
     } else {
-      bit_end = subfield_bit_len-static_cast<const int&>(j["bit end"]);
+      bit_end = subfield_bit_len - static_cast<const int &>(j["bit end"]);
     }
-    bit_len = bit_end-bit_begin;
-    if(bit_len<=0){
+    bit_len = bit_end - bit_begin;
+    if (bit_len <= 0) {
       cout << WARNING << static_cast<const string &>(item_name) << " subfield "
            << int(subfield_id) + 1 << " datafield " << int(datafield_id) + 1
-           << ": illegal bit length " <<int(bit_len)<< endl;
+           << ": illegal bit length " << int(bit_len) << endl;
     }
-    byte_loc = bit_begin>>3;
+    byte_loc = bit_begin >> 3;
     bit_loc = bit_begin % 8;
     if (j.find("type") == j.end()) {
       cout << WARNING << static_cast<const string &>(item_name) << " subfield "
@@ -182,7 +182,7 @@ public:
       }
       break;
     default:
-        sign = false;
+      sign = false;
       break;
     }
   }
@@ -276,22 +276,24 @@ public:
           uint8_t id_counter = 0;
           for (json &sub : j["subfields"]) {
             emplace(end(), sub, this->name, id_counter++);
-            switch(item_type){
+            switch (item_type) {
             case itype::fix:
-                byte_len = 0;
-                for(subfield_spec & sub: *this){
-                    byte_len+=sub.byte_len;
+              byte_len = 0;
+              for (subfield_spec &sub : *this) {
+                byte_len += sub.byte_len;
+              }
+              if (j.find("length") == j.end()) {
+                cout << WARNING << static_cast<const string &>(name)
+                     << " fixed-type length not set" << endl;
+              } else {
+                if (byte_len != j["length"]) {
+                  cout << WARNING << static_cast<const string &>(name)
+                       << " fixed-type length subfields does not match" << endl;
                 }
-                if(j.find("length") == j.end()){
-                    cout<< WARNING<<static_cast<const string&>(name)<<" fixed-type length not set"<<endl;
-                } else {
-                    if(byte_len!=j["length"]){
-                    cout<< WARNING<<static_cast<const string&>(name)<<" fixed-type length subfields does not match"<<endl;
-                    }
-                }
-                break;
+              }
+              break;
             default:
-                break;
+              break;
             }
           }
         }
@@ -350,13 +352,17 @@ public:
 extern map<uint8_t, cat_spec> cats;  // cat objects
 extern map<uint8_t, json> cats_json; // cat jsons
 extern map<uint8_t, json> uap_json;  // uap jsons
+extern vector<uint8_t> active_fields;
 
 #define CAT_INIT                                                               \
   namespace nyancodec {                                                        \
   map<uint8_t, cat_spec> cats;                                                 \
   map<uint8_t, json> cats_json;                                                \
   map<uint8_t, json> uap_json;                                                 \
+  vector<uint8_t> active_fields;                                      \
   }
+
+void field_activate(uint8_t cat_id) { active_fields.push_back(cat_id); }
 
 const cat_spec &cat_at(size_t id, size_t uap_id = 0) {
   if (cats.find(id) == cats.end()) {
@@ -591,74 +597,89 @@ public:
 #endif
 class datafield {
 public:
-  enum class status{blank,ready,err};
-  datafield(const datafield_spec &dspec, vector<oct>::iterator &begin ) : dspec(dspec), it_begin(begin) {
-      curr = status::ready;
-      switch (dspec.data_type){
-      case dtype::i:
-          oct_to_long(it_begin,dspec.byte_loc,dspec.bit_loc, dspec.bit_len,i);
-          break;
-      case dtype::num:
-          oct_to_long(it_begin,dspec.byte_loc,dspec.bit_loc, dspec.bit_len,i);
-          f = i*dspec.lsb;
-          break;
-      case dtype::f:
-          oct_to_long(it_begin,dspec.byte_loc,dspec.bit_loc, dspec.bit_len,i,dspec.sign);
-          f = i*dspec.lsb;
-          break;
-      case dtype::time:
-          oct_to_long(it_begin,dspec.byte_loc,dspec.bit_loc, dspec.bit_len,i);
-          f = i*dspec.lsb;
-          break;
-      case dtype::oct:
-          it_begin+=dspec.byte_loc;
-          it_end = it_begin+(dspec.bit_len>>3);
-          break;
-      case dtype::spare:
-          break;
-      default:
-              it_begin+=dspec.byte_loc;
-              it_end = it_begin+(dspec.bit_len>>3);
-            cout<<WARNING<<"Undefined handling data type "<<dspec.datafield["type"]<<endl;
-            curr=status::err;
-          break;
-      }
+  enum class status { blank, ready, err };
+  datafield(const datafield_spec &dspec, vector<oct>::iterator &begin)
+      : dspec(dspec), it_begin(begin) {
+    curr = status::ready;
+    switch (dspec.data_type) {
+    case dtype::i:
+      oct_to_long(it_begin, dspec.byte_loc, dspec.bit_loc, dspec.bit_len, i);
+      break;
+    case dtype::num:
+      oct_to_long(it_begin, dspec.byte_loc, dspec.bit_loc, dspec.bit_len, i);
+      f = i * dspec.lsb;
+      break;
+    case dtype::f:
+      oct_to_long(it_begin, dspec.byte_loc, dspec.bit_loc, dspec.bit_len, i,
+                  dspec.sign);
+      f = i * dspec.lsb;
+      break;
+    case dtype::time:
+      oct_to_long(it_begin, dspec.byte_loc, dspec.bit_loc, dspec.bit_len, i);
+      f = i * dspec.lsb;
+      break;
+    case dtype::oct:
+      it_begin += dspec.byte_loc;
+      it_end = it_begin + (dspec.bit_len >> 3);
+      break;
+    case dtype::spare:
+      break;
+    default:
+      it_begin += dspec.byte_loc;
+      it_end = it_begin + (dspec.bit_len >> 3);
+      cout << WARNING << "Undefined handling data type "
+           << dspec.datafield["type"] << endl;
+      curr = status::err;
+      break;
+    }
   }
   datafield &operator=(const datafield &) { return *this; }
   const datafield_spec &dspec;
-  void to_text_stream(auto & oss){
-      if(curr==status::ready){
-          switch (dspec.data_type){
-          case dtype::i:
-              oss<<static_cast<const string&>(dspec.datafield["name1"])<<" = "<<i<<";"<<endl;
-              break;
-          case dtype::num:
-              oss<<static_cast<const string&>(dspec.datafield["name1"])<<" = "<<i<<" "<<static_cast<const string&>(dspec.datafield["options"][i][1])<<";"<<endl;
-              break;
-          case dtype::f:
-              oss<<static_cast<const string &>(dspec.datafield["name1"])<<" = "<<i<<" ("<<f<<" "<<static_cast<const string&>(dspec.datafield["unit"])<<");"<<endl;
-              break;
-          case dtype::time:
-              oss<<static_cast<const string&>(dspec.datafield["name1"])<<" = "<<i<<";"<<endl;
-              break;
-          case dtype::oct:
-              oss<<static_cast<const string&>(dspec.datafield["name1"])<<" = 0x ";
-              hex_to_text_stream(it_begin,it_end,oss);
-              oss<<";"<<endl;
-              break;
-          case dtype::spare:
-              oss<<flush;
-              break;
-          default:
-                cout<<WARNING<<"Undefined handling data display "<<static_cast<const string&>(dspec.datafield["type"])<<endl;
-              oss<<static_cast<const string&>(dspec.datafield["name1"])<<" = 0x ";
-              hex_to_text_stream(it_begin,it_end,oss);
-              oss<<";"<<endl;
-              break;
-          }
-      } else {
-            cout<<WARNING<<"Can not display decoded data "<<static_cast<const string&>(dspec.datafield["type"])<<endl;
+  void to_text_stream(auto &oss) {
+    if (curr == status::ready) {
+      switch (dspec.data_type) {
+      case dtype::i:
+        oss << static_cast<const string &>(dspec.datafield["name1"]) << " = "
+            << i << ";" << endl;
+        break;
+      case dtype::num:
+        oss << static_cast<const string &>(dspec.datafield["name1"]) << " = "
+            << i << " "
+            << static_cast<const string &>(dspec.datafield["options"][i][1])
+            << ";" << endl;
+        break;
+      case dtype::f:
+        oss << static_cast<const string &>(dspec.datafield["name1"]) << " = "
+            << i << " (" << f << " "
+            << static_cast<const string &>(dspec.datafield["unit"]) << ");"
+            << endl;
+        break;
+      case dtype::time:
+        oss << static_cast<const string &>(dspec.datafield["name1"]) << " = "
+            << i << ";" << endl;
+        break;
+      case dtype::oct:
+        oss << static_cast<const string &>(dspec.datafield["name1"])
+            << " = 0x ";
+        hex_to_text_stream(it_begin, it_end, oss);
+        oss << ";" << endl;
+        break;
+      case dtype::spare:
+        oss << flush;
+        break;
+      default:
+        cout << WARNING << "Undefined handling data display "
+             << static_cast<const string &>(dspec.datafield["type"]) << endl;
+        oss << static_cast<const string &>(dspec.datafield["name1"])
+            << " = 0x ";
+        hex_to_text_stream(it_begin, it_end, oss);
+        oss << ";" << endl;
+        break;
       }
+    } else {
+      cout << WARNING << "Can not display decoded data "
+           << static_cast<const string &>(dspec.datafield["type"]) << endl;
+    }
   }
 
   long i;
@@ -666,7 +687,7 @@ public:
   string str;
   vector<oct>::iterator it_begin;
   vector<oct>::iterator it_end;
-  status curr= status::blank;
+  status curr = status::blank;
 };
 class subfield : public vector<datafield> {
 public:
@@ -674,20 +695,21 @@ public:
            const vector<oct>::iterator &it_end)
       : sspec(sspec) {
     subfield_begin = it_begin;
-    it_begin+=sspec.byte_len;
+    it_begin += sspec.byte_len;
     subfield_end = it_begin;
   }
-  void decode(){
-      for(const datafield_spec &ds: sspec){
-          emplace(end(),ds,subfield_begin);
-      }
+  void decode() {
+    for (const datafield_spec &ds : sspec) {
+      emplace(end(), ds, subfield_begin);
+    }
   }
 
-  void to_text_stream(auto & oss){
-      if(size()==0) decode();
-      for(datafield & d: *this){
-          d.to_text_stream(oss);
-      }
+  void to_text_stream(auto &oss) {
+    if (size() == 0)
+      decode();
+    for (datafield &d : *this) {
+      d.to_text_stream(oss);
+    }
   }
 
   subfield &operator=(const subfield &) { return *this; }
@@ -728,20 +750,22 @@ public:
       }
       break;
     default:
-        cout<<WARNING<<"Undefined handling item type "<<ispec.item["format"]<<endl;
-        it_begin=it_end;
+      cout << WARNING << "Undefined handling item type " << ispec.item["format"]
+           << endl;
+      it_begin = it_end;
       break;
     }
     item_end = it_begin;
   }
   item &operator=(const item &) { return *this; }
-  void to_text_stream(auto & oss){
-      oss<<MAGENTABG<<static_cast<const string&>(ispec.name)<<RESET<<": ";
-      hex_to_text_stream(item_begin,item_end,oss);
-      oss<<endl;
-      for(subfield & sub: *this){
-          sub.to_text_stream(oss);
-      }
+  void to_text_stream(auto &oss) {
+    oss << MAGENTABG << static_cast<const string &>(ispec.name) << RESET
+        << ": ";
+    hex_to_text_stream(item_begin, item_end, oss);
+    oss << endl;
+    for (subfield &sub : *this) {
+      sub.to_text_stream(oss);
+    }
   }
 
   const item_spec &ispec;
@@ -758,19 +782,19 @@ public:
     block_begin = it_begin;
     fs.init(it_begin);
     for (auto item_index : fs) {
-        if(it_begin==it_end){
-            cout<<WARNING<<"Block end reached prematurely"<<endl;
-            break;
-        }
+      if (it_begin == it_end) {
+        cout << WARNING << "Block end reached prematurely" << endl;
+        break;
+      }
       this->emplace(end(), cspec.at(item_index), it_begin, it_end);
     }
     block_end = it_begin;
   }
   void to_text_stream(auto &oss) {
-      fs.to_text_stream(oss);
-      for(item & it: *this){
-          it.to_text_stream(oss);
-      }
+    fs.to_text_stream(oss);
+    for (item &it : *this) {
+      it.to_text_stream(oss);
+    }
   }
   block &operator=(const block &rhs) {}
 
@@ -807,7 +831,7 @@ public:
     }
   }
   uint8_t cat_id;
-  uint8_t msg_len;
+  uint16_t msg_len;
   const cat_spec &cspec;
   vector<oct> msg_data;
 };

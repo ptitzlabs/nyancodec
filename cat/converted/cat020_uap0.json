@@ -1,0 +1,116 @@
+{
+    "uap": [
+        [
+            "I020/010",
+            "Data Source Identifier"
+        ],
+        [
+            "I020/020",
+            "Target Report Descriptor"
+        ],
+        [
+            "I020/140",
+            "Time of Day"
+        ],
+        [
+            "I020/041",
+            "Position in WGS-84 Coordinates"
+        ],
+        [
+            "I020/042",
+            "Position in Cartesian Coordinates"
+        ],
+        [
+            "I020/161",
+            "Track Number"
+        ],
+        [
+            "I020/170",
+            "Track Status"
+        ],
+        [
+            "I020/070",
+            "Mode-3/A Code in Octal Representation"
+        ],
+        [
+            "I020/202",
+            "Calculated Track Velocity in Cartesian Coord."
+        ],
+        [
+            "I020/090",
+            "Flight Level in Binary Representation"
+        ],
+        [
+            "I020/100",
+            "Mode-C Code"
+        ],
+        [
+            "I020/220",
+            "Target Address"
+        ],
+        [
+            "I020/245",
+            "Target Identification"
+        ],
+        [
+            "I020/110",
+            "Measured Height (Cartesian Coordinates)"
+        ],
+        [
+            "I020/105",
+            "Geometric Height (WGS-84)"
+        ],
+        [
+            "I020/210",
+            "Calculated Acceleration"
+        ],
+        [
+            "I020/300",
+            "Vehicle Fleet Identification"
+        ],
+        [
+            "I020/310",
+            "Pre-programmed Message"
+        ],
+        [
+            "I020/500",
+            "Position Accuracy"
+        ],
+        [
+            "I020/400",
+            "Contributing Devices"
+        ],
+        [
+            "I020/250",
+            "Mode S MB Data"
+        ],
+        [
+            "I020/230",
+            "Comms/ACAS Capability and Flight Status"
+        ],
+        [
+            "I020/260",
+            "ACAS Resolution Advisory Report"
+        ],
+        [
+            "I020/030",
+            "Warning/Error Conditions"
+        ],
+        [
+            "I020/055",
+            "Mode-1 Code in Octal Representation"
+        ],
+        [
+            "I020/050",
+            "Mode-2 Code in Octal Representation"
+        ],
+        [
+            "RE",
+            "Reserved Expansion Field"
+        ],
+        [
+            "SP",
+            "Special Purpose Field"
+        ]
+    ]
+}

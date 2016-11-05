@@ -1,0 +1,200 @@
+{
+    "uap": [
+        [
+            "I021/010",
+            "Data Source Identification"
+        ],
+        [
+            "I021/040",
+            "Target Report Descriptor"
+        ],
+        [
+            "I021/161",
+            "Track Number"
+        ],
+        [
+            "I021/015",
+            "Service Identification"
+        ],
+        [
+            "I021/071",
+            "Time of Applicability for Position"
+        ],
+        [
+            "I021/130",
+            "Position in WGS-84 co-ordinates"
+        ],
+        [
+            "I021/131",
+            "Position in WGS-84 co-ordinates, high res."
+        ],
+        [
+            "I021/072",
+            "Time of Applicability for Velocity"
+        ],
+        [
+            "I021/150",
+            "Air Speed"
+        ],
+        [
+            "I021/151",
+            "True Air Speed"
+        ],
+        [
+            "I021/080",
+            "Target Address"
+        ],
+        [
+            "I021/073",
+            "Time of Message Reception of Position"
+        ],
+        [
+            "I021/074",
+            "Time of Message Reception of Position-High Precision"
+        ],
+        [
+            "I021/075",
+            "Time of Message Reception of Velocity"
+        ],
+        [
+            "I021/076",
+            "Time of Message Reception of Velocity-High Precision"
+        ],
+        [
+            "I021/140",
+            "Geometric Height"
+        ],
+        [
+            "I021/090",
+            "Quality Indicators"
+        ],
+        [
+            "I021/210",
+            "MOPS Version"
+        ],
+        [
+            "I021/070",
+            "Mode 3/A Code"
+        ],
+        [
+            "I021/230",
+            "Roll Angle"
+        ],
+        [
+            "I021/145",
+            "Flight Level"
+        ],
+        [
+            "I021/152",
+            "Magnetic Heading"
+        ],
+        [
+            "I021/200",
+            "Target Status"
+        ],
+        [
+            "I021/155",
+            "Barometric Vertical Rate"
+        ],
+        [
+            "I021/157",
+            "Geometric Vertical Rate"
+        ],
+        [
+            "I021/160",
+            "Airborne Ground Vector"
+        ],
+        [
+            "I021/165",
+            "Track Angle Rate"
+        ],
+        [
+            "I021/077",
+            "Time of Report Transmission"
+        ],
+        [
+            "I021/170",
+            "Target Identification"
+        ],
+        [
+            "I021/020",
+            "Emitter Category"
+        ],
+        [
+            "I021/220",
+            "Met Information"
+        ],
+        [
+            "I021/146",
+            "Selected Altitude"
+        ],
+        [
+            "I021/148",
+            "Final State Selected Altitude"
+        ],
+        [
+            "I021/110",
+            "Trajectory Intent"
+        ],
+        [
+            "I021/016",
+            "Service Management"
+        ],
+        [
+            "I021/008",
+            "Aircraft Operational Status"
+        ],
+        [
+            "I021/271",
+            "Surface Capabilities and Characteristics"
+        ],
+        [
+            "I021/132",
+            "Message Amplitude"
+        ],
+        [
+            "I021/250",
+            "Mode S MB Data"
+        ],
+        [
+            "I021/260",
+            "ACAS Resolution Advisory Report"
+        ],
+        [
+            "I021/400",
+            "Receiver ID"
+        ],
+        [
+            "I021/295",
+            "Data Ages"
+        ],
+        [
+            "-",
+            "Not Used"
+        ],
+        [
+            "-",
+            "Not Used"
+        ],
+        [
+            "-",
+            "Not Used"
+        ],
+        [
+            "-",
+            "Not Used"
+        ],
+        [
+            "-",
+            "Not Used"
+        ],
+        [
+            "RE",
+            "Reserved Expansion Field"
+        ],
+        [
+            "SP",
+            "Special Purpose Field"
+        ]
+    ]
+}

@@ -1,0 +1,509 @@
+{
+    "subfields": [
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 0,
+                    "name1": "LEN",
+                    "name2": "(LEN) Length of",
+                    "type": "int"
+                }
+            ],
+            "id": 1,
+            "mandatory": true,
+            "subfield info": "This field indicates the total length in octets of the Reserved Expansion Field (including the REF length indicator itself) One-octet fixed length Data Item  "
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 16,
+                    "bit end": 12,
+                    "name1": "",
+                    "name2": "",
+                    "type": "int"
+                },
+                {
+                    "bit begin": 12,
+                    "bit end": 0,
+                    "name1": "",
+                    "name2": "",
+                    "type": "int"
+                }
+            ],
+            "id": 1,
+            "mandatory": false,
+            "note": "BPS is the barometric pressure setting of the aircraft minus 800 hPa. NOTE - A value of \u201c0\u201d indicates that in the aircraft a value of 800 hPa or less has been selected. NOTE - A value of \u201c409.5\u201d indicates that in the aircraft a value of 1209.5 hPa or more has been selected.",
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 16,
+                    "bit end": 12,
+                    "name1": "",
+                    "name2": "",
+                    "type": "int"
+                },
+                {
+                    "bit begin": 12,
+                    "bit end": 0,
+                    "lsb": 0.703125,
+                    "name1": "SelH",
+                    "name2": "(SelH) Selected Heading",
+                    "signed": false,
+                    "type": "float",
+                    "unit": ""
+                }
+            ],
+            "id": 1,
+            "mandatory": false,
+            "note": "On many aircraft, the ADS-B Transmitting Subsystem receives Selected Heading from a Mode Control Panel / Flight Control Unit (MCP / FCU) . Users of this data are cautioned that the Selected Heading value transmitted by the ADS-B Transmitting Subsystem does not necessarily reflect the true intention of the airplane during certain flight modes (e.g., during LNAV mode) .",
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 7,
+                    "name1": "AP",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "option 1"
+                        ],
+                        [
+                            "1",
+                            "option 2"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 7,
+                    "bit end": 6,
+                    "name1": "VN",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "option 1"
+                        ],
+                        [
+                            "1",
+                            "option 2"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 6,
+                    "bit end": 5,
+                    "name1": "AH",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "option 1"
+                        ],
+                        [
+                            "1",
+                            "option 2"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 5,
+                    "bit end": 4,
+                    "name1": "AM",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "option 1"
+                        ],
+                        [
+                            "1",
+                            "option 2"
+                        ]
+                    ],
+                    "type": "enum"
+                }
+            ],
+            "id": 1,
+            "mandatory": false,
+            "note": "This data-item should only be transmitted if an ADS-B indication has been received that the mode bits have been \u201cactively populated\u201d.by the avionics (1090 ES version 2 (as defined in I021/210 ) BDS 6,2,  subtype 1, bit 47: \u201cStatus of MCP / FCU Mode Bits\u201d) ",
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 0,
+                    "name1": "GAO",
+                    "name2": "(GAO) GPS Antenna",
+                    "type": "int"
+                }
+            ],
+            "id": 1,
+            "mandatory": false,
+            "note": "The value of this field is copied from the respective bits 33-40 of version 2 (as defined in I021/210 ) of 1090 ES BDS register 6,5 (Aircraft Operational Status)",
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 1,
+                    "name1": "HGT",
+                    "name2": "(HGT) 2 1 QLSBQ",
+                    "type": "int"
+                }
+            ],
+            "id": 2,
+            "mandatory": false,
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 7,
+                    "name1": "M5",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "No Mode 5 interrogation"
+                        ],
+                        [
+                            "1",
+                            "Mode 5 interrogation"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 7,
+                    "bit end": 6,
+                    "name1": "ID",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "No authenticated Mode 5 ID reply/report"
+                        ],
+                        [
+                            "1",
+                            "Authenticated Mode 5 ID reply/report"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 6,
+                    "bit end": 5,
+                    "name1": "DA",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "No authenticated Mode 5 Data reply or Report"
+                        ],
+                        [
+                            "1",
+                            "Authenticated Mode 5 Data reply or Report (i.e any valid Mode 5 reply type other than ID)"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 5,
+                    "bit end": 4,
+                    "name1": "M1",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "Mode 1 code not present or not from Mode 5 reply/report"
+                        ],
+                        [
+                            "1",
+                            "Mode 1 code from Mode 5 reply/report."
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 4,
+                    "bit end": 3,
+                    "name1": "M2",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "Mode 2 code not present or not from Mode 5 reply/report"
+                        ],
+                        [
+                            "1",
+                            "Mode 2 code from Mode 5 reply/report."
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 3,
+                    "bit end": 2,
+                    "name1": "M3",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "Mode 3 code not present or not from Mode 5 reply/report"
+                        ],
+                        [
+                            "1",
+                            "Mode 3 code from Mode 5 reply/report."
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 2,
+                    "bit end": 1,
+                    "name1": "MC",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "Flightlevel not present or not from Mode 5 reply/report"
+                        ],
+                        [
+                            "1",
+                            "Flightlevel from Mode 5 reply/report"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 1,
+                    "bit end": 0,
+                    "name1": "PO",
+                    "name2": "",
+                    "options": [
+                        [
+                            "0",
+                            "Position not from Mode 5 report (ADS-B report)"
+                        ],
+                        [
+                            "1",
+                            "Position from Mode 5 report EUROCONTROL-SPEC-0149-12-A"
+                        ]
+                    ],
+                    "type": "enum"
+                }
+            ],
+            "id": 1,
+            "note": "The flag M2 refers to the contents of Subfield ,6 below, M3, MC refer to the contents of data items I021/070 and I021/145 respectively. The flag M1 refers to the contents of Subfield ,3 below (Extended Mode 1 Code in Octal Representation) . 2. If a Mode 5 reply/report is received with the Emergency bit set, then the Military Emergency bit (ME) in Data Item I021/200, Target Status, shall be set. 3. If a Mode 5 reply/report is received with the Identification of Position bit set, then the Special Position Identification bit (SPI) in Data Item I021/200, Target Status, shall be set. 4. If a Mode 5 report (ID or Data) is received and fullfill the autentication criteria the corresponding authentication bit shall be set. ",
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 32,
+                    "bit end": 30,
+                    "name1": "",
+                    "name2": "",
+                    "type": "spare"
+                },
+                {
+                    "bit begin": 30,
+                    "bit end": 16,
+                    "name1": "PIN",
+                    "name2": "(PIN) PIN Code",
+                    "type": "int"
+                },
+                {
+                    "bit begin": 16,
+                    "bit end": 11,
+                    "name1": "",
+                    "name2": "",
+                    "type": "spare"
+                },
+                {
+                    "bit begin": 11,
+                    "bit end": 0,
+                    "name1": "National Origin",
+                    "name2": "National Origin",
+                    "type": "int"
+                }
+            ],
+            "id": 2,
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 12,
+                    "bit end": 0,
+                    "name1": "",
+                    "name2": "",
+                    "type": "spare"
+                }
+            ],
+            "id": 3,
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 6,
+                    "name1": "",
+                    "name2": "",
+                    "type": "spare"
+                },
+                {
+                    "bit begin": 6,
+                    "bit end": 5,
+                    "name1": "XP",
+                    "name2": "X-pulse from Mode 5 PIN reply/report",
+                    "options": [
+                        [
+                            "0",
+                            "X-Pulse not present"
+                        ],
+                        [
+                            "1",
+                            "X-pulse present."
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 5,
+                    "bit end": 4,
+                    "name1": "X5",
+                    "name2": "X-pulse from Mode 5 Data reply or Report",
+                    "options": [
+                        [
+                            "0",
+                            "X-pulse set to zero or no authenticated Data reply or Report received"
+                        ],
+                        [
+                            "1",
+                            "X-pulse set to one (present) ."
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 4,
+                    "bit end": 3,
+                    "name1": "XC",
+                    "name2": "X-pulse from Mode C reply",
+                    "options": [
+                        [
+                            "0",
+                            "X-pulse set to zero or no Mode C reply"
+                        ],
+                        [
+                            "1",
+                            "X-pulse set to one (present)"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 3,
+                    "bit end": 2,
+                    "name1": "X3",
+                    "name2": "X-pulse from Mode 3/A reply",
+                    "options": [
+                        [
+                            "0",
+                            "X-pulse set to zero or no Mode 3/A reply"
+                        ],
+                        [
+                            "1",
+                            "X-pulse set to one (present)"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 2,
+                    "bit end": 1,
+                    "name1": "X2",
+                    "name2": "X-pulse from Mode 2 reply",
+                    "options": [
+                        [
+                            "0",
+                            "X-pulse set to zero or no Mode 2 reply"
+                        ],
+                        [
+                            "1",
+                            "X-pulse set to one (present)"
+                        ]
+                    ],
+                    "type": "enum"
+                },
+                {
+                    "bit begin": 1,
+                    "bit end": 0,
+                    "name1": "X1",
+                    "name2": "X-pulse from Mode 1 reply",
+                    "options": [
+                        [
+                            "0",
+                            "X-pulse set to zero or no Mode 1 reply"
+                        ],
+                        [
+                            "1",
+                            "X-pulse set to one (present) EUROCONTROL-SPEC-0149-12-A"
+                        ]
+                    ],
+                    "type": "enum"
+                }
+            ],
+            "id": 4,
+            "note": "to Subfield ,4 (X Pulse Presence) : Within Mode 5 reports, the X-Pulse can be set for the following cases: 1. In a combined Mode 1 and Mode 2 report: in this case the X5 bit and the X2 bit shall be set; 2. In a combined Mode 3 and Mode C report: in this case the X5 bit and the X3 bit shall be set; 3. In a Mode 5 PIN data report: in this case the X5 bit and the XP bit shall be set. The X1 bit and the XC bit are meaningless as in Mode 1 and Mode C replies/reports the X Pulse is not defined. They are kept for compatibility reasons. EUROCONTROL-SPEC-0149-12-A ",
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 8,
+                    "bit end": 5,
+                    "name1": "",
+                    "name2": "",
+                    "type": "spare"
+                },
+                {
+                    "bit begin": 5,
+                    "bit end": 0,
+                    "name1": "FOM",
+                    "name2": "(FOM) Figure of",
+                    "type": "int"
+                }
+            ],
+            "id": 5,
+            "subfield info": ""
+        },
+        {
+            "data": [
+                {
+                    "bit begin": 14,
+                    "bit end": 13,
+                    "name1": "",
+                    "name2": "",
+                    "type": "spare"
+                }
+            ],
+            "id": 6,
+            "subfield info": ""
+        }
+    ]
+}
