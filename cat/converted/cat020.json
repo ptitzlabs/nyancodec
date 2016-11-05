@@ -50,6 +50,8 @@
                                 "0",
                                 "no Non-Mode S 1090MHz multilat. MS"
                             ]
+                         ]
+                         
                      },
                      {
                         "bit begin": 7,
@@ -65,6 +67,7 @@
                                 "0",
                                 "no Mode-S 1090 MHz multilateration HF"
                             ]
+                         ]
                      },
                      {
                         "bit begin": 6,
@@ -80,6 +83,7 @@
                                 "0",
                                 "no HF multilateration VDL4"
                             ]
+                         ]
                      },
                      {
                         "bit begin": 5,
@@ -95,6 +99,7 @@
                                 "0",
                                 "no VDL Mode 4 multilateration UAT"
                             ]
+                         ]
                      },
                      {
                         "bit begin": 4,
@@ -110,6 +115,7 @@
                                 "0",
                                 "no UAT multilateration DME"
                             ]
+                         ]
                      },
                      {
                         "bit begin": 3,
@@ -125,6 +131,7 @@
                                 "0",
                                 "no DME/TACAN multilateration OT"
                             ]
+                         ]
                      },
                      {
                         "bit begin": 2,
@@ -142,8 +149,7 @@
                             ]
                         ]
                     }
-                        "type": "enum"
-                   }
+                   
                 ],
                 "id": 1,
                 "mandatory": true,
@@ -279,7 +285,7 @@
     "I020/030": {
         "format": "variable",
         "item definition": "Warning/error conditions detected by a system for the target report involved.",
-        "item name": "Warning/Error Conditions",
+        "item name": "WarningError",
         "length": 1,
         "subfields": [
             {
@@ -287,7 +293,7 @@
                     {
                         "bit begin": 8,
                         "bit end": 1,
-                        "name1": "W/E Value",
+                        "name1": "WarningError",
                         "name2": "(W/E Value) Warning/error",
                         "type": "int"
                     }
@@ -300,8 +306,8 @@
     },
     "I020/041": {
         "format": "fixed",
-        "item definition": "Position of a target in WGS-84 Coordinates.",
-        "item name": "Position in WGS-84 Coordinates",
+        "item definition": "LatLongWGS84",
+        "item name": "LatLongWGS84",
         "length": 8,
         "subfields": [
             {
@@ -312,7 +318,7 @@
                         "lsb": 5.364418e-06,
                         "max": 90,
                         "min": -90,
-                        "name1": "Latitude",
+                        "name1": "Lat",
                         "name2": "(Latitude) In WGS-84",
                         "signed": true,
                         "type": "float",
@@ -324,7 +330,7 @@
                         "lsb": 5.364418e-06,
                         "max": 180,
                         "min": -180,
-                        "name1": "Longitude",
+                        "name1": "Long",
                         "name2": "(Longitude) In WGS-84",
                         "signed": true,
                         "type": "float",
@@ -351,8 +357,8 @@
                         "lsb": 0.5,
                         "max": 4194.3,
                         "min": 0,
-                        "name1": "= X",
-                        "name2": "= X",
+                        "name1": "X",
+                        "name2": "X",
                         "signed": true,
                         "type": "float",
                         "unit": "m"
@@ -363,8 +369,8 @@
                         "lsb": 0.5,
                         "max": 4194.3,
                         "min": 0,
-                        "name1": "= Y",
-                        "name2": "= Y",
+                        "name1": "Y",
+                        "name2": "Y",
                         "signed": true,
                         "type": "float",
                         "unit": "m"
@@ -379,7 +385,7 @@
     "I020/050": {
         "format": "fixed",
         "item definition": "Mode-2 code converted into octal representation.",
-        "item name": "Mode-2 Code in Octal Representation",
+        "item name": "Mode2",
         "length": 2,
         "subfields": [
             {
@@ -387,7 +393,7 @@
                     {
                         "bit begin": 16,
                         "bit end": 15,
-                        "name1": "V",
+                        "name1": "Mode2AV",
                         "name2": "",
                         "options": [
                             [
@@ -404,7 +410,7 @@
                     {
                         "bit begin": 15,
                         "bit end": 14,
-                        "name1": "G",
+                        "name1": "Mode2AG",
                         "name2": "",
                         "options": [
                             [
@@ -421,7 +427,7 @@
                     {
                         "bit begin": 14,
                         "bit end": 13,
-                        "name1": "L",
+                        "name1": "Mode2",
                         "name2": "",
                         "options": [
                             [
@@ -459,7 +465,7 @@
     "I020/055": {
         "format": "fixed",
         "item definition": "Mode-1 code converted into octal representation.",
-        "item name": "Mode-1 Code in Octal Representation",
+        "item name": "Mode1",
         "length": 1,
         "subfields": [
             {
@@ -467,7 +473,7 @@
                     {
                         "bit begin": 8,
                         "bit end": 7,
-                        "name1": "V",
+                        "name1": "Mode1V",
                         "name2": "",
                         "options": [
                             [
@@ -484,7 +490,7 @@
                     {
                         "bit begin": 7,
                         "bit end": 6,
-                        "name1": "G",
+                        "name1": "Mode1G",
                         "name2": "",
                         "options": [
                             [
@@ -501,7 +507,7 @@
                     {
                         "bit begin": 6,
                         "bit end": 5,
-                        "name1": "L",
+                        "name1": "Mode1L",
                         "name2": "",
                         "options": [
                             [
@@ -518,7 +524,7 @@
                     {
                         "bit begin": 5,
                         "bit end": 0,
-                        "name1": "Mode-1 Code in",
+                        "name1": "Mode1",
                         "name2": "Mode-1 Code in",
                         "type": "int"
                     }
@@ -531,8 +537,8 @@
     },
     "I020/070": {
         "format": "fixed",
-        "item definition": "Mode-3/A code converted into octal representation.",
-        "item name": "Mode-3/A Code in Octal Representation",
+        "item definition": "Mode3A",
+        "item name": "Mode3A",
         "length": 2,
         "subfields": [
             {
@@ -540,7 +546,7 @@
                     {
                         "bit begin": 16,
                         "bit end": 15,
-                        "name1": "V",
+                        "name1": "Mode3AV",
                         "name2": "",
                         "options": [
                             [
@@ -557,7 +563,7 @@
                     {
                         "bit begin": 15,
                         "bit end": 14,
-                        "name1": "G",
+                        "name1": "Mode3AG",
                         "name2": "",
                         "options": [
                             [
@@ -574,7 +580,7 @@
                     {
                         "bit begin": 14,
                         "bit end": 13,
-                        "name1": "L",
+                        "name1": "Mode3AL",
                         "name2": "",
                         "options": [
                             [
@@ -591,7 +597,7 @@
                     {
                         "bit begin": 13,
                         "bit end": 12,
-                        "name1": "",
+                        "name1": "Code",
                         "name2": "",
                         "type": "spare"
                     },
@@ -610,8 +616,8 @@
     },
     "I020/090": {
         "format": "fixed",
-        "item definition": "Flight Level (Mode S Altitude) converted into binary two's complement representation.",
-        "item name": "Flight Level in Binary Representation",
+        "item definition": "ModeC",
+        "item name": "ModeC",
         "length": 2,
         "subfields": [
             {
@@ -619,7 +625,7 @@
                     {
                         "bit begin": 16,
                         "bit end": 15,
-                        "name1": "V",
+                        "name1": "ModeCV",
                         "name2": "",
                         "options": [
                             [
@@ -636,7 +642,7 @@
                     {
                         "bit begin": 15,
                         "bit end": 14,
-                        "name1": "G",
+                        "name1": "ModeCG",
                         "name2": "",
                         "options": [
                             [
@@ -654,7 +660,7 @@
                         "bit begin": 14,
                         "bit end": 0,
                         "lsb": 0.25,
-                        "name1": "Flight Level",
+                        "name1": "ModeC",
                         "name2": "(Flight Level)",
                         "signed": true,
                         "type": "float",
@@ -668,8 +674,8 @@
     },
     "I020/100": {
         "format": "fixed",
-        "item definition": "Mode-C height in Gray notation as received from the transponder together with the confidence level for each reply bit as provided by a MSSR/Mode-S station.",
-        "item name": "Mode-C Code",
+        "item definition": "ModeCGray",
+        "item name": "ModeCGray",
         "length": 4,
         "subfields": [
             {
@@ -677,7 +683,7 @@
                     {
                         "bit begin": 32,
                         "bit end": 31,
-                        "name1": "V",
+                        "name1": "ModeCGrayV",
                         "name2": "",
                         "options": [
                             [
@@ -694,7 +700,7 @@
                     {
                         "bit begin": 31,
                         "bit end": 30,
-                        "name1": "G",
+                        "name1": "ModeCGrayG",
                         "name2": "",
                         "options": [
                             [
@@ -718,7 +724,7 @@
                     {
                         "bit begin": 28,
                         "bit end": 16,
-                        "name1": "Mode-C reply in",
+                        "name1": "ModeCGray",
                         "name2": "Mode-C reply in",
                         "type": "int"
                     },
@@ -732,7 +738,7 @@
                     {
                         "bit begin": 12,
                         "bit end": 0,
-                        "name1": "QXi",
+                        "name1": "ModeCGrayQualLow",
                         "name2": "",
                         "options": [
                             [
@@ -756,8 +762,8 @@
     },
     "I020/105": {
         "format": "fixed",
-        "item definition": "Vertical distance between the target and the projection of its position on the earth\u2019s ellipsoid, as defined by WGS84, in two\u2019s complement form.",
-        "item name": "Geometric Height (WGS-84)",
+        "item definition": "GeoHeight",
+        "item name": "GeoHeight)",
         "length": 2,
         "subfields": [
             {
@@ -838,14 +844,14 @@
                     {
                         "bit begin": 16,
                         "bit end": 12,
-                        "name1": "",
+                        "name1": "Tracknumber",
                         "name2": "",
                         "type": "spare"
                     },
                     {
                         "bit begin": 12,
                         "bit end": 0,
-                        "name1": "Track number.",
+                        "name1": "Tracknumber.",
                         "name2": "Track number.",
                         "type": "int"
                     }
@@ -858,8 +864,8 @@
     },
     "I020/170": {
         "format": "variable",
-        "item definition": "Status of track.",
-        "item name": "Track Status",
+        "item definition": "Status.",
+        "item name": "Status",
         "length": 1,
         "subfields": [
             {
@@ -867,7 +873,7 @@
                     {
                         "bit begin": 8,
                         "bit end": 7,
-                        "name1": "CNF",
+                        "name1": "TNT",
                         "name2": "",
                         "options": [
                             [
@@ -997,8 +1003,8 @@
     },
     "I020/202": {
         "format": "fixed",
-        "item definition": "Calculated track velocity expressed in Cartesian Coordinates, in two\u2019s complement representation.",
-        "item name": "Calculated Track Velocity in Cartesian Coordinates",
+        "item definition": "Velocity",
+        "item name": "Velocity",
         "length": 4,
         "subfields": [
             {
@@ -1024,8 +1030,8 @@
     },
     "I020/210": {
         "format": "fixed",
-        "item definition": "Calculated Acceleration of the target, in two\u2019s complement form.",
-        "item name": "Calculated Acceleration",
+        "item definition": "CAccel",
+        "item name": "CAccel",
         "length": 2,
         "subfields": [
             {
@@ -1033,14 +1039,14 @@
                     {
                         "bit begin": 16,
                         "bit end": 8,
-                        "name1": "Ax",
+                        "name1": "AccelX",
                         "name2": "",
                         "type": "int"
                     },
                     {
                         "bit begin": 8,
                         "bit end": 0,
-                        "name1": "Ax",
+                        "name1": "AccelY",
                         "name2": "",
                         "type": "int"
                     }
@@ -1053,8 +1059,8 @@
     },
     "I020/220": {
         "format": "fixed",
-        "item definition": "Target address (ICAO 24-bit address) assigned uniquely to each Target.",
-        "item name": "Target Address",
+        "item definition": "ModeS",
+        "item name": "ModeS",
         "length": 3,
         "subfields": [
             {
@@ -1062,8 +1068,8 @@
                     {
                         "bit begin": 24,
                         "bit end": 0,
-                        "name1": "24-bits Target",
-                        "name2": "24-bits Target",
+                        "name1": "ModeS",
+                        "name2": "ModeS",
                         "type": "int"
                     }
                 ],
@@ -1076,7 +1082,7 @@
     "I020/230": {
         "format": "fixed",
         "item definition": "Communications capability of the transponder, capability of the on-board ACAS equipment and flight status.",
-        "item name": "Communications/ACAS Capability and Flight Status",
+        "item name": "ACASStatus",
         "length": 2,
         "subfields": [
             {
@@ -1084,7 +1090,7 @@
                     {
                         "bit begin": 16,
                         "bit end": 13,
-                        "name1": "COM",
+                        "name1": "ACASCOM",
                         "name2": "Communications capability of the transponder =",
                         "options": [
                             [
@@ -1093,7 +1099,7 @@
                             ],
                             [
                                 "2",
-                                "3 = 4 5 to 7 No communications capability (surveillance only) Comm. A and Comm. B capability Comm. A, Comm. B and Uplink ELM Comm. A, Comm. B, Uplink ELM and Downlink ELM Level 5 Transponder capability Not assigned "
+                                "3"
                             ]
                         ],
                         "type": "enum"
@@ -1101,7 +1107,7 @@
                     {
                         "bit begin": 13,
                         "bit end": 10,
-                        "name1": "STAT",
+                        "name1": "ACASSTAT",
                         "name2": " Flight Status",
                         "options": [
                             [
@@ -1209,8 +1215,8 @@
     },
     "I020/245": {
         "format": "fixed",
-        "item definition": "Target (aircraft or vehicle) identification in 8 characters.",
-        "item name": "Target Identification",
+        "item definition": "ModeSId",
+        "item name": "ModeSId",
         "length": 7,
         "subfields": [
             {
@@ -1218,8 +1224,8 @@
                     {
                         "bit begin": 56,
                         "bit end": 54,
-                        "name1": "STI",
-                        "name2": "=",
+                        "name1": "MeaHeight",
+                        "name2": "MeaHeight",
                         "options": [
                             [
                                 "00",
@@ -1231,7 +1237,7 @@
                             ],
                             [
                                 "0",
-                                "11 Callsign or registration not downlinked from transponder Registration downlinked from transponder Callsign downlinked from transponder Not defined"
+                                "1"
                             ]
                         ],
                         "type": "enum"
@@ -1261,8 +1267,8 @@
     },
     "I020/250": {
         "format": "repetitive",
-        "item definition": "Mode S Comm B data as extracted from the aircraft transponder.",
-        "item name": "Mode S MB Data",
+        "item definition": "ModeSMB",
+        "item name": "ModeSMB",
         "length": 1,
         "subfields": [
             {
@@ -1305,7 +1311,7 @@
     "I020/260": {
         "format": "fixed",
         "item definition": "Currently active Resolution Advisory (RA) , if any, generated by the ACAS associated with the transponder transmitting the report and threat identity data.",
-        "item name": "ACAS Resolution Advisory Report",
+        "item name": "ACASResolution",
         "length": 7,
         "subfields": [
             {
@@ -1326,8 +1332,8 @@
     },
     "I020/300": {
         "format": "fixed",
-        "item definition": "Vehicle fleet identification number.",
-        "item name": "Vehicle Fleet Identification",
+        "item definition": "FleetId",
+        "item name": "FleetId",
         "length": 1,
         "subfields": [
             {
@@ -1336,7 +1342,7 @@
 
                         "bit begin": 8,
                         "bit end": 0,
-                        "name1": "VFI",
+                        "name1": "FleetId",
                         "name2": "",
                         "options": [
                             [
@@ -1419,8 +1425,8 @@
     },
     "I020/310": {
         "format": "fixed",
-        "item definition": "Number related to a pre-programmed message that can be transmitted by a vehicle.",
-        "item name": "Pre-programmed Message",
+        "item definition": "PreProgMsg",
+        "item name": "PreProgMsg",
         "length": 1,
         "subfields": [
             {
@@ -1428,7 +1434,7 @@
                     {
                         "bit begin": 8,
                         "bit end": 7,
-                        "name1": "TRB",
+                        "name1": "PPMsgTRB",
                         "name2": "",
                         "options": [
                             [
@@ -1445,7 +1451,7 @@
                     {
                         "bit begin": 7,
                         "bit end": 0,
-                        "name1": "MSG",
+                        "name1": "PPMsg",
                         "name2": "",
                         "options": [
                             [
@@ -1490,8 +1496,8 @@
                     {
                         "bit begin": 16,
                         "bit end": 8,
-                        "name1": "REP",
-                        "name2": "(REP) Repetition Factor",
+                        "name1": "ContRec",
+                        "name2": "ContRec",
                         "type": "rep"
                     }
                 ],
@@ -1503,8 +1509,8 @@
     },
     "I020/500": {
         "format": "compound",
-        "item definition": "Standard Deviation of Position",
-        "item name": "Position Accuracy",
+        "item definition": "PosAccuracy",
+        "item name": "PosAccuracy",
         "length": 1,
         "subfields": [
             {
@@ -1513,8 +1519,8 @@
                         "bit begin": 48,
                         "bit end": 32,
                         "lsb": 0.25,
-                        "name1": "DOP-x",
-                        "name2": "(DOP-x) DOP along x",
+                        "name1": "DopX",
+                        "name2": "DopX",
                         "signed": true,
                         "type": "float",
                         "unit": ""
@@ -1523,8 +1529,8 @@
                         "bit begin": 32,
                         "bit end": 16,
                         "lsb": 0.25,
-                        "name1": "DOP-y",
-                        "name2": "(DOP-y) DOP along y",
+                        "name1": "DopY",
+                        "name2": "DopY",
                         "signed": true,
                         "type": "float",
                         "unit": ""
@@ -1533,8 +1539,8 @@
                         "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.25,
-                        "name1": "DOP-xy",
-                        "name2": "(DOP-xy) = ) , ( Y",
+                        "name1": "DopXY",
+                        "name2": "DopXY",
                         "signed": true,
                         "type": "float",
                         "unit": "Note"
@@ -1549,8 +1555,8 @@
                         "bit begin": 48,
                         "bit end": 32,
                         "lsb": 0.25,
-                        "name1": "\u03c3x",
-                        "name2": "(\u03c3x) Standard Deviation",
+                        "name1": "SigX",
+                        "name2": "SigX",
                         "signed": true,
                         "type": "float",
                         "unit": "m"
@@ -1559,8 +1565,8 @@
                         "bit begin": 32,
                         "bit end": 16,
                         "lsb": 0.25,
-                        "name1": "\u03c3y",
-                        "name2": "(\u03c3y) Standard Deviation",
+                        "name1": "SigY",
+                        "name2": "SigY",
                         "signed": true,
                         "type": "float",
                         "unit": "m"
@@ -1569,8 +1575,8 @@
                         "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.25,
-                        "name1": " ",
-                        "name2": "( ) , ( Y X \u03c1 ) Correlation",
+                        "name1": "SigRho",
+                        "name2": "SigRho",
                         "signed": true,
                         "type": "float",
                         "unit": ""
@@ -1585,15 +1591,15 @@
                         "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.5,
-                        "name1": "\u03c3GH",
-                        "name2": "(\u03c3GH) Standard Deviation",
+                        "name1": "SigGeoHght",
+                        "name2": "SigGeoHght",
                         "signed": true,
                         "type": "float",
                         "unit": "m"
                     }
                 ],
                 "id": 3,
-                "note": "There is now a new Item for the Position Accuracy defined in the Reserved Expansion Field (REF) , more complete (includes a Standard Deviation of Position in WGS-84) and is based on a different calculation method (covariance instead of correlation) . It is recommended to use the new definition. Nevertheless, Item I020/500 is kept in order to prevent a full incompatibility with previous releases of ASTERIX Cat. 020 already implemented. 5.3 Standard User Application Profile 5.3.1 The following UAP shown in Table 3 shall be used for the transmission of target reports and service messages : Table 3 - Standard UAP FRN Data Item Information Length in Octets 1 I020/010 Data Source Identifier 2 2 I020/020 Target Report Descriptor 1+ 3 I020/140 Time of Day 3 4 I020/041 Position in WGS-84 Coordinates 8 5 I020/042 Position in Cartesian Coordinates 6 6 I020/161 Track Number 2 7 I020/170 Track Status 1+ FX - Field Extension Indicator - 8 I020/070 Mode-3/A Code in Octal Representation 2 9 I020/202 Calculated Track Velocity in Cartesian Coord. 4 10 I020/090 Flight Level in Binary Representation 2 11 I020/100 Mode-C Code 4 12 I020/220 Target Address 3 13 I020/245 Target Identification 7 14 I020/110 Measured Height (Cartesian Coordinates) 2 FX - Field Extension Indicator - 15 I020/105 Geometric Height (WGS-84) 2 16 I020/210 Calculated Acceleration 2 17 I020/300 Vehicle Fleet Identification 1 18 I020/310 Pre-programmed Message 1 19 I020/500 Position Accuracy 1+n 20 I020/400 Contributing Devices 1+1+ 21 I020/250 Mode S MB Data 1+8n FX - Field Extension Indicator - 22 I020/230 Comms/ACAS Capability and Flight Status 2 23 I020/260 ACAS Resolution Advisory Report 7 24 I020/030 Warning/Error Conditions 1+ 25 I020/055 Mode-1 Code in Octal Representation 1 26 I020/050 Mode-2 Code in Octal Representation 2 27 RE Reserved Expansion Field - 28 SP Special Purpose Field - FX - Field Extension Indicator - where: \u2022 the first column indicates the FRN associated to each Data Item used in the UAP; \u2022 the fourth column gives the format and the length of each item. A stand-alone figure indicates the octet count of a fixed-length Data Item, 1+ indicates a variable-length Data Item comprising a first part of one-",
+                "note": "...",
                 "subfield info": ""
             }
         ]
