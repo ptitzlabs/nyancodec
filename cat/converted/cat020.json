@@ -148,8 +148,9 @@
                                 "No Other Technology Multilateration"
                             ]
                         ]
+                        "type": "enum"
+
                     }
-                   
                 ],
                 "id": 1,
                 "mandatory": true,
