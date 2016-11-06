@@ -1,2741 +1,2299 @@
 {
- "CAT id": 62,
- "definition": "",
- "description": "",
- "fields": [
-  {
-   "description": "",
-   "field id": 0,
-   "field index": "I062/010",
-   "field type": "fixed",
-   "info": "Data Source Identifier",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "SIC",
-       "type": "unsigned int"
-      },
-      {
-       "bit begin": 8,
-       "bit end": 16,
-       "item id": 1,
-       "name": "SAC",
-       "type": "unsigned int"
-      }
-     ],
-     "length": 2,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 2,
-   "field index": "I062/015",
-   "field type": "fixed",
-   "info": "Service Identification",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "",
-       "type": "unsigned int"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 3,
-   "field index": "I062/070",
-   "field type": "fixed",
-   "info": "Time Of Track Information",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 24,
-       "item id": 0,
-       "name": "",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 4,
-   "field index": "I062/105",
-   "field type": "fixed",
-   "info": "Calculated Track Position (WGS-84)",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "LSB": 5.36441802978516e-06,
-       "bit begin": 0,
-       "bit end": 32,
-       "item id": 0,
-       "name": "lat",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "N"
-      },
-      {
-       "LSB": 5.36441802978516e-06,
-       "bit begin": 32,
-       "bit end": 64,
-       "item id": 1,
-       "name": "lon",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "E"
-      }
-     ],
-     "length": 2,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 5,
-   "field index": "I062/100",
-   "field type": "fixed",
-   "info": "Calculated Track Position (Cartesian)",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "LSB": 0.5,
-       "bit begin": 0,
-       "bit end": 24,
-       "item id": 0,
-       "name": "x",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "m"
-      },
-      {
-       "LSB": 0.5,
-       "bit begin": 24,
-       "bit end": 48,
-       "item id": 1,
-       "name": "y",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "m"
-      }
-     ],
-     "length": 2,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 6,
-   "field index": "I062/185",
-   "field type": "fixed",
-   "info": "Calculated Track Velocity (Cartesian)",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "LSB": 0.25,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "vx",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "m/s"
-      },
-      {
-       "LSB": 0.25,
-       "bit begin": 16,
-       "bit end": 32,
-       "item id": 1,
-       "name": "vy",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "m/s"
-      }
-     ],
-     "length": 2,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 7,
-   "field index": "I062/210",
-   "field type": "fixed",
-   "info": "Calculated Acceleration (Cartesian)",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 8,
-   "field index": "I062/060",
-   "field type": "fixed",
-   "info": "Track Mode 3/A Code",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 1,
-       "enum vals": [
-        "Code validated",
-        "Code not validated"
-       ],
-       "item id": 0,
-       "name": "V",
-       "type": "enum"
-      },
-      {
-       "bit begin": 1,
-       "bit end": 2,
-       "enum vals": [
-        "Default",
-        "Garbled Code"
-       ],
-       "item id": 1,
-       "name": "G",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 3,
-       "enum vals": [
-        "No Change",
-        "Mode 3/A has changed"
-       ],
-       "item id": 2,
-       "name": "CH",
-       "type": "enum"
-      },
-      {
-       "bit begin": 3,
-       "bit end": 4,
-       "item id": 3,
-       "type": "spare"
-      },
-      {
-       "bit begin": 4,
-       "bit end": 16,
-       "item id": 4,
-       "name": "Mode-3/A reply",
-       "type": "raw"
-      }
-     ],
-     "length": 5,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 9,
-   "field index": "I062/245",
-   "field type": "fixed",
-   "info": "Target Identification",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 10,
-   "field index": "I062/380",
-   "field type": "composite",
-   "info": "Aircraft Derived Data ",
-   "length": 40,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 24,
-       "item id": 0,
-       "name": "Target Address",
-       "type": "raw"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 48,
-       "item id": 0,
-       "name": "Target Identification",
-       "type": "string"
-      }
-     ],
-     "length": 1,
-     "subfield id": 1
-    },
-    {
-     "items": [
-      {
-       "LSB": 0.0054931640625,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Magnetic Heading",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "deg"
-      }
-     ],
-     "length": 1,
-     "subfield id": 2
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 16,
-       "enum vals": [
-        "NM/s",
-        ""
-       ],
-       "item id": 0,
-       "name": "Indicated Airspeed / Mach Number",
-       "type": "variable float",
-       "var LSB": [
-        6.103515625e-05,
-        0.001
-       ]
-      }
-     ],
-     "length": 1,
-     "subfield id": 3
-    },
-    {
-     "items": [
-      {
-       "LSB": 1,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "True Airspeed",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "knot"
-      }
-     ],
-     "length": 1,
-     "subfield id": 4
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 1,
-       "enum vals": [
-        "No source information provided",
-        "Source Information provided"
-       ],
-       "item id": 0,
-       "name": "SAS",
-       "type": "enum"
-      },
-      {
-       "bit begin": 1,
-       "bit end": 3,
-       "enum vals": [
-        "Unknown",
-        "Aircraft altitude",
-        "FCU/MCP Selected Altitude",
-        "FMS Selected Altitude"
-       ],
-       "item id": 1,
-       "name": "Source",
-       "type": "enum"
-      },
-      {
-       "LSB": 25,
-       "bit begin": 3,
-       "bit end": 16,
-       "item id": 2,
-       "name": "Altitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "ft"
-      }
-     ],
-     "length": 3,
-     "subfield id": 5
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 1,
-       "enum vals": [
-        "Not active",
-        "Active"
-       ],
-       "item id": 0,
-       "name": "MV",
-       "type": "enum"
-      },
-      {
-       "bit begin": 1,
-       "bit end": 2,
-       "enum vals": [
-        "Not active",
-        "Active"
-       ],
-       "item id": 1,
-       "name": "AH",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 3,
-       "enum vals": [
-        "Not active",
-        "Active"
-       ],
-       "item id": 2,
-       "name": "AM",
-       "type": "enum"
-      },
-      {
-       "LSB": 25,
-       "bit begin": 3,
-       "bit end": 16,
-       "item id": 3,
-       "name": "Altitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "ft"
-      }
-     ],
-     "length": 4,
-     "subfield id": 6
-    },
-    {
-     "length": 0,
-     "subfield id": 7
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 1,
-       "enum vals": [
-        "Trajectory Intent Data is available for this aircraft",
-        "Trajectory Intent Data is not available for this aircraft"
-       ],
-       "item id": 0,
-       "name": "NAV",
-       "type": "enum"
-      },
-      {
-       "bit begin": 1,
-       "bit end": 2,
-       "enum vals": [
-        "Trajectory Intent Data is valid",
-        "Trajectory Intent Data is not valid"
-       ],
-       "item id": 1,
-       "name": "NVB",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 7,
-       "item id": 2,
-       "type": "spare"
-      },
-      {
-       "bit begin": 7,
-       "bit end": 8,
-       "item id": 3,
-       "type": "fx"
-      }
-     ],
-     "length": 4,
-     "subfield id": 8
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "REP",
-       "type": "rep"
-      },
-      {
-       "bit begin": 8,
-       "bit end": 9,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 1,
-       "name": "TCA",
-       "type": "enum"
-      },
-      {
-       "bit begin": 9,
-       "bit end": 10,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 2,
-       "name": "NC",
-       "type": "enum"
-      },
-      {
-       "bit begin": 10,
-       "bit end": 16,
-       "item id": 3,
-       "name": "TCP number",
-       "type": "unsigned int"
-      },
-      {
-       "LSB": 10,
-       "bit begin": 16,
-       "bit end": 32,
-       "item id": 4,
-       "name": "Altitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "ft"
-      },
-      {
-       "LSB": 2.14576721191406e-05,
-       "bit begin": 32,
-       "bit end": 56,
-       "item id": 5,
-       "name": "Lattitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "N"
-      },
-      {
-       "LSB": 2.14576721191406e-05,
-       "bit begin": 56,
-       "bit end": 80,
-       "item id": 6,
-       "name": "Longitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "E"
-      },
-      {
-       "bit begin": 80,
-       "bit end": 84,
-       "enum vals": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 7,
-       "name": "Point Type",
-       "type": "enum"
-      },
-      {
-       "bit begin": 84,
-       "bit end": 86,
-       "enum vals": [
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 8,
-       "name": "TD",
-       "type": "enum"
-      },
-      {
-       "bit begin": 86,
-       "bit end": 87,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 9,
-       "name": "TRA",
-       "type": "enum"
-      },
-      {
-       "bit begin": 87,
-       "bit end": 88,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 10,
-       "name": "TOA",
-       "type": "enum"
-      },
-      {
-       "LSB": 1,
-       "bit begin": 88,
-       "bit end": 112,
-       "item id": 11,
-       "name": "TOV",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      },
-      {
-       "LSB": 0.00999999977648258,
-       "bit begin": 112,
-       "bit end": 128,
-       "item id": 12,
-       "name": "TTR",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "Nm"
-      }
-     ],
-     "length": 13,
-     "subfield id": 9
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 3,
-       "enum vals": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 0,
-       "name": "COM",
-       "type": "enum"
-      },
-      {
-       "bit begin": 3,
-       "bit end": 6,
-       "enum vals": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 1,
-       "name": "STAT",
-       "type": "enum"
-      },
-      {
-       "bit begin": 6,
-       "bit end": 8,
-       "item id": 2,
-       "type": "spare"
-      },
-      {
-       "bit begin": 8,
-       "bit end": 9,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 3,
-       "name": "SSC",
-       "type": "enum"
-      },
-      {
-       "bit begin": 9,
-       "bit end": 10,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 4,
-       "name": "ARC",
-       "type": "enum"
-      },
-      {
-       "bit begin": 10,
-       "bit end": 11,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 5,
-       "name": "AIC",
-       "type": "enum"
-      },
-      {
-       "bit begin": 11,
-       "bit end": 12,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 6,
-       "name": "B1A",
-       "type": "enum"
-      },
-      {
-       "bit begin": 12,
-       "bit end": 16,
-       "item id": 7,
-       "name": "B1B",
-       "type": "raw"
-      }
-     ],
-     "length": 8,
-     "subfield id": 10
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 2,
-       "enum vals": [
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 0,
-       "name": "AC",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 4,
-       "enum vals": [
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 1,
-       "name": "MN",
-       "type": "enum"
-      },
-      {
-       "bit begin": 4,
-       "bit end": 6,
-       "enum vals": [
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 2,
-       "name": "DC",
-       "type": "enum"
-      },
-      {
-       "bit begin": 6,
-       "bit end": 7,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 3,
-       "name": "GBS",
-       "type": "enum"
-      },
-      {
-       "bit begin": 7,
-       "bit end": 13,
-       "item id": 4,
-       "type": "spare"
-      },
-      {
-       "bit begin": 13,
-       "bit end": 16,
-       "enum vals": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-       ],
-       "item id": 5,
-       "name": "STAT",
-       "type": "enum"
-      }
-     ],
-     "length": 6,
-     "subfield id": 11
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 56,
-       "item id": 0,
-       "name": "ACAS Resolution Advisory Report",
-       "type": "raw"
-      }
-     ],
-     "length": 1,
-     "subfield id": 12
-    },
-    {
-     "items": [
-      {
-       "LSB": 6.25,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Barometric Vertical Rate",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "feet/minute"
-      }
-     ],
-     "length": 1,
-     "subfield id": 13
-    },
-    {
-     "items": [
-      {
-       "LSB": 6.25,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Geometric Vertical Rate",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "feet/minute"
-      }
-     ],
-     "length": 1,
-     "subfield id": 14
-    },
-    {
-     "length": 0,
-     "subfield id": 15
-    },
-    {
-     "items": [
-      {
-       "LSB": 0.00999999977648258,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Roll Angle",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "deg"
-      }
-     ],
-     "length": 1,
-     "subfield id": 16
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 2,
-       "enum vals": [
-        "Not available",
-        "Left",
-        "Right",
-        "Straight"
-       ],
-       "item id": 0,
-       "name": "Turn indicator",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 8,
-       "item id": 1,
-       "type": "spare"
-      },
-      {
-       "LSB": 0.25,
-       "bit begin": 8,
-       "bit end": 15,
-       "item id": 2,
-       "name": "Rate of Turn",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "deg/s"
-      },
-      {
-       "bit begin": 15,
-       "bit end": 16,
-       "item id": 3,
-       "type": "spare"
-      }
-     ],
-     "length": 4,
-     "subfield id": 17
-    },
-    {
-     "items": [
-      {
-       "LSB": 0.0054931640625,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Track Angle",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "deg"
-      }
-     ],
-     "length": 1,
-     "subfield id": 18
-    },
-    {
-     "items": [
-      {
-       "LSB": 6.103515625e-05,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Ground Speed",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "NM/s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 19
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Velocity Uncertainty Category",
-       "type": "raw"
-      }
-     ],
-     "length": 1,
-     "subfield id": 20
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 1,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 0,
-       "name": "WD",
-       "type": "enum"
-      },
-      {
-       "bit begin": 1,
-       "bit end": 2,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 1,
-       "name": "TMP",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 3,
-       "enum vals": [
-        "",
-        ""
-       ],
-       "item id": 2,
-       "name": "TRB",
-       "type": "enum"
-      },
-      {
-       "bit begin": 3,
-       "bit end": 7,
-       "item id": 3,
-       "type": "spare"
-      },
-      {
-       "LSB": 1,
-       "bit begin": 7,
-       "bit end": 23,
-       "item id": 4,
-       "name": "Wind Speed",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "knot"
-      },
-      {
-       "LSB": 1,
-       "bit begin": 23,
-       "bit end": 39,
-       "item id": 5,
-       "name": "Wind Direction",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "deg"
-      },
-      {
-       "LSB": 0.25,
-       "bit begin": 39,
-       "bit end": 55,
-       "item id": 6,
-       "name": "Temperature ",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "deg"
-      },
-      {
-       "bit begin": 55,
-       "bit end": 63,
-       "item id": 7,
-       "name": "Turbulence",
-       "type": "unsigned int"
-      }
-     ],
-     "length": 8,
-     "subfield id": 21
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "enum vals": [
-        "Light aircraft <= 7000 kg",
-        "Reserved",
-        "7000 kg < medium aircraft < 136000 kg",
-        "Reserved",
-        "136000 kg <= heavy aircraft",
-        "Highly manoeuvrable (5g acceleration capability) and high speed (>400 knots cruise)",
-        "Reserved",
-        "Reserved",
-        "Reserved",
-        "Rotocraft",
-        "Glider / sailplane",
-        "Lighter-than-air",
-        "Unmanned aerial vehicle",
-        "Space / transatmospheric vehicle",
-        "Ultralight / handglider / paraglider",
-        "Parachutist / skydiver",
-        "Reserved",
-        "Reserved",
-        "Reserved",
-        "Surface emergency vehicle",
-        "Surface service vehicle",
-        "Fixed ground or tethered obstruction",
-        "Reserved",
-        "Reserved"
-       ],
-       "item id": 0,
-       "name": "ECAT",
-       "type": "enum"
-      }
-     ],
-     "length": 1,
-     "subfield id": 22
-    },
-    {
-     "length": 0,
-     "subfield id": 23
-    },
-    {
-     "items": [
-      {
-       "LSB": 2.14576721191406e-05,
-       "bit begin": 0,
-       "bit end": 24,
-       "item id": 0,
-       "name": "Lattitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "N"
-      },
-      {
-       "LSB": 2.14576721191406e-05,
-       "bit begin": 24,
-       "bit end": 48,
-       "item id": 1,
-       "name": "Longitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "E"
-      }
-     ],
-     "length": 2,
-     "subfield id": 24
-    },
-    {
-     "items": [
-      {
-       "LSB": 6.25,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Altitude",
-       "offset": 0.0,
-       "type": "float",
-       "unit": "ft"
-      }
-     ],
-     "length": 1,
-     "subfield id": 25
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 4,
-       "item id": 0,
-       "type": "spare"
-      },
-      {
-       "bit begin": 4,
-       "bit end": 8,
-       "item id": 1,
-       "name": "PUN",
-       "type": "raw"
-      }
-     ],
-     "length": 2,
-     "subfield id": 26
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "REP",
-       "type": "rep"
-      },
-      {
-       "bit begin": 8,
-       "bit end": 64,
-       "item id": 1,
-       "name": "MB Data",
-       "type": "raw"
-      },
-      {
-       "bit begin": 64,
-       "bit end": 68,
-       "item id": 2,
-       "name": "B1A",
-       "type": "raw"
-      },
-      {
-       "bit begin": 68,
-       "bit end": 72,
-       "item id": 3,
-       "name": "B1B",
-       "type": "raw"
-      }
-     ],
-     "length": 4,
-     "subfield id": 27
-    },
-    {
-     "items": [
-      {
-       "LSB": 1,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Indicated Air Speed",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "kt"
-      }
-     ],
-     "length": 1,
-     "subfield id": 28
-    },
-    {
-     "items": [
-      {
-       "LSB": 0.00800000037997961,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Mach Nummber",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "-"
-      }
-     ],
-     "length": 1,
-     "subfield id": 29
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 4,
-       "item id": 0,
-       "type": "spare"
-      },
-      {
-       "LSB": 0.100000001490116,
-       "bit begin": 4,
-       "bit end": 16,
-       "item id": 1,
-       "name": "Barometric Pressure Setting",
-       "offset": 800,
-       "type": "unsigned float",
-       "unit": "mb"
-      }
-     ],
-     "length": 2,
-     "subfield id": 30
-    },
-    {
-     "length": 0,
-     "subfield id": 31
-    },
-    {
-     "length": 0,
-     "subfield id": 32
-    },
-    {
-     "length": 0,
-     "subfield id": 33
-    },
-    {
-     "length": 0,
-     "subfield id": 34
-    },
-    {
-     "length": 0,
-     "subfield id": 35
-    },
-    {
-     "length": 0,
-     "subfield id": 36
-    },
-    {
-     "length": 0,
-     "subfield id": 37
-    },
-    {
-     "length": 0,
-     "subfield id": 38
-    },
-    {
-     "length": 0,
-     "subfield id": 39
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 11,
-   "field index": "I062/040",
-   "field type": "fixed",
-   "info": "Track Number",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 18,
-       "item id": 0,
-       "name": "Track number",
-       "type": "unsigned int"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 12,
-   "field index": "I062/080",
-   "field type": "extended",
-   "info": "Track Status",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 1,
-       "enum vals": [
-        "Multisensor track",
-        "Monosensor track"
-       ],
-       "item id": 0,
-       "name": "(MON)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 1,
-       "bit end": 2,
-       "enum vals": [
-        "default value ",
-        "SPI present in the last report received from a sensor capable of decoding this data"
-       ],
-       "item id": 1,
-       "name": "(SPI)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 3,
-       "enum vals": [
-        "Barometric altitude (Mode C) more reliable ",
-        "Geometric altitude more reliable"
-       ],
-       "item id": 2,
-       "name": "(MRH) Most Reliable Height",
-       "type": "enum"
-      },
-      {
-       "bit begin": 3,
-       "bit end": 6,
-       "enum vals": [
-        "no source ",
-        "GNSS ",
-        "3D radar ",
-        "triangulation ",
-        "height from coverage ",
-        "speed look-up table ",
-        "default height ",
-        "multilateration"
-       ],
-       "item id": 3,
-       "name": "(SRC) Source of calculated track altitude for I062/130",
-       "type": "enum"
-      },
-      {
-       "bit begin": 6,
-       "bit end": 7,
-       "enum vals": [
-        "0 Confirmed track ",
-        "Tentative track"
-       ],
-       "item id": 4,
-       "name": "(CNF)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 7,
-       "bit end": 8,
-       "item id": 5,
-       "type": "fx"
-      },
-      {
-       "bit begin": 8,
-       "bit end": 9,
-       "enum vals": [
-        "Actual track ",
-        "Simulated track"
-       ],
-       "item id": 6,
-       "name": "(SIM)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 9,
-       "bit end": 10,
-       "enum vals": [
-        "default value ",
-        "last message transmitted to the user for the track"
-       ],
-       "item id": 7,
-       "name": "(TSE)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 10,
-       "bit end": 11,
-       "enum vals": [
-        "default value ",
-        "first message transmitted to the user for the track"
-       ],
-       "item id": 8,
-       "name": "(TSB)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 11,
-       "bit end": 12,
-       "enum vals": [
-        "Not flight-plan correlated ",
-        "Flight plan correlated"
-       ],
-       "item id": 9,
-       "name": "(FPC)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 12,
-       "bit end": 13,
-       "enum vals": [
-        "default value ",
-        "ADS-B data inconsistent with other surveillance information"
-       ],
-       "item id": 10,
-       "name": "(AFF)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 13,
-       "bit end": 14,
-       "enum vals": [
-        "default value ",
-        "Slave Track Promotion"
-       ],
-       "item id": 11,
-       "name": "(STP)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 14,
-       "bit end": 15,
-       "enum vals": [
-        "Complementary service used ",
-        "Background service used"
-       ],
-       "item id": 12,
-       "name": "(KOS)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 15,
-       "bit end": 16,
-       "item id": 13,
-       "type": "fx"
-      },
-      {
-       "bit begin": 16,
-       "bit end": 17,
-       "enum vals": [
-        "track not resulting from amalgamation process ",
-        "track resulting from amalgamation process"
-       ],
-       "item id": 14,
-       "name": "(AMA)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 17,
-       "bit end": 19,
-       "enum vals": [
-        "No Mode 4 interrogation ",
-        "Friendly target ",
-        "Unknown target ",
-        "No reply"
-       ],
-       "item id": 15,
-       "name": "(MD4)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 19,
-       "bit end": 20,
-       "enum vals": [
-        "default value ",
-        "Military Emergency present in the last report received from a sensor capable of decoding this data"
-       ],
-       "item id": 16,
-       "name": "(ME)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 20,
-       "bit end": 21,
-       "enum vals": [
-        "default value ",
-        "Military Identification present in the last report received from a sensor capable of decoding this data"
-       ],
-       "item id": 17,
-       "name": "(MI)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 21,
-       "bit end": 23,
-       "enum vals": [
-        "No Mode 5 interrogation ",
-        "Friendly target ",
-        "Unknown target ",
-        "No reply"
-       ],
-       "item id": 18,
-       "name": "(MD5)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 23,
-       "bit end": 24,
-       "item id": 19,
-       "type": "fx"
-      },
-      {
-       "bit begin": 24,
-       "bit end": 25,
-       "enum vals": [
-        "Default value ",
-        "Age of the last received track update is higher than system dependent threshold (coasting)"
-       ],
-       "item id": 20,
-       "name": "(CST)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 25,
-       "bit end": 26,
-       "enum vals": [
-        "Default value ",
-        "Age of the last received PSR track update is higher than system dependent threshold"
-       ],
-       "item id": 21,
-       "name": "(PSR)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 26,
-       "bit end": 27,
-       "enum vals": [
-        "Default value ",
-        "Age of the last received SSR track update is higher than system dependent threshold"
-       ],
-       "item id": 22,
-       "name": "(SSR)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 27,
-       "bit end": 28,
-       "enum vals": [
-        "Default value ",
-        "Age of the last received Mode S track update is higher than system dependent threshold"
-       ],
-       "item id": 23,
-       "name": "(MDS)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 28,
-       "bit end": 29,
-       "enum vals": [
-        "Default value ",
-        "Age of the last received ADS-B track update is higher than system dependent threshold"
-       ],
-       "item id": 24,
-       "name": "(ADS)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 29,
-       "bit end": 30,
-       "enum vals": [
-        "Default value ",
-        "Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)"
-       ],
-       "item id": 25,
-       "name": "(SUC)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 30,
-       "bit end": 31,
-       "enum vals": [
-        "Default value ",
-        "Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"
-       ],
-       "item id": 26,
-       "name": "(AAC)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 31,
-       "bit end": 32,
-       "item id": 27,
-       "type": "fx"
-      },
-      {
-       "bit begin": 32,
-       "bit end": 34,
-       "enum vals": [
-        "Combined ",
-        "Co-operative only ",
-        "Non-Cooperative only ",
-        "Not defined"
-       ],
-       "item id": 28,
-       "name": "(SDS) Surveillance Data Status",
-       "type": "enum"
-      },
-      {
-       "bit begin": 34,
-       "bit end": 37,
-       "enum vals": [
-        "No emergency ",
-        "General emergency ",
-        "Lifeguard / medical ",
-        "Minimum fuel ",
-        "No communications ",
-        "Unlawful interference ",
-        "“Downed” Aircraft ",
-        "Undefined"
-       ],
-       "item id": 29,
-       "name": "(EMS) Emergency Status Indication",
-       "type": "enum"
-      },
-      {
-       "bit begin": 37,
-       "bit end": 38,
-       "enum vals": [
-        "No indication ",
-        "Potential False Track Indication"
-       ],
-       "item id": 30,
-       "name": "(PFT)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 38,
-       "bit end": 39,
-       "enum vals": [
-        "Default value ",
-        "Track created / updated with FPL data"
-       ],
-       "item id": 31,
-       "name": "(FPLT)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 39,
-       "bit end": 40,
-       "item id": 32,
-       "type": "fx"
-      },
-      {
-       "bit begin": 40,
-       "bit end": 41,
-       "enum vals": [
-        "Default value ",
-        "Duplicate Mode 3/A Code"
-       ],
-       "item id": 33,
-       "name": "(DUPT)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 41,
-       "bit end": 42,
-       "enum vals": [
-        "Default value ",
-        "Duplicate Flight Plan"
-       ],
-       "item id": 34,
-       "name": "(DUPF)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 42,
-       "bit end": 43,
-       "enum vals": [
-        "Default value ",
-        "Duplicate Flight Plan due to manual correlation"
-       ],
-       "item id": 35,
-       "name": "(DUPM)",
-       "type": "enum"
-      },
-      {
-       "bit begin": 43,
-       "bit end": 47,
-       "item id": 36,
-       "type": "spare"
-      },
-      {
-       "bit begin": 47,
-       "bit end": 48,
-       "item id": 37,
-       "type": "fx"
-      }
-     ],
-     "length": 38,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 13,
-   "field index": "I062/290",
-   "field type": "composite",
-   "info": "System Track Update Ages",
-   "length": 16,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Track age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "PSR age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 1
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "SSR age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 2
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode S age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 3
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "ADS-C age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 4
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "ADS-B Extended Squitter age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 5
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "ADS-B VDL Mode 4 age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 6
-    },
-    {
-     "length": 0,
-     "subfield id": 7
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "ADS-B UAT age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 8
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Loop age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 9
-    },
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Multilateration age",
-       "type": "time"
-      }
-     ],
-     "length": 1,
-     "subfield id": 10
-    },
-    {
-     "length": 0,
-     "subfield id": 11
-    },
-    {
-     "length": 0,
-     "subfield id": 12
-    },
-    {
-     "length": 0,
-     "subfield id": 13
-    },
-    {
-     "length": 0,
-     "subfield id": 14
-    },
-    {
-     "length": 0,
-     "subfield id": 15
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 14,
-   "field index": "I062/200",
-   "field type": "fixed",
-   "info": "Mode of Movement",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 2,
-       "enum vals": [
-        " Constant Course ",
-        "Right Turn",
-        "Left Turn",
-        "Undetermined"
-       ],
-       "item id": 0,
-       "name": "Transversal Acceleration",
-       "type": "enum"
-      },
-      {
-       "bit begin": 2,
-       "bit end": 4,
-       "enum vals": [
-        " Constant Groundspeed ",
-        "Increasing Groundspeed",
-        "Decreasing Groundspeed",
-        "Undetermined"
-       ],
-       "item id": 1,
-       "name": "bits 6/5 (LONG) Longitudinal Acceleration",
-       "type": "enum"
-      },
-      {
-       "bit begin": 4,
-       "bit end": 6,
-       "enum vals": [
-        " Level ",
-        "Climb",
-        "Descent",
-        "Undetermined"
-       ],
-       "item id": 2,
-       "name": "bits 4/3 (VERT) Vertical Rate",
-       "type": "enum"
-      },
-      {
-       "bit begin": 6,
-       "bit end": 7,
-       "enum vals": [
-        "No altitude discrepancy",
-        "Altitude discrepancy"
-       ],
-       "item id": 3,
-       "name": "Altitude Discrepancy Flag",
-       "type": "enum"
-      },
-      {
-       "bit begin": 7,
-       "bit end": 8,
-       "item id": 4,
-       "type": "spare"
-      }
-     ],
-     "length": 5,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 15,
-   "field index": "I062/295",
-   "field type": "composite",
-   "info": "Track Data Ages",
-   "length": 40,
-   "subfields": [
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Measured Flight Level age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode 1 age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 1
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode 2 age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 2
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode 3/A age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 3
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode 4 age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 4
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode 5 age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 5
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Magnetic Heading age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 6
-    },
-    {
-     "length": 0,
-     "subfield id": 7
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Indicated Airspeed/Mach Nb age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 8
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "True Airspeed age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 9
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Selected Altitude age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 10
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Final State Selected Altitude age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 11
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Trajectory Intent Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 12
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Communications / ACAS Capability and Flight Status age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 13
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Status Reported by ADS-B age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 14
-    },
-    {
-     "length": 0,
-     "subfield id": 15
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "ACAS Resolution Advisory Report age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 16
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Barometric Vertical Rate age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 17
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Geometric Vertical Rate age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 18
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Roll Angle age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 19
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Track Angle Rate age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 20
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Track Angle age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 21
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Ground Speed age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 22
-    },
-    {
-     "length": 0,
-     "subfield id": 23
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Velocity Uncertainty age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 24
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Meteorological Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 25
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Emitter Category age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 26
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Position Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 27
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Geometric Altitude Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 28
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Position Uncertainty Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 29
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mode S MB Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 30
-    },
-    {
-     "length": 0,
-     "subfield id": 31
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Indicated Airspeed Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 32
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Mach Number Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 33
-    },
-    {
-     "items": [
-      {
-       "LSB": 2,
-       "bit begin": 0,
-       "bit end": 8,
-       "item id": 0,
-       "name": "Barometric Pressure Setting Data age",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "s"
-      }
-     ],
-     "length": 1,
-     "subfield id": 34
-    },
-    {
-     "length": 0,
-     "subfield id": 35
-    },
-    {
-     "length": 0,
-     "subfield id": 36
-    },
-    {
-     "length": 0,
-     "subfield id": 37
-    },
-    {
-     "length": 0,
-     "subfield id": 38
-    },
-    {
-     "length": 0,
-     "subfield id": 39
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 16,
-   "field index": "I062/136",
-   "field type": "fixed",
-   "info": "Measured Flight Level",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "LSB": 0.25,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Measured Flight Level",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "FL"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 17,
-   "field index": "I062/130",
-   "field type": "fixed",
-   "info": "Calculated Track Geometric Altitude",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 18,
-   "field index": "I062/135",
-   "field type": "fixed",
-   "info": "Calculated Track Barometric Altitude",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 19,
-   "field index": "I062/220",
-   "field type": "fixed",
-   "info": "Calculated Rate Of Climb/Descent",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "LSB": 6.25,
-       "bit begin": 0,
-       "bit end": 16,
-       "item id": 0,
-       "name": "Calculated Rate of Climb/Descent",
-       "offset": 0.0,
-       "type": "unsigned float",
-       "unit": "ft/min"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 20,
-   "field index": "I062/390",
-   "field type": "extended",
-   "info": "Flight Plan Related Data 1+",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 21,
-   "field index": "I062/270",
-   "field type": "extended",
-   "info": "Target Size & Orientation 1+",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 22,
-   "field index": "I062/300",
-   "field type": "fixed",
-   "info": "Vehicle Fleet Identification",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 23,
-   "field index": "I062/110",
-   "field type": "extended",
-   "info": "Mode 5 Data reports & Extended Mode 1 Code",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 24,
-   "field index": "I062/120",
-   "field type": "fixed",
-   "info": "Track Mode 2 Code",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 25,
-   "field index": "I062/510",
-   "field type": "extended",
-   "info": "Composed Track Number",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 26,
-   "field index": "I062/500",
-   "field type": "extended",
-   "info": "Estimated Accuracies",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 27,
-   "field index": "I062/340",
-   "field type": "extended",
-   "info": "Measured Information",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 33,
-   "field index": "REF",
-   "field type": "fixed",
-   "info": "Reserved Expansion Field",
-   "length": 1,
-   "subfields": [
-    {
-     "items": [
-      {
-       "bit begin": 0,
-       "bit end": 96,
-       "item id": 0,
-       "name": "REF",
-       "type": "raw"
-      }
-     ],
-     "length": 1,
-     "subfield id": 0
-    }
-   ]
-  },
-  {
-   "description": "",
-   "field id": 34,
-   "field index": "SP",
-   "field type": "fixed",
-   "info": "Reserved For Special Purpose Indicator",
-   "length": 1,
-   "subfields": [
-    {
-     "length": 0,
-     "subfield id": 0
-    }
-   ]
-  }
- ],
- "length": 35,
- "name": "IO62"
+	"CAT id": 62,
+	"definition": "",
+	"description": "",
+	"fields": [{
+		"description": "",
+		"field id": 0,
+		"field index": "I062/010",
+		"field type": "fixed",
+		"info": "Data Source Identifier",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "SIC",
+				"type": "unsigned int"
+			}, {
+				"bit begin": 8,
+				"bit end": 16,
+				"item id": 1,
+				"name": "SAC",
+				"type": "unsigned int"
+			}],
+			"length": 2,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 2,
+		"field index": "I062/015",
+		"field type": "fixed",
+		"info": "Service Identification",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Service Identification",
+				"type": "unsigned int"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 3,
+		"field index": "I062/070",
+		"field type": "fixed",
+		"info": "Time Of Track Information",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 24,
+				"item id": 0,
+				"name": "Time",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 4,
+		"field index": "I062/105",
+		"field type": "fixed",
+		"info": "Calculated Track Position (WGS-84)",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"LSB": 5.36441802978516e-06,
+				"bit begin": 0,
+				"bit end": 32,
+				"item id": 0,
+				"name": "lat",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "N"
+			}, {
+				"LSB": 5.36441802978516e-06,
+				"bit begin": 32,
+				"bit end": 64,
+				"item id": 1,
+				"name": "lon",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "E"
+			}],
+			"length": 2,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 5,
+		"field index": "I062/100",
+		"field type": "fixed",
+		"info": "Calculated Track Position (Cartesian)",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"LSB": 0.5,
+				"bit begin": 0,
+				"bit end": 24,
+				"item id": 0,
+				"name": "x",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "m"
+			}, {
+				"LSB": 0.5,
+				"bit begin": 24,
+				"bit end": 48,
+				"item id": 1,
+				"name": "y",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "m"
+			}],
+			"length": 2,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 6,
+		"field index": "I062/185",
+		"field type": "fixed",
+		"info": "Calculated Track Velocity (Cartesian)",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"LSB": 0.25,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "vx",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "m/s"
+			}, {
+				"LSB": 0.25,
+				"bit begin": 16,
+				"bit end": 32,
+				"item id": 1,
+				"name": "vy",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "m/s"
+			}],
+			"length": 2,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 7,
+		"field index": "I062/210",
+		"field type": "fixed",
+		"info": "Calculated Acceleration (Cartesian)",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 8,
+		"field index": "I062/060",
+		"field type": "fixed",
+		"info": "Track Mode 3/A Code",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 1,
+				"enum vals": [
+					"Code validated",
+					"Code not validated"
+				],
+				"item id": 0,
+				"name": "V",
+				"type": "enum"
+			}, {
+				"bit begin": 1,
+				"bit end": 2,
+				"enum vals": [
+					"Default",
+					"Garbled Code"
+				],
+				"item id": 1,
+				"name": "G",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 3,
+				"enum vals": [
+					"No Change",
+					"Mode 3/A has changed"
+				],
+				"item id": 2,
+				"name": "CH",
+				"type": "enum"
+			}, {
+				"bit begin": 3,
+				"bit end": 4,
+				"item id": 3,
+				"type": "spare"
+			}, {
+				"bit begin": 4,
+				"bit end": 16,
+				"item id": 4,
+				"name": "Mode3A",
+				"type": "raw"
+			}],
+			"length": 5,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 9,
+		"field index": "I062/245",
+		"field type": "fixed",
+		"info": "Target Identification",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 10,
+		"field index": "I062/380",
+		"field type": "composite",
+		"info": "Aircraft Derived Data ",
+		"length": 40,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 24,
+				"item id": 0,
+				"name": "Target Address",
+				"type": "raw"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 48,
+				"item id": 0,
+				"name": "Target Identification",
+				"type": "string"
+			}],
+			"length": 1,
+			"subfield id": 1
+		}, {
+			"items": [{
+				"LSB": 0.0054931640625,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Magnetic Heading",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "deg"
+			}],
+			"length": 1,
+			"subfield id": 2
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 16,
+				"enum vals": [
+					"NM/s",
+					""
+				],
+				"item id": 0,
+				"name": "Indicated Airspeed / Mach Number",
+				"type": "variable float",
+				"var LSB": [
+					6.103515625e-05,
+					0.001
+				]
+			}],
+			"length": 1,
+			"subfield id": 3
+		}, {
+			"items": [{
+				"LSB": 1,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "True Airspeed",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "knot"
+			}],
+			"length": 1,
+			"subfield id": 4
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 1,
+				"enum vals": [
+					"No source information provided",
+					"Source Information provided"
+				],
+				"item id": 0,
+				"name": "SAS",
+				"type": "enum"
+			}, {
+				"bit begin": 1,
+				"bit end": 3,
+				"enum vals": [
+					"Unknown",
+					"Aircraft altitude",
+					"FCU/MCP Selected Altitude",
+					"FMS Selected Altitude"
+				],
+				"item id": 1,
+				"name": "Source",
+				"type": "enum"
+			}, {
+				"LSB": 25,
+				"bit begin": 3,
+				"bit end": 16,
+				"item id": 2,
+				"name": "Altitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "ft"
+			}],
+			"length": 3,
+			"subfield id": 5
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 1,
+				"enum vals": [
+					"Not active",
+					"Active"
+				],
+				"item id": 0,
+				"name": "MV",
+				"type": "enum"
+			}, {
+				"bit begin": 1,
+				"bit end": 2,
+				"enum vals": [
+					"Not active",
+					"Active"
+				],
+				"item id": 1,
+				"name": "AH",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 3,
+				"enum vals": [
+					"Not active",
+					"Active"
+				],
+				"item id": 2,
+				"name": "AM",
+				"type": "enum"
+			}, {
+				"LSB": 25,
+				"bit begin": 3,
+				"bit end": 16,
+				"item id": 3,
+				"name": "Altitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "ft"
+			}],
+			"length": 4,
+			"subfield id": 6
+		}, {
+			"length": 0,
+			"subfield id": 7
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 1,
+				"enum vals": [
+					"Trajectory Intent Data is available for this aircraft",
+					"Trajectory Intent Data is not available for this aircraft"
+				],
+				"item id": 0,
+				"name": "NAV",
+				"type": "enum"
+			}, {
+				"bit begin": 1,
+				"bit end": 2,
+				"enum vals": [
+					"Trajectory Intent Data is valid",
+					"Trajectory Intent Data is not valid"
+				],
+				"item id": 1,
+				"name": "NVB",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 7,
+				"item id": 2,
+				"type": "spare"
+			}, {
+				"bit begin": 7,
+				"bit end": 8,
+				"item id": 3,
+				"type": "fx"
+			}],
+			"length": 4,
+			"subfield id": 8
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "REP",
+				"type": "rep"
+			}, {
+				"bit begin": 8,
+				"bit end": 9,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 1,
+				"name": "TCA",
+				"type": "enum"
+			}, {
+				"bit begin": 9,
+				"bit end": 10,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 2,
+				"name": "NC",
+				"type": "enum"
+			}, {
+				"bit begin": 10,
+				"bit end": 16,
+				"item id": 3,
+				"name": "TCP number",
+				"type": "unsigned int"
+			}, {
+				"LSB": 10,
+				"bit begin": 16,
+				"bit end": 32,
+				"item id": 4,
+				"name": "Altitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "ft"
+			}, {
+				"LSB": 2.14576721191406e-05,
+				"bit begin": 32,
+				"bit end": 56,
+				"item id": 5,
+				"name": "Lattitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "N"
+			}, {
+				"LSB": 2.14576721191406e-05,
+				"bit begin": 56,
+				"bit end": 80,
+				"item id": 6,
+				"name": "Longitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "E"
+			}, {
+				"bit begin": 80,
+				"bit end": 84,
+				"enum vals": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 7,
+				"name": "Point Type",
+				"type": "enum"
+			}, {
+				"bit begin": 84,
+				"bit end": 86,
+				"enum vals": [
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 8,
+				"name": "TD",
+				"type": "enum"
+			}, {
+				"bit begin": 86,
+				"bit end": 87,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 9,
+				"name": "TRA",
+				"type": "enum"
+			}, {
+				"bit begin": 87,
+				"bit end": 88,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 10,
+				"name": "TOA",
+				"type": "enum"
+			}, {
+				"LSB": 1,
+				"bit begin": 88,
+				"bit end": 112,
+				"item id": 11,
+				"name": "TOV",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}, {
+				"LSB": 0.00999999977648258,
+				"bit begin": 112,
+				"bit end": 128,
+				"item id": 12,
+				"name": "TTR",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "Nm"
+			}],
+			"length": 13,
+			"subfield id": 9
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 3,
+				"enum vals": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 0,
+				"name": "COM",
+				"type": "enum"
+			}, {
+				"bit begin": 3,
+				"bit end": 6,
+				"enum vals": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 1,
+				"name": "STAT",
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 8,
+				"item id": 2,
+				"type": "spare"
+			}, {
+				"bit begin": 8,
+				"bit end": 9,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 3,
+				"name": "SSC",
+				"type": "enum"
+			}, {
+				"bit begin": 9,
+				"bit end": 10,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 4,
+				"name": "ARC",
+				"type": "enum"
+			}, {
+				"bit begin": 10,
+				"bit end": 11,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 5,
+				"name": "AIC",
+				"type": "enum"
+			}, {
+				"bit begin": 11,
+				"bit end": 12,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 6,
+				"name": "B1A",
+				"type": "enum"
+			}, {
+				"bit begin": 12,
+				"bit end": 16,
+				"item id": 7,
+				"name": "B1B",
+				"type": "raw"
+			}],
+			"length": 8,
+			"subfield id": 10
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 2,
+				"enum vals": [
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 0,
+				"name": "AC",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 4,
+				"enum vals": [
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 1,
+				"name": "MN",
+				"type": "enum"
+			}, {
+				"bit begin": 4,
+				"bit end": 6,
+				"enum vals": [
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 2,
+				"name": "DC",
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 7,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 3,
+				"name": "GBS",
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 13,
+				"item id": 4,
+				"type": "spare"
+			}, {
+				"bit begin": 13,
+				"bit end": 16,
+				"enum vals": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				],
+				"item id": 5,
+				"name": "STAT",
+				"type": "enum"
+			}],
+			"length": 6,
+			"subfield id": 11
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 56,
+				"item id": 0,
+				"name": "ACAS Resolution Advisory Report",
+				"type": "raw"
+			}],
+			"length": 1,
+			"subfield id": 12
+		}, {
+			"items": [{
+				"LSB": 6.25,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Barometric Vertical Rate",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "feet/minute"
+			}],
+			"length": 1,
+			"subfield id": 13
+		}, {
+			"items": [{
+				"LSB": 6.25,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Geometric Vertical Rate",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "feet/minute"
+			}],
+			"length": 1,
+			"subfield id": 14
+		}, {
+			"length": 0,
+			"subfield id": 15
+		}, {
+			"items": [{
+				"LSB": 0.00999999977648258,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Roll Angle",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "deg"
+			}],
+			"length": 1,
+			"subfield id": 16
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 2,
+				"enum vals": [
+					"Not available",
+					"Left",
+					"Right",
+					"Straight"
+				],
+				"item id": 0,
+				"name": "Turn indicator",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 8,
+				"item id": 1,
+				"type": "spare"
+			}, {
+				"LSB": 0.25,
+				"bit begin": 8,
+				"bit end": 15,
+				"item id": 2,
+				"name": "Rate of Turn",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "deg/s"
+			}, {
+				"bit begin": 15,
+				"bit end": 16,
+				"item id": 3,
+				"type": "spare"
+			}],
+			"length": 4,
+			"subfield id": 17
+		}, {
+			"items": [{
+				"LSB": 0.0054931640625,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Track Angle",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "deg"
+			}],
+			"length": 1,
+			"subfield id": 18
+		}, {
+			"items": [{
+				"LSB": 6.103515625e-05,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Ground Speed",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "NM/s"
+			}],
+			"length": 1,
+			"subfield id": 19
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Velocity Uncertainty Category",
+				"type": "raw"
+			}],
+			"length": 1,
+			"subfield id": 20
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 1,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 0,
+				"name": "WD",
+				"type": "enum"
+			}, {
+				"bit begin": 1,
+				"bit end": 2,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 1,
+				"name": "TMP",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 3,
+				"enum vals": [
+					"",
+					""
+				],
+				"item id": 2,
+				"name": "TRB",
+				"type": "enum"
+			}, {
+				"bit begin": 3,
+				"bit end": 7,
+				"item id": 3,
+				"type": "spare"
+			}, {
+				"LSB": 1,
+				"bit begin": 7,
+				"bit end": 23,
+				"item id": 4,
+				"name": "Wind Speed",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "knot"
+			}, {
+				"LSB": 1,
+				"bit begin": 23,
+				"bit end": 39,
+				"item id": 5,
+				"name": "Wind Direction",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "deg"
+			}, {
+				"LSB": 0.25,
+				"bit begin": 39,
+				"bit end": 55,
+				"item id": 6,
+				"name": "Temperature ",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "deg"
+			}, {
+				"bit begin": 55,
+				"bit end": 63,
+				"item id": 7,
+				"name": "Turbulence",
+				"type": "unsigned int"
+			}],
+			"length": 8,
+			"subfield id": 21
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"enum vals": [
+					"Light aircraft <= 7000 kg",
+					"Reserved",
+					"7000 kg < medium aircraft < 136000 kg",
+					"Reserved",
+					"136000 kg <= heavy aircraft",
+					"Highly manoeuvrable (5g acceleration capability) and high speed (>400 knots cruise)",
+					"Reserved",
+					"Reserved",
+					"Reserved",
+					"Rotocraft",
+					"Glider / sailplane",
+					"Lighter-than-air",
+					"Unmanned aerial vehicle",
+					"Space / transatmospheric vehicle",
+					"Ultralight / handglider / paraglider",
+					"Parachutist / skydiver",
+					"Reserved",
+					"Reserved",
+					"Reserved",
+					"Surface emergency vehicle",
+					"Surface service vehicle",
+					"Fixed ground or tethered obstruction",
+					"Reserved",
+					"Reserved"
+				],
+				"item id": 0,
+				"name": "ECAT",
+				"type": "enum"
+			}],
+			"length": 1,
+			"subfield id": 22
+		}, {
+			"length": 0,
+			"subfield id": 23
+		}, {
+			"items": [{
+				"LSB": 2.14576721191406e-05,
+				"bit begin": 0,
+				"bit end": 24,
+				"item id": 0,
+				"name": "Lattitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "N"
+			}, {
+				"LSB": 2.14576721191406e-05,
+				"bit begin": 24,
+				"bit end": 48,
+				"item id": 1,
+				"name": "Longitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "E"
+			}],
+			"length": 2,
+			"subfield id": 24
+		}, {
+			"items": [{
+				"LSB": 6.25,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Altitude",
+				"offset": 0.0,
+				"type": "float",
+				"unit": "ft"
+			}],
+			"length": 1,
+			"subfield id": 25
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 4,
+				"item id": 0,
+				"type": "spare"
+			}, {
+				"bit begin": 4,
+				"bit end": 8,
+				"item id": 1,
+				"name": "PUN",
+				"type": "raw"
+			}],
+			"length": 2,
+			"subfield id": 26
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "REP",
+				"type": "rep"
+			}, {
+				"bit begin": 8,
+				"bit end": 64,
+				"item id": 1,
+				"name": "MB Data",
+				"type": "raw"
+			}, {
+				"bit begin": 64,
+				"bit end": 68,
+				"item id": 2,
+				"name": "B1A",
+				"type": "raw"
+			}, {
+				"bit begin": 68,
+				"bit end": 72,
+				"item id": 3,
+				"name": "B1B",
+				"type": "raw"
+			}],
+			"length": 4,
+			"subfield id": 27
+		}, {
+			"items": [{
+				"LSB": 1,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Indicated Air Speed",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "kt"
+			}],
+			"length": 1,
+			"subfield id": 28
+		}, {
+			"items": [{
+				"LSB": 0.00800000037997961,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Mach Nummber",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "-"
+			}],
+			"length": 1,
+			"subfield id": 29
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 4,
+				"item id": 0,
+				"type": "spare"
+			}, {
+				"LSB": 0.100000001490116,
+				"bit begin": 4,
+				"bit end": 16,
+				"item id": 1,
+				"name": "Barometric Pressure Setting",
+				"offset": 800,
+				"type": "unsigned float",
+				"unit": "mb"
+			}],
+			"length": 2,
+			"subfield id": 30
+		}, {
+			"length": 0,
+			"subfield id": 31
+		}, {
+			"length": 0,
+			"subfield id": 32
+		}, {
+			"length": 0,
+			"subfield id": 33
+		}, {
+			"length": 0,
+			"subfield id": 34
+		}, {
+			"length": 0,
+			"subfield id": 35
+		}, {
+			"length": 0,
+			"subfield id": 36
+		}, {
+			"length": 0,
+			"subfield id": 37
+		}, {
+			"length": 0,
+			"subfield id": 38
+		}, {
+			"length": 0,
+			"subfield id": 39
+		}]
+	}, {
+		"description": "",
+		"field id": 11,
+		"field index": "I062/040",
+		"field type": "fixed",
+		"info": "Track Number",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 18,
+				"item id": 0,
+				"name": "Track number",
+				"type": "unsigned int"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 12,
+		"field index": "I062/080",
+		"field type": "extended",
+		"info": "Track Status",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 1,
+				"enum vals": [
+					"Multisensor track",
+					"Monosensor track"
+				],
+				"item id": 0,
+				"name": "MON",
+				"type": "enum"
+			}, {
+				"bit begin": 1,
+				"bit end": 2,
+				"enum vals": [
+					"default value ",
+					"SPI present in the last report received from a sensor capable of decoding this data"
+				],
+				"item id": 1,
+				"name": "SPI",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 3,
+				"enum vals": [
+					"Barometric altitude (Mode C) more reliable ",
+					"Geometric altitude more reliable"
+				],
+				"item id": 2,
+				"name": "MRH Most Reliable Height",
+				"type": "enum"
+			}, {
+				"bit begin": 3,
+				"bit end": 6,
+				"enum vals": [
+					"no source ",
+					"GNSS ",
+					"3D radar ",
+					"triangulation ",
+					"height from coverage ",
+					"speed look-up table ",
+					"default height ",
+					"multilateration"
+				],
+				"item id": 3,
+				"name": "SRC Source of calculated track altitude for I062/130",
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 7,
+				"enum vals": [
+					"0 Confirmed track ",
+					"Tentative track"
+				],
+				"item id": 4,
+				"name": "CNF",
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 8,
+				"item id": 5,
+				"type": "fx"
+			}, {
+				"bit begin": 8,
+				"bit end": 9,
+				"enum vals": [
+					"Actual track ",
+					"Simulated track"
+				],
+				"item id": 6,
+				"name": "SIM",
+				"type": "enum"
+			}, {
+				"bit begin": 9,
+				"bit end": 10,
+				"enum vals": [
+					"default value ",
+					"last message transmitted to the user for the track"
+				],
+				"item id": 7,
+				"name": "TSE",
+				"type": "enum"
+			}, {
+				"bit begin": 10,
+				"bit end": 11,
+				"enum vals": [
+					"default value ",
+					"first message transmitted to the user for the track"
+				],
+				"item id": 8,
+				"name": "TSB",
+				"type": "enum"
+			}, {
+				"bit begin": 11,
+				"bit end": 12,
+				"enum vals": [
+					"Not flight-plan correlated ",
+					"Flight plan correlated"
+				],
+				"item id": 9,
+				"name": "FPC",
+				"type": "enum"
+			}, {
+				"bit begin": 12,
+				"bit end": 13,
+				"enum vals": [
+					"default value ",
+					"ADS-B data inconsistent with other surveillance information"
+				],
+				"item id": 10,
+				"name": "AFF",
+				"type": "enum"
+			}, {
+				"bit begin": 13,
+				"bit end": 14,
+				"enum vals": [
+					"default value ",
+					"Slave Track Promotion"
+				],
+				"item id": 11,
+				"name": "STP",
+				"type": "enum"
+			}, {
+				"bit begin": 14,
+				"bit end": 15,
+				"enum vals": [
+					"Complementary service used ",
+					"Background service used"
+				],
+				"item id": 12,
+				"name": "KOS",
+				"type": "enum"
+			}, {
+				"bit begin": 15,
+				"bit end": 16,
+				"item id": 13,
+				"type": "fx"
+			}, {
+				"bit begin": 16,
+				"bit end": 17,
+				"enum vals": [
+					"track not resulting from amalgamation process ",
+					"track resulting from amalgamation process"
+				],
+				"item id": 14,
+				"name": "AMA",
+				"type": "enum"
+			}, {
+				"bit begin": 17,
+				"bit end": 19,
+				"enum vals": [
+					"No Mode 4 interrogation ",
+					"Friendly target ",
+					"Unknown target ",
+					"No reply"
+				],
+				"item id": 15,
+				"name": "MD4",
+				"type": "enum"
+			}, {
+				"bit begin": 19,
+				"bit end": 20,
+				"enum vals": [
+					"default value ",
+					"Military Emergency present in the last report received from a sensor capable of decoding this data"
+				],
+				"item id": 16,
+				"name": "ME",
+				"type": "enum"
+			}, {
+				"bit begin": 20,
+				"bit end": 21,
+				"enum vals": [
+					"default value ",
+					"Military Identification present in the last report received from a sensor capable of decoding this data"
+				],
+				"item id": 17,
+				"name": "MI",
+				"type": "enum"
+			}, {
+				"bit begin": 21,
+				"bit end": 23,
+				"enum vals": [
+					"No Mode 5 interrogation ",
+					"Friendly target ",
+					"Unknown target ",
+					"No reply"
+				],
+				"item id": 18,
+				"name": "MD5",
+				"type": "enum"
+			}, {
+				"bit begin": 23,
+				"bit end": 24,
+				"item id": 19,
+				"type": "fx"
+			}, {
+				"bit begin": 24,
+				"bit end": 25,
+				"enum vals": [
+					"Default value ",
+					"Age of the last received track update is higher than system dependent threshold (coasting)"
+				],
+				"item id": 20,
+				"name": "CST",
+				"type": "enum"
+			}, {
+				"bit begin": 25,
+				"bit end": 26,
+				"enum vals": [
+					"Default value ",
+					"Age of the last received PSR track update is higher than system dependent threshold"
+				],
+				"item id": 21,
+				"name": "PSR",
+				"type": "enum"
+			}, {
+				"bit begin": 26,
+				"bit end": 27,
+				"enum vals": [
+					"Default value ",
+					"Age of the last received SSR track update is higher than system dependent threshold"
+				],
+				"item id": 22,
+				"name": "SSR",
+				"type": "enum"
+			}, {
+				"bit begin": 27,
+				"bit end": 28,
+				"enum vals": [
+					"Default value ",
+					"Age of the last received Mode S track update is higher than system dependent threshold"
+				],
+				"item id": 23,
+				"name": "MDS",
+				"type": "enum"
+			}, {
+				"bit begin": 28,
+				"bit end": 29,
+				"enum vals": [
+					"Default value ",
+					"Age of the last received ADS-B track update is higher than system dependent threshold"
+				],
+				"item id": 24,
+				"name": "ADS",
+				"type": "enum"
+			}, {
+				"bit begin": 29,
+				"bit end": 30,
+				"enum vals": [
+					"Default value ",
+					"Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)"
+				],
+				"item id": 25,
+				"name": "SUC",
+				"type": "enum"
+			}, {
+				"bit begin": 30,
+				"bit end": 31,
+				"enum vals": [
+					"Default value ",
+					"Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"
+				],
+				"item id": 26,
+				"name": "AAC",
+				"type": "enum"
+			}, {
+				"bit begin": 31,
+				"bit end": 32,
+				"item id": 27,
+				"type": "fx"
+			}, {
+				"bit begin": 32,
+				"bit end": 34,
+				"enum vals": [
+					"Combined ",
+					"Co-operative only ",
+					"Non-Cooperative only ",
+					"Not defined"
+				],
+				"item id": 28,
+				"name": "SDS Surveillance Data Status",
+				"type": "enum"
+			}, {
+				"bit begin": 34,
+				"bit end": 37,
+				"enum vals": [
+					"No emergency ",
+					"General emergency ",
+					"Lifeguard / medical ",
+					"Minimum fuel ",
+					"No communications ",
+					"Unlawful interference ",
+					"“Downed” Aircraft ",
+					"Undefined"
+				],
+				"item id": 29,
+				"name": "EMS Emergency Status Indication",
+				"type": "enum"
+			}, {
+				"bit begin": 37,
+				"bit end": 38,
+				"enum vals": [
+					"No indication ",
+					"Potential False Track Indication"
+				],
+				"item id": 30,
+				"name": "PFT",
+				"type": "enum"
+			}, {
+				"bit begin": 38,
+				"bit end": 39,
+				"enum vals": [
+					"Default value ",
+					"Track created / updated with FPL data"
+				],
+				"item id": 31,
+				"name": "FPLT",
+				"type": "enum"
+			}, {
+				"bit begin": 39,
+				"bit end": 40,
+				"item id": 32,
+				"type": "fx"
+			}, {
+				"bit begin": 40,
+				"bit end": 41,
+				"enum vals": [
+					"Default value ",
+					"Duplicate Mode 3/A Code"
+				],
+				"item id": 33,
+				"name": "DUPT",
+				"type": "enum"
+			}, {
+				"bit begin": 41,
+				"bit end": 42,
+				"enum vals": [
+					"Default value ",
+					"Duplicate Flight Plan"
+				],
+				"item id": 34,
+				"name": "DUPF",
+				"type": "enum"
+			}, {
+				"bit begin": 42,
+				"bit end": 43,
+				"enum vals": [
+					"Default value ",
+					"Duplicate Flight Plan due to manual correlation"
+				],
+				"item id": 35,
+				"name": "DUPM",
+				"type": "enum"
+			}, {
+				"bit begin": 43,
+				"bit end": 47,
+				"item id": 36,
+				"type": "spare"
+			}, {
+				"bit begin": 47,
+				"bit end": 48,
+				"item id": 37,
+				"type": "fx"
+			}],
+			"length": 38,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 13,
+		"field index": "I062/290",
+		"field type": "composite",
+		"info": "System Track Update Ages",
+		"length": 16,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Track age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "PSR age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 1
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "SSR age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 2
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode S age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 3
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "ADS-C age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 4
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "ADS-B Extended Squitter age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 5
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "ADS-B VDL Mode 4 age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 6
+		}, {
+			"length": 0,
+			"subfield id": 7
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "ADS-B UAT age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 8
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Loop age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 9
+		}, {
+			"items": [{
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Multilateration age",
+				"type": "time"
+			}],
+			"length": 1,
+			"subfield id": 10
+		}, {
+			"length": 0,
+			"subfield id": 11
+		}, {
+			"length": 0,
+			"subfield id": 12
+		}, {
+			"length": 0,
+			"subfield id": 13
+		}, {
+			"length": 0,
+			"subfield id": 14
+		}, {
+			"length": 0,
+			"subfield id": 15
+		}]
+	}, {
+		"description": "",
+		"field id": 14,
+		"field index": "I062/200",
+		"field type": "fixed",
+		"info": "Mode of Movement",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 2,
+				"enum vals": [
+					" Constant Course ",
+					"Right Turn",
+					"Left Turn",
+					"Undetermined"
+				],
+				"item id": 0,
+				"name": "Transversal Acceleration",
+				"type": "enum"
+			}, {
+				"bit begin": 2,
+				"bit end": 4,
+				"enum vals": [
+					" Constant Groundspeed ",
+					"Increasing Groundspeed",
+					"Decreasing Groundspeed",
+					"Undetermined"
+				],
+				"item id": 1,
+				"name": "bits 6/5 (LONG) Longitudinal Acceleration",
+				"type": "enum"
+			}, {
+				"bit begin": 4,
+				"bit end": 6,
+				"enum vals": [
+					" Level ",
+					"Climb",
+					"Descent",
+					"Undetermined"
+				],
+				"item id": 2,
+				"name": "bits 4/3 (VERT) Vertical Rate",
+				"type": "enum"
+			}, {
+				"bit begin": 6,
+				"bit end": 7,
+				"enum vals": [
+					"No altitude discrepancy",
+					"Altitude discrepancy"
+				],
+				"item id": 3,
+				"name": "Altitude Discrepancy Flag",
+				"type": "enum"
+			}, {
+				"bit begin": 7,
+				"bit end": 8,
+				"item id": 4,
+				"type": "spare"
+			}],
+			"length": 5,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 15,
+		"field index": "I062/295",
+		"field type": "composite",
+		"info": "Track Data Ages",
+		"length": 40,
+		"subfields": [{
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Measured Flight Level age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode 1 age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 1
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode 2 age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 2
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode 3/A age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 3
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode 4 age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 4
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode 5 age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 5
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Magnetic Heading age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 6
+		}, {
+			"length": 0,
+			"subfield id": 7
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Indicated Airspeed/Mach Nb age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 8
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "True Airspeed age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 9
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Selected Altitude age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 10
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Final State Selected Altitude age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 11
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Trajectory Intent Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 12
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Communications / ACAS Capability and Flight Status age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 13
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Status Reported by ADS-B age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 14
+		}, {
+			"length": 0,
+			"subfield id": 15
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "ACAS Resolution Advisory Report age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 16
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Barometric Vertical Rate age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 17
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Geometric Vertical Rate age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 18
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Roll Angle age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 19
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Track Angle Rate age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 20
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Track Angle age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 21
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Ground Speed age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 22
+		}, {
+			"length": 0,
+			"subfield id": 23
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Velocity Uncertainty age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 24
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Meteorological Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 25
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Emitter Category age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 26
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Position Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 27
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Geometric Altitude Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 28
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Position Uncertainty Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 29
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mode S MB Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 30
+		}, {
+			"length": 0,
+			"subfield id": 31
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Indicated Airspeed Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 32
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Mach Number Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 33
+		}, {
+			"items": [{
+				"LSB": 2,
+				"bit begin": 0,
+				"bit end": 8,
+				"item id": 0,
+				"name": "Barometric Pressure Setting Data age",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "s"
+			}],
+			"length": 1,
+			"subfield id": 34
+		}, {
+			"length": 0,
+			"subfield id": 35
+		}, {
+			"length": 0,
+			"subfield id": 36
+		}, {
+			"length": 0,
+			"subfield id": 37
+		}, {
+			"length": 0,
+			"subfield id": 38
+		}, {
+			"length": 0,
+			"subfield id": 39
+		}]
+	}, {
+		"description": "",
+		"field id": 16,
+		"field index": "I062/136",
+		"field type": "fixed",
+		"info": "Measured Flight Level",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"LSB": 0.25,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Measured Flight Level",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "FL"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 17,
+		"field index": "I062/130",
+		"field type": "fixed",
+		"info": "Calculated Track Geometric Altitude",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 18,
+		"field index": "I062/135",
+		"field type": "fixed",
+		"info": "Calculated Track Barometric Altitude",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 19,
+		"field index": "I062/220",
+		"field type": "fixed",
+		"info": "Calculated Rate Of Climb/Descent",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"LSB": 6.25,
+				"bit begin": 0,
+				"bit end": 16,
+				"item id": 0,
+				"name": "Calculated Rate of Climb/Descent",
+				"offset": 0.0,
+				"type": "unsigned float",
+				"unit": "ft/min"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 20,
+		"field index": "I062/390",
+		"field type": "extended",
+		"info": "Flight Plan Related Data 1+",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 21,
+		"field index": "I062/270",
+		"field type": "extended",
+		"info": "Target Size & Orientation 1+",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 22,
+		"field index": "I062/300",
+		"field type": "fixed",
+		"info": "Vehicle Fleet Identification",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 23,
+		"field index": "I062/110",
+		"field type": "extended",
+		"info": "Mode 5 Data reports & Extended Mode 1 Code",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 24,
+		"field index": "I062/120",
+		"field type": "fixed",
+		"info": "Track Mode 2 Code",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 25,
+		"field index": "I062/510",
+		"field type": "extended",
+		"info": "Composed Track Number",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 26,
+		"field index": "I062/500",
+		"field type": "extended",
+		"info": "Estimated Accuracies",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 27,
+		"field index": "I062/340",
+		"field type": "extended",
+		"info": "Measured Information",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 33,
+		"field index": "REF",
+		"field type": "fixed",
+		"info": "Reserved Expansion Field",
+		"length": 1,
+		"subfields": [{
+			"items": [{
+				"bit begin": 0,
+				"bit end": 96,
+				"item id": 0,
+				"name": "REF",
+				"type": "raw"
+			}],
+			"length": 1,
+			"subfield id": 0
+		}]
+	}, {
+		"description": "",
+		"field id": 34,
+		"field index": "SP",
+		"field type": "fixed",
+		"info": "Reserved For Special Purpose Indicator",
+		"length": 1,
+		"subfields": [{
+			"length": 0,
+			"subfield id": 0
+		}]
+	}],
+	"length": 35,
+	"name": "IO62"
 }
