@@ -876,14 +876,14 @@
                     {
                         "bit begin": 64,
                         "bit end": 32,
-                        "lsb": 90.0,
+                        "lsb": 5.364418e-06,
                         "max": 90,
                         "min": -90,
                         "name1": "Latitude",
                         "name2": "(Latitude) In WGS.84",
                         "signed": true,
                         "type": "float",
-                        "unit": "25 degrees"
+                        "unit": "degrees"
                     },
                     {
                         "bit begin": 32,
@@ -1823,7 +1823,7 @@
             {
                 "data": [
                     {
-                        "bit begin": 8,
+                        "bit begin": 16,
                         "bit end": 0,
                         "lsb": 0.25,
                         "max": 16383.75,
@@ -2918,6 +2918,7 @@
                         "bit begin": 48,
                         "bit end": 0,
                         "char size": 6,
+                        "string length" : 8,
                         "name1": "Characters 1-8 (coded on 6 bits each) defining a target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in 3 Section 3.1.2.9.1.2 and Table 3-9",
                         "type": "string"
                     }
@@ -3817,8 +3818,11 @@
             {
                 "data": [
                     {
+                        "name1": "",
+                        "name2": "",
                         "bit begin": 0,
-                        "bit end": 8
+                        "bit end": 8,
+                        "type": "int"
                     }
                 ],
                 "id": 19,
@@ -4247,7 +4251,7 @@
                     {
                         "bit begin": 56,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 7,
                         "type": "string"
                     }
@@ -4407,7 +4411,7 @@
                     {
                         "bit begin": 32,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 4,
                         "type": "string"
                     }
@@ -4434,7 +4438,7 @@
                     {
                         "bit begin": 32,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 4,
                         "type": "string"
                     }
@@ -4448,7 +4452,7 @@
                     {
                         "bit begin": 32,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 4,
                         "type": "string"
                     }
@@ -4684,7 +4688,7 @@
                     {
                         "bit begin": 48,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 6,
                         "type": "string"
                     }
@@ -4754,7 +4758,7 @@
                     {
                         "bit begin": 56,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 7,
                         "type": "string"
                     }
@@ -4768,7 +4772,7 @@
                     {
                         "bit begin": 56,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 7,
                         "type": "string"
                     }
@@ -4819,7 +4823,7 @@
                     {
                         "bit begin": 56,
                         "bit end": 0,
-                        "char length": 8,
+                        "char size": 8,
                         "string length": 7,
                         "type": "string"
                     }
@@ -5095,8 +5099,15 @@
                     },
                     {
                         "bit begin": 40,
+                        "bit end": 32,
+                        "name1": "SAC",
+                        "name2": "(SAC/SIC) SAC and",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 32,
                         "bit end": 24,
-                        "name1": "SAC/SIC",
+                        "name1": "SIC",
                         "name2": "(SAC/SIC) SAC and",
                         "type": "int"
                     },
@@ -5137,8 +5148,15 @@
                     },
                     {
                         "bit begin": 24,
+                        "bit end": 16,
+                        "name1": "SAC",
+                        "name2": "(SAC/SIC) SAC and",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
                         "bit end": 8,
-                        "name1": "SAC/SIC",
+                        "name1": "SIC",
                         "name2": "(SAC/SIC) SAC and",
                         "type": "int"
                     },
@@ -5169,7 +5187,7 @@
                         "lsb": 0.25,
                         "name1": "Vx",
                         "name2": "Vx",
-                        "signed": false,
+                        "signed": true,
                         "type": "float",
                         "unit": "m/s"
                     },
@@ -5179,7 +5197,7 @@
                         "lsb": 0.25,
                         "name1": "Vy",
                         "name2": "Vy",
-                        "signed": false,
+                        "signed": true,
                         "type": "float",
                         "unit": "m/s"
                     }
