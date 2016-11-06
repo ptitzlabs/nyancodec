@@ -22,7 +22,14 @@ int main() {
 //    cat_load("cat/CAT062.json");
     // read the message
     msg m(ifs);
-    m.to_text_stream(cout);
+
+  	std::ofstream ofs;
+  	ofs.open ("test.txt", std::ofstream::out | std::ofstream::app);
+
+  	m.to_text_stream_diff(ofs);
+  	ofs.close();
+
+  	m.to_text_stream_diff(cout);
     // print the message in the console
 //    m.print();
 
