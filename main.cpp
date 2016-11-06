@@ -17,19 +17,18 @@ int main() {
 
     // load sample from binary file
     //ifstream ifs("sample_message.bin",std::ifstream::binary);
-    ifstream ifs("4.hex.bin",std::ifstream::binary);
+    ifstream ifs("Hackathon_202162.ast",std::ifstream::binary);
+    ofstream ofs("results_complete.txt",std::ofstream::out | std::ofstream::app);
     // load the cat file
 //    cat_load("cat/CAT062.json");
     // read the message
-    msg m(ifs);
+    uint counter = 0;
+    while(counter < 10){
+        msg m(ifs);
+        m.to_text_stream(cout);
+        counter++;
 
-  	std::ofstream ofs;
-  	ofs.open ("test.txt", std::ofstream::out | std::ofstream::app);
-
-  	m.to_text_stream_diff(ofs);
-  	ofs.close();
-
-  	m.to_text_stream_diff(cout);
+    }
     // print the message in the console
 //    m.print();
 
