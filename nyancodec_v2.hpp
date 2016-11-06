@@ -1030,7 +1030,7 @@ public:
 // class msg : public vector<block> {
 class msg : public vector<block> {
 public:
-  msg(auto &stream)
+  msg(auto &stream, int catselect = -1)
       : cat_id(int(stream.get())), msg_len((stream.get() << 8) + stream.get()),
         cspec(cat_at(cat_id)) {
     parse(stream);
