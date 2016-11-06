@@ -89,7 +89,7 @@ const map<string, itype> itype_map = {
     {"fixed", itype::fix},      // fixed length item
     {"extendible", itype::ext}, // extended length item
     {"variable", itype::var},   // variable length item
-    {"repetitive", itype::rep},  // repetitive item
+    {"repetitive", itype::rep}, // repetitive item
     {"compound", itype::com},   // composite item
     {"aux", itype::aux},        // auxillary item
     {"ref", itype::ref},        // reserved expansion field
@@ -125,6 +125,7 @@ public:
       bit_end = subfield_bit_len - static_cast<const int &>(j["bit end"]);
     }
     bit_len = bit_end - bit_begin;
+    byte_len = bit_len >> 8;
     if (bit_len <= 0) {
       cout << WARNING << static_cast<const string &>(item_name) << " subfield "
            << int(subfield_id) + 1 << " datafield " << int(datafield_id) + 1
@@ -206,6 +207,7 @@ public:
   uint16_t bit_len;
   uint8_t byte_loc;
   uint8_t bit_loc;
+  uint8_t byte_len;
   dtype data_type;
 
   // type-specific fields
@@ -228,9 +230,13 @@ public:
              << " subfield " << int(subfield_id) + 1
              << ": Cannot deduce subfield size" << endl;
       } else {
-          if(j["data"][0]["type"] != "rep"){
-            bit_len = j["data"][0]["bit begin"];
-          }
+        if (j["data"][0]["type"] != "rep") {
+          bit_len = j["data"][0]["bit begin"];
+        } else {
+          // the item is probably repetitive
+            cout<<j["data"].dump(1);
+          bit_len = j["data"][1]["bit begin"];
+        }
         byte_len = bit_len >> 3;
       }
       reserve(j["data"].size());
@@ -259,6 +265,8 @@ class item_spec : public vector<subfield_spec> {
   // class item_spec {
 public:
   item_spec(json &j, json &name) : item(j), name(name) {
+        cout << STATUS << static_cast<const string &>(name)
+             << ": loading item" << endl;
     if (item.find("format") == item.end()) {
       cout << WARNING << static_cast<const string &>(name)
            << ": Item format not specified" << endl;
@@ -361,7 +369,7 @@ extern vector<uint8_t> active_fields;
   map<uint8_t, cat_spec> cats;                                                 \
   map<uint8_t, json> cats_json;                                                \
   map<uint8_t, json> uap_json;                                                 \
-  vector<uint8_t> active_fields;                                      \
+  vector<uint8_t> active_fields;                                               \
   }
 
 void field_activate(uint8_t cat_id) { active_fields.push_back(cat_id); }
@@ -392,6 +400,8 @@ const cat_spec &cat_at(size_t id, size_t uap_id = 0) {
         ifs.close();         // close the stream
       }
     }
+    cout<<cats_json[id].dump(1)<<endl;
+    cout<<uap_json[id].dump(1)<<endl;
     cats.emplace(id, pair<json &, json &>(cats_json[id], uap_json[id]));
   }
   map<uint8_t, json>::iterator it = cats_json.find(id);
@@ -628,7 +638,7 @@ public:
       break;
     case dtype::rep:
       oct_to_long(it_begin, dspec.byte_loc, dspec.bit_loc, dspec.bit_len, i);
-        break;
+      break;
     default:
       it_begin += dspec.byte_loc;
       it_end = it_begin + (dspec.bit_len >> 3);
@@ -704,8 +714,20 @@ public:
     subfield_end = it_begin;
   }
   void decode() {
-    for (const datafield_spec &ds : sspec) {
-      emplace(end(), ds, subfield_begin);
+    switch (sspec.at(0).data_type) {
+    case dtype::rep:{
+      auto ds_it = sspec.begin();
+      ds_it++;
+      for (auto ds_it = sspec.begin() + 1; ds_it != sspec.end(); ds_it++) {
+        emplace(end(), *ds_it, subfield_begin);
+      }
+      break;
+    }
+    default:
+      for (const datafield_spec &ds : sspec) {
+        emplace(end(), ds, subfield_begin);
+      }
+      break;
     }
   }
 
@@ -755,8 +777,12 @@ public:
       }
       break;
     case itype::rep:
-        oct_to_long(it_begin,ispec[0][0].byte_loc,ispec[0][0].bit_loc,ispec[0][0].bit_len,rep);
-        break;
+      oct_to_long(it_begin, 0, 0, ispec.at(0).at(0).bit_len, rep);
+      it_begin += ispec.at(0).at(0).byte_len;
+      for (auto i = 0; i < rep; i++) {
+        emplace(end(), ispec.at(0), it_begin, it_end);
+      }
+      break;
     default:
       cout << WARNING << "Undefined handling item type " << ispec.item["format"]
            << endl;

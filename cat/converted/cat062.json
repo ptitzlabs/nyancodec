@@ -4112,7 +4112,7 @@
                         "bit begin": 0,
                         "bit end": 72,
                         "type": "spare"
-                    },
+                    }
                 ],
                 "id": 25,
                 "subfield info": " Format : Repetitive starting with an one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code. "
@@ -5065,155 +5065,155 @@
             }
         ]
     },
-    "RE" : {
-        "item name" : "REF",
-        "length" : "1",
-        "format" : "ref",
-    "subfields": [
-        {
-            "data": [
-                {
-                    "bit begin": 8,
-                    "bit end": 0,
-                    "name1": "LEN",
-                    "name2": "(LEN) Length of",
-                    "type": "int"
-                }
-            ],
-            "id": 1,
-            "mandatory": true,
-            "subfield info": "LEN "
-        },
-                {
-            "data": [
-                {
-                    "bit begin": 48,
-                    "bit end": 40,
-                    "name1": "REP",
-                    "name2": "(REP) Repetition factor",
-                    "type": "rep"
-                },
-                {
-                    "bit begin": 40,
-                    "bit end": 24,
-                    "name1": "SAC/SIC",
-                    "name2": "(SAC/SIC) SAC and",
-                    "type": "int"
-                },
-                {
-                    "bit begin": 24,
-                    "bit end": 20,
-                    "name1": "",
-                    "name2": "",
-                    "type": "spare"
-                },
-                {
-                    "bit begin": 20,
-                    "bit end": 16,
-                    "name1": " (TYP) =0000: No ",
-                    "name2": " (TYP) =0000: No ",
-                    "type": "int"
-                },
-                {
-                    "bit begin": 16,
-                    "bit end": 0,
-                    "name1": "local Track Number",
-                    "name2": "local Track Number",
-                    "type": "int"
-                }
-            ],
-            "id": 1,
-            "mandatory": false,
-            "subfield info": "ABC"
-        },
-        {
-            "data": [
-                {
-                    "bit begin": 32,
-                    "bit end": 24,
-                    "name1": "REP",
-                    "name2": "(REP) Repetition factor",
-                    "type": "rep"
-                },
-                {
-                    "bit begin": 24,
-                    "bit end": 8,
-                    "name1": "SAC/SIC",
-                    "name2": "(SAC/SIC) SAC and",
-                    "type": "int"
-                },
-                {
-                    "bit begin": 8,
-                    "bit end": 4,
-                    "name1": "",
-                    "name2": "",
-                    "type": "spare"
-                },
-                {
-                    "bit begin": 4,
-                    "bit end": 0,
-                    "name1": " (TYP) =0000: No ",
-                    "name2": " (TYP) =0000: No ",
-                    "type": "int"
-                }
-            ],
-            "id": 1,
-            "mandatory": false,
-            "subfield info": "ABC"
-        },
-        {
-            "data": [
-                {
-                    "bit begin": 32,
-                    "bit end": 16,
-                    "lsb": 0.25,
-                    "name1": "Vx",
-                    "name2": "Vx",
-                    "signed": false,
-                    "type": "float",
-                    "unit": "m/s"
-                },
-                {
-                    "bit begin": 16,
-                    "bit end": 0,
-                    "lsb": 0.25,
-                    "name1": "Vy",
-                    "name2": "Vy",
-                    "signed": false,
-                    "type": "float",
-                    "unit": "m/s"
-                }
-            ],
-            "id": 1,
-            "mandatory": "false",
-            "note": "The y-axis points to the Geographical North at the system reference point as available in the Reserved Expansion Field of category 065.",
-            "subfield info": "Vx LSB Vy LSB "
-        },
-        {
-            "data": [
-                {
-                    "bit begin": 8,
-                    "bit end": 7,
-                    "name1": "FDR",
-                    "name2": "Flight Data Retained",
-                    "options": [
-                        [
-                            "0",
-                            "Flight plan data from active FDPS"
+    "RE": {
+        "format": "ref",
+        "item name": "REF",
+        "length": "1",
+        "subfields": [
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 0,
+                        "name1": "LEN",
+                        "name2": "(LEN) Length of",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": true,
+                "subfield info": "LEN "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 48,
+                        "bit end": 40,
+                        "name1": "REP",
+                        "name2": "(REP) Repetition factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 40,
+                        "bit end": 24,
+                        "name1": "SAC/SIC",
+                        "name2": "(SAC/SIC) SAC and",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 20,
+                        "name1": "",
+                        "name2": "",
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 20,
+                        "bit end": 16,
+                        "name1": " (TYP) =0000: No ",
+                        "name2": " (TYP) =0000: No ",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "name1": "local Track Number",
+                        "name2": "local Track Number",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": false,
+                "subfield info": "ABC"
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 24,
+                        "name1": "REP",
+                        "name2": "(REP) Repetition factor",
+                        "type": "rep"
+                    },
+                    {
+                        "bit begin": 24,
+                        "bit end": 8,
+                        "name1": "SAC/SIC",
+                        "name2": "(SAC/SIC) SAC and",
+                        "type": "int"
+                    },
+                    {
+                        "bit begin": 8,
+                        "bit end": 4,
+                        "name1": "",
+                        "name2": "",
+                        "type": "spare"
+                    },
+                    {
+                        "bit begin": 4,
+                        "bit end": 0,
+                        "name1": " (TYP) =0000: No ",
+                        "name2": " (TYP) =0000: No ",
+                        "type": "int"
+                    }
+                ],
+                "id": 1,
+                "mandatory": false,
+                "subfield info": "ABC"
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 32,
+                        "bit end": 16,
+                        "lsb": 0.25,
+                        "name1": "Vx",
+                        "name2": "Vx",
+                        "signed": false,
+                        "type": "float",
+                        "unit": "m/s"
+                    },
+                    {
+                        "bit begin": 16,
+                        "bit end": 0,
+                        "lsb": 0.25,
+                        "name1": "Vy",
+                        "name2": "Vy",
+                        "signed": false,
+                        "type": "float",
+                        "unit": "m/s"
+                    }
+                ],
+                "id": 1,
+                "mandatory": "false",
+                "note": "The y-axis points to the Geographical North at the system reference point as available in the Reserved Expansion Field of category 065.",
+                "subfield info": "Vx LSB Vy LSB "
+            },
+            {
+                "data": [
+                    {
+                        "bit begin": 8,
+                        "bit end": 7,
+                        "name1": "FDR",
+                        "name2": "Flight Data Retained",
+                        "options": [
+                            [
+                                "0",
+                                "Flight plan data from active FDPS"
+                            ],
+                            [
+                                "1",
+                                "Flight plan data retained from no longer active FDPS"
+                            ]
                         ],
-                        [
-                            "1",
-                            "Flight plan data retained from no longer active FDPS"
-                        ]
-                    ],
-                    "type": "enum"
-                }
-            ],
-            "id": 1,
-            "mandatory": false,
-            "subfield info": "FDR 0 0 0 0 0 0 FX "
-        }
-    ]
-    }
+                        "type": "enum"
+                    }
+                ],
+                "id": 1,
+                "mandatory": false,
+                "subfield info": "FDR 0 0 0 0 0 0 FX "
+            }
+        ]
+    },
     "cat": "I062"
 }

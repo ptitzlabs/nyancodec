@@ -16,7 +16,8 @@ int main() {
 //    cout<<util::nyan_s;
 
     // load sample from binary file
-    ifstream ifs("sample_message.bin",std::ifstream::binary);
+    //ifstream ifs("sample_message.bin",std::ifstream::binary);
+    ifstream ifs("4.hex.bin",std::ifstream::binary);
     // load the cat file
 //    cat_load("cat/CAT062.json");
     // read the message
